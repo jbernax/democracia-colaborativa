@@ -1,4 +1,4 @@
-# Agora Normativa: Marco de Democracia Colaborativa (Piloto Espana)
+# Agora Normativa: Marco de Democracia Colaborativa
 
 Plataforma abierta para la **lectura monografica, revision y mejora colaborativa de planes y politicas publicas**, disenada para elevar la calidad tecnica y social de las decisiones administrativas, facilitar propuestas de cambio articuladas y recoger la voz ciudadana.
 
