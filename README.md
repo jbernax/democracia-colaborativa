@@ -32,19 +32,3 @@ Plataforma abierta para la **lectura monografica, revision y mejora colaborativa
 - [public/index.html](file:///home/antigravity/Projects/Democracia_Colaborativa/public/index.html), [public/styles.css](file:///home/antigravity/Projects/Democracia_Colaborativa/public/styles.css), [public/app.js](file:///home/antigravity/Projects/Democracia_Colaborativa/public/app.js): Interfaz web sobria y editorial.
 - [tests/engine.test.js](file:///home/antigravity/Projects/Democracia_Colaborativa/tests/engine.test.js): Pruebas automatizadas.
 
----
-
-## Requisitos y Ejecucion
-
-Requiere Node.js >= 20.
-
-### Ejecutar las pruebas automatizadas
-```bash
-npm test
-```
-
-### Iniciar el servidor web
-```bash
-npm start
-```
-Por defecto queda disponible en `http://localhost:3000`.
