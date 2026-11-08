@@ -1,6 +1,6 @@
 /**
- * Motor de Simulacion Parametrica para la Memoria del Analisis de Impacto Normativo (MAIN - RD 931/2017)
- * Calibrado con parametros demograficos, laborales y fiscales de Espana (INE, Seguridad Social, AIReF, DIRCE).
+ * Motor de Simulación Paramétrica para la Memoria del Análisis de Impacto Normativo (MAIN - RD 931/2017)
+ * Calibrado con parámetros demográficos, laborales y fiscales de España (INE, Seguridad Social, AIReF, DIRCE).
  */
 
 export const SPAIN_BASELINE_CONSTANTS = Object.freeze({
@@ -278,7 +278,7 @@ export function simulateLegalAndOperationalImpact(params) {
 
   if (params.selfEmployedFlatGrantEur > 0) {
     affectedStatutes.push(
-      'Art. 38 bis Ley 20/2007 (Estatuto del Trabajo Autonomo - Bono de Relevo y Conciliacion)'
+      'Art. 38 bis Ley 20/2007 (Estatuto del Trabajo Autónomo - Bono de Relevo y Conciliación)'
     );
   }
   if (params.teleworkSharePercent > 0) {
@@ -297,11 +297,11 @@ export function simulateLegalAndOperationalImpact(params) {
 
   return {
     affectedStatutes,
-    euDirectiveAlignment: 'Directiva (UE) 2019/1158 relativa a la conciliacion de la vida familiar y profesional',
+    euDirectiveAlignment: 'Directiva (UE) 2019/1158 relativa a la conciliación de la vida familiar y profesional',
     constitutionalSafeguard:
       params.monoparentalMultiplier >= 1.6
-        ? 'Cumple doctrina TC sobre no discriminacion de menores en familias monoparentales (STC 140/2024)'
-        : 'Riesgo de recurso de inconstitucionalidad por desproteccion de familias monoparentales',
+        ? 'Cumple doctrina TC sobre no discriminación de menores en familias monoparentales (STC 140/2024)'
+        : 'Riesgo de recurso de inconstitucionalidad por desprotección de familias monoparentales',
     implementationMonthsInss
   };
 }

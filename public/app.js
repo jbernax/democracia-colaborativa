@@ -1,7 +1,7 @@
 /**
- * Cliente interactivo para Democracia Colaborativa (Agora Normativa).
- * Gestiona el catalogo multiproyecto, creacion de planes, lectura monografica amplia,
- * editor en linea por seccion y panel lateral deslizante bajo demanda.
+ * Cliente interactivo para Democracia Colaborativa (Ágora Normativa).
+ * Gestiona el catálogo multiproyecto, creación de planes, lectura monográfica amplia,
+ * editor en línea por sección y panel lateral deslizante bajo demanda.
  */
 
 const state = {
@@ -151,7 +151,7 @@ function renderProjectsGrid() {
           </div>
           <div class="card-footer">
             <span>${p.proposalsCount} propuestas · ${p.opinionsCount} opiniones</span>
-            <a href="#plan/${escapeHtml(p.id)}" class="card-link">Leer monografia y colaborar &rarr;</a>
+            <a href="#plan/${escapeHtml(p.id)}" class="card-link">Leer monografía y colaborar &rarr;</a>
           </div>
         </article>
       `;
@@ -164,7 +164,7 @@ function renderSeedsGrid() {
   if (!container) return;
 
   if (state.seeds.length === 0) {
-    container.innerHTML = `<p class="section-subtitle">No hay ideas registradas todavia.</p>`;
+    container.innerHTML = `<p class="section-subtitle">No hay ideas registradas todavía.</p>`;
     return;
   }
 
@@ -320,7 +320,7 @@ function renderMonographSections(p) {
               class="btn btn-subtle btn-sm btn-propose-inline"
               data-section-id="${escapeHtml(sec.id)}"
             >
-              Editar redaccion
+              Editar redacción
             </button>
           </div>
           ${accumulatedBarHtml}
@@ -392,7 +392,7 @@ function toggleSectionEditor(sectionId) {
             Maximizar espacio
           </button>
           <span class="editor-toolbar-meta" id="editor-meta-${escapeHtml(sectionId)}">
-            ${lineCount} lineas &middot; Vista amplia
+            ${lineCount} líneas &middot; Vista amplia
           </span>
         </div>
       </div>
@@ -412,26 +412,26 @@ function toggleSectionEditor(sectionId) {
 
       <!-- PANEL INFERIOR PARA PROPONER CAMBIOS -->
       <div class="editor-proposal-panel">
-        <h4>Proponer cambios para esta seccion</h4>
+        <h4>Proponer cambios para esta sección</h4>
         <div class="field-row">
-          <label for="commit-title-${escapeHtml(sectionId)}">Titulo de la propuesta</label>
+          <label for="commit-title-${escapeHtml(sectionId)}">Título de la propuesta</label>
           <input
             type="text"
             id="commit-title-${escapeHtml(sectionId)}"
-            value="Actualizacion y mejora en ${escapeHtml(sec.title)}"
+            value="Actualización y mejora en ${escapeHtml(sec.title)}"
             required
           />
         </div>
         <div class="field-row">
-          <label for="commit-desc-${escapeHtml(sectionId)}">Motivacion o justificacion tecnica (opcional)</label>
+          <label for="commit-desc-${escapeHtml(sectionId)}">Motivación o justificación técnica (opcional)</label>
           <textarea
             id="commit-desc-${escapeHtml(sectionId)}"
             rows="2"
-            placeholder="Aporte motivos tecnicos, evidencias o casos limite que fundamenten este cambio..."
+            placeholder="Aporte motivos técnicos, evidencias o casos límite que fundamenten este cambio..."
           ></textarea>
         </div>
         <div class="field-row">
-          <label for="commit-author-${escapeHtml(sectionId)}">Su nombre o asociacion (opcional)</label>
+          <label for="commit-author-${escapeHtml(sectionId)}">Su nombre o asociación (opcional)</label>
           <input
             type="text"
             id="commit-author-${escapeHtml(sectionId)}"
@@ -488,7 +488,7 @@ function toggleSectionEditor(sectionId) {
     }
     gutter.textContent = nums;
     if (meta) {
-      meta.textContent = `${lines} lineas \u00b7 Vista amplia`;
+      meta.textContent = `${lines} líneas \u00b7 Vista amplia`;
     }
     autoExpandTextarea();
   });
@@ -500,7 +500,7 @@ function toggleSectionEditor(sectionId) {
   // Boton maximizar espacio a pantalla completa
   btnMax?.addEventListener('click', () => {
     const isMax = frame.classList.toggle('maximized');
-    btnMax.textContent = isMax ? 'Restaurar tamano' : 'Maximizar espacio';
+    btnMax.textContent = isMax ? 'Restaurar tamaño' : 'Maximizar espacio';
     if (isMax) {
       textarea.focus();
     }
@@ -527,7 +527,7 @@ function toggleSectionEditor(sectionId) {
     if (diff.length === 0 || !diff.some((d) => d.type !== 'unchanged')) {
       previewView.innerHTML = `
         <div style="padding: 2.5rem; text-align: center; color: #57606a;">
-          No hay cambios respecto al texto original de la seccion.
+          No hay cambios respecto al texto original de la sección.
         </div>
       `;
       return;
@@ -589,7 +589,7 @@ function toggleSectionEditor(sectionId) {
       renderMonographSections(state.activeProject);
       renderDrawerProposalsList(state.activeProject);
       updateDrawerCounts(state.activeProject);
-      showNotification('Propuesta de cambio guardada. El diff se ha acumulado en la seccion.');
+      showNotification('Propuesta de cambio guardada. El diff se ha acumulado en la sección.');
     } catch (err) {
       showNotification(err.message, true);
     }
@@ -626,7 +626,7 @@ function renderDrawerProposalsList(p) {
 
   const proposals = p.proposals || [];
   if (proposals.length === 0) {
-    container.innerHTML = `<p class="editor-help">No hay propuestas de cambio registradas todavia para este plan. Utilice el boton de cada seccion para proponer una mejora.</p>`;
+    container.innerHTML = `<p class="editor-help">No hay propuestas de cambio registradas todavía para este plan. Utilice el botón de cada sección para proponer una mejora.</p>`;
     return;
   }
 
@@ -655,7 +655,7 @@ function renderDrawerProposalsList(p) {
           </div>
           ${
             prop.reason
-              ? `<div class="card-item-reason"><strong>Motivacion:</strong> ${escapeHtml(
+              ? `<div class="card-item-reason"><strong>Motivación:</strong> ${escapeHtml(
                   prop.reason
                 )}</div>`
               : ''
@@ -672,7 +672,7 @@ function renderDrawerOpinionsList(p) {
 
   const opinions = p.opinions || [];
   if (opinions.length === 0) {
-    container.innerHTML = `<p class="editor-help">No hay opiniones o alertas registradas todavia.</p>`;
+    container.innerHTML = `<p class="editor-help">No hay opiniones o alertas registradas todavía.</p>`;
     return;
   }
 
@@ -771,7 +771,7 @@ function setupEventListeners() {
 
       projectForm.reset();
       projectForm.classList.add('hidden');
-      showNotification('Plan publicado con exito en el catalogo.');
+      showNotification('Plan publicado con éxito en el catálogo.');
       window.location.hash = `#plan/${res.project.id}`;
     } catch (err) {
       showNotification(err.message, true);
@@ -813,7 +813,7 @@ function setupEventListeners() {
       seedForm.classList.add('hidden');
       state.seeds = res.seeds || [];
       renderSeedsGrid();
-      showNotification('Idea ciudadana publicada con exito en el catalogo.');
+      showNotification('Idea ciudadana publicada con éxito en el catálogo.');
     } catch (err) {
       showNotification(err.message, true);
     }
@@ -886,7 +886,7 @@ function setupEventListeners() {
       updateDrawerCounts(state.activeProject);
 
       document.querySelector('.sidebar-tab[data-side="opinions"]')?.click();
-      showNotification('Opinion anadida al debate del plan.');
+      showNotification('Opinión añadida al debate del plan.');
     } catch (err) {
       showNotification(err.message, true);
     }
@@ -896,7 +896,7 @@ function setupEventListeners() {
   document.getElementById('btn-reset-data')?.addEventListener('click', async () => {
     try {
       await fetchJson('/api/reset', { method: 'POST' });
-      showNotification('Catalogo restaurado al estado inicial.');
+      showNotification('Catálogo restaurado al estado inicial.');
       await handleRouting();
     } catch (err) {
       showNotification(err.message, true);

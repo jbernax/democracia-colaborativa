@@ -105,7 +105,7 @@ export class RepositoryStore {
     const state = this.getState();
     const title = sanitizeText(payload.title);
     if (!title) {
-      throw new Error('El titulo del plan es obligatorio');
+      throw new Error('El título del plan es obligatorio');
     }
 
     const summary = sanitizeText(payload.summary);
@@ -113,7 +113,7 @@ export class RepositoryStore {
       throw new Error('El resumen del plan es obligatorio');
     }
 
-    const category = sanitizeText(payload.category) || 'Politica Publica';
+    const category = sanitizeText(payload.category) || 'Política Pública';
     const author = sanitizeText(payload.author) || 'Iniciativa Ciudadana';
     const today = new Date().toISOString().slice(0, 10);
     const randomSuffix = Math.floor(Math.random() * 900 + 100);
@@ -127,19 +127,19 @@ export class RepositoryStore {
     const id = baseSlug || `plan-${Date.now()}`;
     const code = sanitizeText(payload.code) || `EXP-2026-CIUD-${randomSuffix}`;
 
-    // Construir secciones monograficas
+    // Construir secciones monográficas
     let monograph = [];
     if (Array.isArray(payload.monograph) && payload.monograph.length > 0) {
       monograph = payload.monograph.map((s, idx) => ({
         id: sanitizeText(s.id) || `sec-${idx + 1}`,
-        title: sanitizeText(s.title) || `Seccion ${idx + 1}`,
+        title: sanitizeText(s.title) || `Sección ${idx + 1}`,
         content: String(s.content || '').trim()
       }));
     } else if (payload.initialContent && String(payload.initialContent).trim()) {
       monograph = [
         {
           id: 'diagnostico',
-          title: '1. Diagnostico y Motivacion',
+          title: '1. Diagnóstico y Motivación',
           content: sanitizeText(payload.initialContent)
         },
         {
@@ -147,11 +147,11 @@ export class RepositoryStore {
           title: '2. Medidas y Articulado Propuesto',
           content:
             sanitizeText(payload.measuresContent) ||
-            'Texto articulado y medidas especificas pendientes de desarrollo colaborativo.'
+            'Texto articulado y medidas específicas pendientes de desarrollo colaborativo.'
         },
         {
           id: 'impacto',
-          title: '3. Evaluacion de Impacto Previsto',
+          title: '3. Evaluación de Impacto Previsto',
           content:
             sanitizeText(payload.impactContent) ||
             'Impacto presupuestario, social y organizativo a evaluar por los participantes.'
@@ -159,20 +159,20 @@ export class RepositoryStore {
         {
           id: 'debate',
           title: '4. Aspectos a Debate',
-          content: 'Puntos criticos y posibles debilidades abiertas a aportaciones ciudadanas.'
+          content: 'Puntos críticos y posibles debilidades abiertas a aportaciones ciudadanas.'
         }
       ];
     } else {
       monograph = [
         {
           id: 'diagnostico',
-          title: '1. Diagnostico y Justificacion',
+          title: '1. Diagnóstico y Justificación',
           content: summary
         },
         {
           id: 'medidas',
           title: '2. Medidas Propuestas',
-          content: 'Propuestas de accion normativa abiertas a enmiendas.'
+          content: 'Propuestas de acción normativa abiertas a enmiendas.'
         }
       ];
     }
@@ -205,12 +205,12 @@ export class RepositoryStore {
     const state = this.getState();
     const project = state.projects.find((p) => p.id === projectId);
     if (!project) {
-      throw new Error(`No se encontro el plan con id ${projectId}`);
+      throw new Error(`No se encontró el plan con id ${projectId}`);
     }
 
     const title = sanitizeText(payload.title);
     if (!title) {
-      throw new Error('El titulo de la propuesta es obligatorio');
+      throw new Error('El título de la propuesta es obligatorio');
     }
 
     const author = sanitizeText(payload.author) || 'Ciudadano Colaborador';
@@ -220,7 +220,7 @@ export class RepositoryStore {
     const proposedText = String(payload.proposedText || '').trim();
 
     if (!proposedText) {
-      throw new Error('El texto propuesto no puede estar vacio');
+      throw new Error('El texto propuesto no puede estar vacío');
     }
 
     const diff = computeClauseDiff(originalText, proposedText);
@@ -253,16 +253,16 @@ export class RepositoryStore {
     const state = this.getState();
     const project = state.projects.find((p) => p.id === projectId);
     if (!project) {
-      throw new Error(`No se encontro el plan con id ${projectId}`);
+      throw new Error(`No se encontró el plan con id ${projectId}`);
     }
 
     const text = sanitizeText(payload.text);
     if (!text) {
-      throw new Error('El texto de la opinion o comentario es obligatorio');
+      throw new Error('El texto de la opinión o comentario es obligatorio');
     }
 
     const author = sanitizeText(payload.author) || 'Ciudadano Participante';
-    const type = sanitizeText(payload.type || 'Aportacion ciudadana');
+    const type = sanitizeText(payload.type || 'Aportación ciudadana');
 
     const newOpinion = {
       id: `op-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
@@ -287,12 +287,12 @@ export class RepositoryStore {
     const state = this.getState();
     const title = sanitizeText(payload.title);
     if (!title) {
-      throw new Error('El titulo de la idea es obligatorio');
+      throw new Error('El título de la idea es obligatorio');
     }
 
     const description = sanitizeText(payload.description);
     if (!description) {
-      throw new Error('La descripcion de la idea es obligatoria');
+      throw new Error('La descripción de la idea es obligatoria');
     }
 
     const author = sanitizeText(payload.author) || 'Ciudadano Proponente';

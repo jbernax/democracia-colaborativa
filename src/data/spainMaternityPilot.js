@@ -1,6 +1,6 @@
 /**
- * Datos iniciales del Caso Piloto Espana:
- * "Plan Nacional de Reincorporacion Laboral Progresiva Post-Maternidad/Paternidad y Corresponsabilidad"
+ * Datos iniciales del Caso Piloto España:
+ * "Plan Nacional de Reincorporación Laboral Progresiva Post-Maternidad/Paternidad y Corresponsabilidad"
  * Reforma del Art. 37.6 del Estatuto de los Trabajadores (RD Legislativo 2/2015) y LGSS (RD Legislativo 8/2015).
  */
 
@@ -16,63 +16,63 @@ export function createInitialPilotState() {
     metadata: {
       expedienteCode: 'EXP-MAIN-2026-MTES-042',
       title:
-        'Plan Nacional de Reincorporacion Laboral Progresiva Post-Maternidad/Paternidad y Corresponsabilidad',
+        'Plan Nacional de Reincorporación Laboral Progresiva Post-Maternidad/Paternidad y Corresponsabilidad',
       subtitle:
-        'Reforma del Art. 37.6 del Estatuto de los Trabajadores y Capitulo VII de la Ley General de la Seguridad Social',
-      jurisdiction: 'Espana (Ambito Estatal - Legislacion Laboral y de Seguridad Social)',
+        'Reforma del Art. 37.6 del Estatuto de los Trabajadores y Capítulo VII de la Ley General de la Seguridad Social',
+      jurisdiction: 'España (Ámbito Estatal - Legislación Laboral y de Seguridad Social)',
       legalInstruments: [
-        'Art. 133 Ley 39/2015 (Procedimiento Administrativo Comun - Participacion Publica)',
-        'Art. 26 Ley 50/1997 del Gobierno (Procedimiento de Elaboracion de Normas con Rango de Ley)',
-        'Real Decreto 931/2017 (Memoria del Analisis de Impacto Normativo - MAIN)',
-        'Directiva (UE) 2019/1158 relativa a la conciliacion de la vida familiar y profesional'
+        'Art. 133 Ley 39/2015 (Procedimiento Administrativo Común - Participación Pública)',
+        'Art. 26 Ley 50/1997 del Gobierno (Procedimiento de Elaboración de Normas con Rango de Ley)',
+        'Real Decreto 931/2017 (Memoria del Análisis de Impacto Normativo - MAIN)',
+        'Directiva (UE) 2019/1158 relativa a la conciliación de la vida familiar y profesional'
       ],
       problemStatement:
-        'En Espana, tras concluir las 16 semanas del permiso por nacimiento y cuidado de menor (Art. 48.4 ET), el paso abrupto a la jornada completa de 40 horas semanales cuando el lactante tiene apenas 4 meses provoca un 18,4% de excedencias no retribuidas, reducciones de jornada con perdida salarial integra (Art. 37.6 ET vigente) o abandonos del mercado laboral, recayendo en un 89% sobre las madres trabajadoras.',
+        'En España, tras concluir las 16 semanas del permiso por nacimiento y cuidado de menor (Art. 48.4 ET), el paso abrupto a la jornada completa de 40 horas semanales cuando el lactante tiene apenas 4 meses provoca un 18,4% de excedencias no retribuidas, reducciones de jornada con pérdida salarial íntegra (Art. 37.6 ET vigente) o abandonos del mercado laboral, recayendo en un 89% sobre las madres trabajadoras.',
       statutoryBaseline: [
         {
           id: 'vigente-art-37-6-et',
           articleNumber: 'Art. 37.6 ET (Texto Vigente)',
-          title: 'Reduccion de jornada por guarda legal sin compensacion salarial publica',
-          text: 'Quien por razones de guarda legal tenga a su cuidado directo algun menor de doce anos tendra derecho a una reduccion de la jornada de trabajo diaria, con la disminucion proporcional del salario entre, al menos, un octavo y un maximo de la mitad de la duracion de aquella.'
+          title: 'Reducción de jornada por guarda legal sin compensacion salarial pública',
+          text: 'Quien por razones de guarda legal tenga a su cuidado directo algún menor de doce años tendrá derecho a una reducción de la jornada de trabajo diaria, con la disminucion proporcional del salario entre, al menos, un octavo y un máximo de la mitad de la duración de aquella.'
         },
         {
           id: 'vigente-art-48-4-et',
           articleNumber: 'Art. 48.4 ET (Texto Vigente)',
-          title: 'Suspension del contrato por nacimiento de 16 semanas',
-          text: 'El nacimiento, que comprende el parto y el cuidado de menor de doce meses, suspendera el contrato de trabajo de la madre biologica y el del progenitor distinto de la madre biologica durante dieciseis semanas, de las cuales seran obligatorias las seis semanas ininterrumpidas inmediatamente posteriores al parto a jornada completa.'
+          title: 'Suspensión del contrato por nacimiento de 16 semanas',
+          text: 'El nacimiento, que comprende el parto y el cuidado de menor de doce meses, suspenderá el contrato de trabajo de la madre biológica y el del progenitor distinto de la madre biológica durante dieciséis semanas, de las cuales serán obligatorias las seis semanas ininterrumpidas inmediatamente posteriores al parto a jornada completa.'
         }
       ]
     },
 
     commonTrunk: {
-      id: 'tronco-comun',
-      name: 'Tronco Comun Consolidado (Consenso Transversal)',
+      id: 'tronco-común',
+      name: 'Tronco Común Consolidado (Consenso Transversal)',
       description:
-        'Disposiciones basicas ya consensuadas entre grupos parlamentarios, sindicatos, organizaciones empresariales y colectivos de familias. Se aplican como base comun a todas las ramas de exploracion.',
+        'Disposiciones básicas ya consensuadas entre grupos parlamentarios, sindicatos, organizaciones empresariales y colectivos de familias. Se aplican como base común a todas las ramas de exploración.',
       clauses: [
         {
           id: 'tronco-art-1',
-          articleNumber: 'Disposicion Base 1 (Art. 37.6 bis.1 ET)',
-          title: 'Derecho subjetivo a la reincorporacion laboral progresiva post-natal',
-          text: 'Finalizado el periodo de suspension del contrato por nacimiento o adopcion previsto en el articulo 48.4, las personas trabajadoras tendran derecho a un periodo de reincorporacion laboral progresiva con compensacion economica de la Seguridad Social, en los terminos establecidos en la presente ley, sin que su ejercicio pueda suponer merma en los derechos de promocion profesional ni en el devengo de antiguedad.'
+          articleNumber: 'Disposición Base 1 (Art. 37.6 bis.1 ET)',
+          title: 'Derecho subjetivo a la reincorporación laboral progresiva post-natal',
+          text: 'Finalizado el período de suspensión del contrato por nacimiento o adopción previsto en el artículo 48.4, las personas trabajadoras tendrán derecho a un período de reincorporación laboral progresiva con compensacion económica de la Seguridad Social, en los términos establecidos en la presente ley, sin que su ejercicio pueda suponer merma en los derechos de promocion profesional ni en el devengo de antigüedad.'
         },
         {
           id: 'tronco-art-2',
-          articleNumber: 'Disposicion Base 2 (Art. 237.4 LGSS)',
-          title: 'Cotizacion efectiva al 100% durante la reincorporacion progresiva',
-          text: 'Durante todo el periodo de disfrute de la modalidad de reincorporacion laboral progresiva, las bases de cotizacion de la persona trabajadora se computaran incrementadas hasta el 100 por 100 de la cuantia que hubiera correspondido de mantenerse sin reduccion la jornada de trabajo, a efectos de las prestaciones de jubilacion, incapacidad permanente, muerte y supervivencia, nacimiento y desempleo.'
+          articleNumber: 'Disposición Base 2 (Art. 237.4 LGSS)',
+          title: 'Cotización efectiva al 100% durante la reincorporación progresiva',
+          text: 'Durante todo el período de disfrute de la modalidad de reincorporación laboral progresiva, las bases de cotización de la persona trabajadora se computarán incrementadas hasta el 100 por 100 de la cuantía que hubiera correspondido de mantenerse sin reducción la jornada de trabajo, a efectos de las prestaciones de jubilación, incapacidad permanente, muerte y supervivencia, nacimiento y desempleo.'
         },
         {
           id: 'tronco-art-3',
-          articleNumber: 'Disposicion Base 3 (Art. 55.5.c ET)',
-          title: 'Garantia de indemnidad y nulidad objetiva del despido',
-          text: 'Sera asimismo nulo el despido de las personas trabajadoras durante el ejercicio del derecho de reincorporacion laboral progresiva post-natal y hasta transcurridos doce meses desde la reincorporacion a la jornada ordinaria completa, salvo que se declare la procedencia del despido por motivos no relacionados con el ejercicio de este derecho.'
+          articleNumber: 'Disposición Base 3 (Art. 55.5.c ET)',
+          title: 'Garantía de indemnidad y nulidad objetiva del despido',
+          text: 'Será asimismo nulo el despido de las personas trabajadoras durante el ejercicio del derecho de reincorporación laboral progresiva post-natal y hasta transcurridos doce meses desde la reincorporación a la jornada ordinaria completa, salvo que se declare la procedencia del despido por motivos no relacionados con el ejercicio de este derecho.'
         },
         {
           id: 'tronco-art-4',
-          articleNumber: 'Disposicion Base 4 (Disposicion Adicional Monoparental)',
-          title: 'Garantia de equidad para menores en familias monoparentales (Doctrina STC 140/2024)',
-          text: 'En las familias monoparentales, con el fin de garantizar la igualdad material del menor en el tiempo de cuidado directo recibido, la persona progenitora unica podra acumular el tramo adicional de reincorporacion progresiva que habria correspondido al segundo progenitor conforme al coeficiente corrector establecido en cada modalidad.'
+          articleNumber: 'Disposición Base 4 (Disposición Adicional Monoparental)',
+          title: 'Garantía de equidad para menores en familias monoparentales (Doctrina STC 140/2024)',
+          text: 'En las familias monoparentales, con el fin de garantizar la igualdad material del menor en el tiempo de cuidado directo recibido, la persona progenitora única podrá acumular el tramo adicional de reincorporación progresiva que habría correspondido al segundo progenitor conforme al coeficiente corrector establecido en cada modalidad.'
         }
       ]
     },
@@ -80,10 +80,10 @@ export function createInitialPilotState() {
     branches: [
       {
         id: 'rama-media-jornada-bonificada',
-        name: 'Rama A: Media Jornada Garantizada (50%) con Prestacion del 80% SS',
+        name: 'Rama A: Media Jornada Garantizada (50%) con Prestación del 80% SS',
         shortLabel: 'Rama A: Media Jornada 50% Bonificada',
         proponentSummary:
-          'Impulsada inicialmente por ponencia social y sindical con aportaciones de juristas laborales. Prioriza un derecho claro y uniforme a trabajar media jornada (4 horas) entre el mes 5 y el mes 12 del bebe, recibiendo el 90% del salario total (50% salario empresa + 40% prestacion Seguridad Social).',
+          'Impulsada inicialmente por ponencia social y sindical con aportaciones de juristas laborales. Prioriza un derecho claro y uniforme a trabajar media jornada (4 horas) entre el mes 5 y el mes 12 del bebé, recibiendo el 90% del salario total (50% salario empresa + 40% prestación Seguridad Social).',
         parameters: {
           reductionPercent: 50,
           durationMonths: 8,
@@ -106,23 +106,23 @@ export function createInitialPilotState() {
           {
             id: 'art-37-6-et',
             articleNumber: 'Art. 37.6 ET (Propuesta Rama A)',
-            title: 'Reduccion del 50% de jornada por reincorporacion progresiva entre los meses 5 y 12',
-            text: '1. Tras la finalizacion del permiso del articulo 48.4, cada progenitor tendra derecho a reducir su jornada ordinaria en un 50 por 100 durante un periodo de ocho meses.\n2. Durante dicho periodo, la Seguridad Social abonara un subsidio equivalente al 80 por 100 de la reduccion salarial correspondiente, percibiendo la persona trabajadora el 90 por 100 de su retribucion previa.\n3. Cuando ambos progenitores ejerzan este derecho de forma equitativa o sucesiva durante al menos cuatro meses cada uno, el periodo conjunto se ampliara en dos meses adicionales.'
+            title: 'Reducción del 50% de jornada por reincorporación progresiva entre los meses 5 y 12',
+            text: '1. Tras la finalizacion del permiso del artículo 48.4, cada progenitor tendrá derecho a reducir su jornada ordinaria en un 50 por 100 durante un período de ocho meses.\n2. Durante dicho período, la Seguridad Social abonara un subsidio equivalente al 80 por 100 de la reducción salarial correspondiente, percibiendo la persona trabajadora el 90 por 100 de su retribucion previa.\n3. Cuando ambos progenitores ejerzan este derecho de forma equitativa o sucesiva durante al menos cuatro meses cada uno, el período conjunto se ampliara en dos meses adicionales.'
           },
           {
             id: 'art-184-lgss',
             articleNumber: 'Art. 184 bis LGSS (Propuesta Rama A)',
-            title: 'Bonificacion del 75% en cotizaciones por contratos de relevo a tiempo parcial',
-            text: '1. Las empresas que concierten contratos de duracion determinada a tiempo parcial para sustituir las horas reducidas durante la reincorporacion progresiva tendran derecho a una bonificacion del 75 por 100 en las cuotas empresariales a la Seguridad Social.\n2. En el supuesto de trabajadoras encuadradas en el Regimen Especial de Trabajadores Autonomos (RETA), se aplicara una bonificacion mensual de 350 euros en su cuota durante ocho meses.'
+            title: 'Bonificación del 75% en cotizaciones por contratos de relevo a tiempo parcial',
+            text: '1. Las empresas que concierten contratos de duración determinada a tiempo parcial para sustituir las horas reducidas durante la reincorporación progresiva tendrán derecho a una bonificación del 75 por 100 en las cuotas empresariales a la Seguridad Social.\n2. En el supuesto de trabajadoras encuadradas en el Régimen Especial de Trabajadores Autónomos (RETA), se aplicara una bonificación mensual de 350 euros en su cuota durante ocho meses.'
           }
         ]
       },
       {
-        id: 'rama-bolsa-flexible-hibrida',
+        id: 'rama-bolsa-flexible-híbrida',
         name: 'Rama B: Bolsa Flexible de Horas, Rampa Escalonada (50% a 75%) y Teletrabajo',
-        shortLabel: 'Rama B: Bolsa Flexible + Rampa Hibrida',
+        shortLabel: 'Rama B: Bolsa Flexible + Rampa Híbrida',
         proponentSummary:
-          'Impulsada por equipos tecnicos de modernizacion empresarial, economia aplicada y colectivos profesionales. Sustituye la media jornada rigida por un credito de 520 horas distribuibles en rampa progresiva (meses 5-6 al 50%, meses 7-12 al 70% de jornada) combinado con teletrabajo parcial preferente.',
+          'Impulsada por equipos técnicos de modernizacion empresarial, economía aplicada y colectivos profesionales. Sustituye la media jornada rigida por un credito de 520 horas distribuibles en rampa progresiva (meses 5-6 al 50%, meses 7-12 al 70% de jornada) combinado con teletrabajo parcial preferente.',
         parameters: {
           reductionPercent: 35,
           durationMonths: 10,
@@ -145,14 +145,14 @@ export function createInitialPilotState() {
           {
             id: 'art-37-6-et',
             articleNumber: 'Art. 37.6 ET (Propuesta Rama B)',
-            title: 'Credito horario flexible y rampa de reincorporacion escalonada',
-            text: '1. Cada persona progenitora dispondra de una bolsa individual de 520 horas de reduccion retribuida para su disfrute entre el quinto y el decimocuarto mes desde el nacimiento, equivalente a una reduccion media del 35 por 100 durante diez meses.\n2. Por defecto, la reincorporacion se articulara mediante una rampa progresiva del 50 por 100 de jornada efectiva durante los dos primeros meses y del 70 por 100 durante los ocho meses siguientes.\n3. En las familias monoparentales se aplicara un coeficiente multiplicador de 1,3 sobre la bolsa horaria individual.'
+            title: 'Crédito horario flexible y rampa de reincorporación escalonada',
+            text: '1. Cada persona progenitora dispondrá de una bolsa individual de 520 horas de reducción retribuida para su disfrute entre el quinto y el decimocuarto mes desde el nacimiento, equivalente a una reducción media del 35 por 100 durante diez meses.\n2. Por defecto, la reincorporación se articulara mediante una rampa progresiva del 50 por 100 de jornada efectiva durante los dos primeros meses y del 70 por 100 durante los ocho meses siguientes.\n3. En las familias monoparentales se aplicara un coeficiente multiplicador de 1,3 sobre la bolsa horaria individual.'
           },
           {
             id: 'art-34-8-et',
             articleNumber: 'Art. 34.8 bis ET (Propuesta Rama B)',
-            title: 'Derecho preferente a modalidad hibrida y ahorro de desplazamientos',
-            text: '1. En aquellos puestos cuyas funciones sean tecnicamente susceptibles de ejecucion a distancia, la persona trabajadora en reincorporacion progresiva podra acogerse a teletrabajo hasta en un 55 por 100 de su jornada efectiva, evitando tiempos de desplazamiento pendular.\n2. Las empresas de menos de 50 trabajadores recibiran una compensacion del 70 por 100 en cuotas de Seguridad Social por reorganizacion de turnos o contratacion de apoyo.'
+            title: 'Derecho preferente a modalidad híbrida y ahorro de desplazamientos',
+            text: '1. En aquellos puestos cuyas funciones sean tecnicamente susceptibles de ejecucion a distancia, la persona trabajadora en reincorporación progresiva podrá acogerse a teletrabajo hasta en un 55 por 100 de su jornada efectiva, evitando tiempos de desplazamiento pendular.\n2. Las empresas de menos de 50 trabajadores recibiran una compensacion del 70 por 100 en cuotas de Seguridad Social por reorganizacion de turnos o contratacion de apoyo.'
           }
         ]
       },
@@ -161,7 +161,7 @@ export function createInitialPilotState() {
         name: 'Rama C: Escudo Integral Micropymes (<10), Relevo RETA y Cobertura Rural',
         shortLabel: 'Rama C: Escudo PYME + Autonomas Rural',
         proponentSummary:
-          'Impulsada por asociaciones de autonomos, cooperativas agrarias/rurales y especialistas en estructura productiva espanola. Mantiene una reduccion del 45% durante 9 meses con subsidio del 85%, bonificacion del 95% a microempresas de menos de 10 trabajadores y Bono de Relevo de 850 EUR/mes para trabajadoras autonomas.',
+          'Impulsada por asociaciones de autónomos, cooperativas agrarias/rurales y especialistas en estructura productiva espanola. Mantiene una reducción del 45% durante 9 meses con subsidio del 85%, bonificación del 95% a microempresas de menos de 10 trabajadores y Bono de Relevo de 850 EUR/mes para trabajadoras autónomas.',
         parameters: {
           reductionPercent: 45,
           durationMonths: 9,
@@ -184,14 +184,14 @@ export function createInitialPilotState() {
           {
             id: 'art-37-6-et',
             articleNumber: 'Art. 37.6 ET (Propuesta Rama C)',
-            title: 'Reincorporacion al 45% de reduccion con opcion de compactacion semanal en PYMEs',
-            text: '1. La persona trabajadora tendra derecho a una reduccion del 45 por 100 de su jornada durante nueve meses tras la suspension por nacimiento, percibiendo un subsidio publico del 85 por 100 sobre la fraccion reducida.\n2. En empresas de menos de diez personas trabajadoras o centros con regimenes de turnos continuos, previo acuerdo, la reduccion podra acumularse en jornadas completas alternas para facilitar la contratacion de un unico relevista compartido.'
+            title: 'Reincorporación al 45% de reducción con opcion de compactacion semanal en PYMEs',
+            text: '1. La persona trabajadora tendrá derecho a una reducción del 45 por 100 de su jornada durante nueve meses tras la suspensión por nacimiento, percibiendo un subsidio publico del 85 por 100 sobre la fraccion reducida.\n2. En empresas de menos de diez personas trabajadoras o centros con regimenes de turnos continuos, previo acuerdo, la reducción podrá acumularse en jornadas completas alternas para facilitar la contratacion de un unico relevista compartido.'
           },
           {
             id: 'art-38-reta',
             articleNumber: 'Art. 38 ter Ley 20/2007 RETA (Propuesta Rama C)',
             title: 'Bono de Relevo para Trabajadoras Autonomas y Bolsas Mancomunadas Rurales',
-            text: '1. Las personas trabajadoras encuadradas en el RETA tendran derecho durante nueve meses a un Bono de Relevo y Conciliacion de 850 euros mensuales destinado a sufragar la contratacion a tiempo parcial de una persona empleada o sustituta profesional que garantice la continuidad del negocio.\n2. En municipios de menos de 5.000 habitantes, las microempresas y profesionales autonomos gozaran de una bonificacion del 98 por 100 en las cotizaciones de los contratos de sustitucion.'
+            text: '1. Las personas trabajadoras encuadradas en el RETA tendrán derecho durante nueve meses a un Bono de Relevo y Conciliacion de 850 euros mensuales destinado a sufragar la contratacion a tiempo parcial de una persona empleada o sustituta profesional que garantice la continuidad del negocio.\n2. En municipios de menos de 5.000 habitantes, las microempresas y profesionales autónomos gozaran de una bonificación del 98 por 100 en las cotizaciones de los contratos de sustitucion.'
           }
         ]
       }
@@ -201,15 +201,15 @@ export function createInitialPilotState() {
       {
         id: 'deb-01',
         title:
-          'Desproteccion de trabajadoras autonomas (RETA) sin asalariados ante una reduccion de media jornada sin relevo',
+          'Desproteccion de trabajadoras autónomas (RETA) sin asalariados ante una reducción de media jornada sin relevo',
         description:
-          'En la Rama A, la ayuda al RETA se limita a 350 EUR/mes de bonificacion de cuota. Para una autonoma titular de un pequeno comercio, clinica o despacho sin empleados, reducir el horario un 50% sin fondos suficientes para contratar a un sustituto de media jornada supone perder la mitad de la facturacion manteniendo el 100% del alquiler y costes fijos.',
-        severity: 'critica',
+          'En la Rama A, la ayuda al RETA se limita a 350 EUR/mes de bonificación de cuota. Para una autonoma titular de un pequeno comercio, clinica o despacho sin empleados, reducir el horario un 50% sin fondos suficientes para contratar a un sustituto de media jornada supone perder la mitad de la facturacion manteniendo el 100% del alquiler y costes fijos.',
+        severity: 'crítica',
         domain: 'laboral_pyme',
         targetBranchId: 'rama-media-jornada-bonificada',
         targetClauseId: 'art-184-lgss',
-        affectedGroup: '30.500 madres trabajadoras autonomas anuales (RETA) y pequeno comercio',
-        reportedBy: 'Federacion de Asociaciones de Trabajadores Autonomos y Economia Social',
+        affectedGroup: '30.500 madres trabajadoras autónomas anuales (RETA) y pequeno comercio',
+        reportedBy: 'Federacion de Asociaciones de Trabajadores Autónomos y Economia Social',
         status: 'en_mitigacion',
         linkedAmendmentId: 'enmienda-pr-103',
         mitigatedByAmendmentId: null,
@@ -221,9 +221,9 @@ export function createInitialPilotState() {
           'Vulneracion de equidad constitucional en familias monoparentales por coeficiente 1,3 insuficiente (STC 140/2024)',
         description:
           'La Rama B fija un coeficiente multiplicador de solo 1,3 para hogares monoparentales. El Tribunal Constitucional (STC 140/2024) ha establecido que los menores nacidos en familias monoparentales no pueden recibir un tiempo de cuidado protegido sustancialmente inferior al de las familias biparentales.',
-        severity: 'critica',
+        severity: 'crítica',
         domain: 'juridico',
-        targetBranchId: 'rama-bolsa-flexible-hibrida',
+        targetBranchId: 'rama-bolsa-flexible-híbrida',
         targetClauseId: 'art-37-6-et',
         affectedGroup: 'Familias monoparentales (81% encabezadas por madres)',
         reportedBy: 'Catedra de Derecho del Trabajo y Seguridad Social / Asociacion Madres Solteras',
@@ -256,7 +256,7 @@ export function createInitialPilotState() {
         description:
           'Si se obliga a la microempresa a adelantar en nomina el subsidio del 80-85% y esperar a la compensacion de la TGSS mes y medio despues, se genera tension de liquidez en empresas de menos de 10 trabajadores. El abono debe ser pago directo mensual del INSS o compensacion instantanea en sistema RED.',
         severity: 'moderada',
-        domain: 'economico',
+        domain: 'económico',
         targetBranchId: 'rama-escudo-pymes-rural',
         targetClauseId: 'art-37-6-et',
         affectedGroup: 'Microempresas de 1 a 9 trabajadores (con baja liquidez operativa)',
@@ -272,13 +272,13 @@ export function createInitialPilotState() {
       {
         id: 'semilla-01',
         title:
-          'Sincronizacion de los tramos de jornada reducida con los horarios de salida de escuelas infantiles municipales (0-3 anos)',
+          'Sincronizacion de los tramos de jornada reducida con los horarios de salida de escuelas infantiles municipales (0-3 años)',
         description:
-          'Soy madre trabajadora en turno partido. De poco sirve reducir la jornada un 50% si la empresa me obliga a hacer 2 horas por la manana y 2 horas a ultima hora de la tarde cuando la escuela infantil municipal cierra a las 16:00. La reduccion debe garantizar concrecion horaria continuada dentro de la franja lectiva 0-3.',
+          'Soy madre trabajadora en turno partido. De poco sirve reducir la jornada un 50% si la empresa me obliga a hacer 2 horas por la manana y 2 horas a ultima hora de la tarde cuando la escuela infantil municipal cierra a las 16:00. La reducción debe garantizar concrecion horaria continuada dentro de la franja lectiva 0-3.',
         authorName: 'Lucia M. (Trabajadora de Comercio)',
         authorProfile: 'Ciudadania / Madre Afectada Directa',
         targetBranchId: 'rama-media-jornada-bonificada',
-        affectedCollective: 'Trabajadores a turno partido en comercio y hosteleria con hijos de 0 a 3 anos',
+        affectedCollective: 'Trabajadores a turno partido en comercio y hosteleria con hijos de 0 a 3 años',
         neededDomains: ['juridico', 'laboral_pyme', 'social_igualdad'],
         maturityLevel: MATURITY_LEVELS.LEVEL_1_SEED,
         status: 'pendiente_de_elaborar',
@@ -291,12 +291,12 @@ export function createInitialPilotState() {
         title:
           'Ampliacion automatica del tramo progresivo al 50% en nacimientos prematuros o con hospitalizacion neonatal prolongada',
         description:
-          'Como neonatologo observo que los bebes grandes prematuros requieren cuidados respiratorios y seguimiento intensivo en domicilio muchos meses despues del alta. El computo de los 8 o 10 meses de reincorporacion progresiva deberia iniciarse a partir del alta hospitalaria efectiva y contar con 2 meses adicionales.',
+          'Como neonatologo observo que los bebes grandes prematuros requieren cuidados respiratorios y seguimiento intensivo en domicilio muchos meses despues del alta. El computo de los 8 o 10 meses de reincorporación progresiva deberia iniciarse a partir del alta hospitalaria efectiva y contar con 2 meses adicionales.',
         authorName: 'Dr. Carlos V. (Servicio de Neonatologia)',
         authorProfile: 'Profesional Sanitario / Pediatria',
         targetBranchId: 'rama-escudo-pymes-rural',
         affectedCollective: 'Familias con partos prematuros (<32 semanas) u hospitalizacion neonatal',
-        neededDomains: ['juridico', 'economico', 'social_igualdad'],
+        neededDomains: ['juridico', 'económico', 'social_igualdad'],
         maturityLevel: MATURITY_LEVELS.LEVEL_1_SEED,
         status: 'pendiente_de_elaborar',
         promotedAmendmentId: null,
@@ -306,13 +306,13 @@ export function createInitialPilotState() {
       {
         id: 'semilla-03',
         title:
-          'Bolsa comarcal compartida de relevistas para pequenos comercios y autonomas en municipios de menos de 5.000 habitantes',
+          'Bolsa comarcal compartida de relevistas para pequenos comercios y autónomas en municipios de menos de 5.000 habitantes',
         description:
-          'En los pueblos pequenos es imposible encontrar a alguien para trabajar solo 3 o 4 horas al dia en una panaderia o farmacia rural. Si dos autonomas de la misma comarca pudieran compartir un unico contrato de relevo a jornada completa financiado con sus dos bonos, el relevista tendria un sueldo digno de 8 horas y los dos negocios seguirian abiertos.',
+          'En los pueblos pequenos es imposible encontrar a alguien para trabajar solo 3 o 4 horas al dia en una panaderia o farmacia rural. Si dos autónomas de la misma comarca pudieran compartir un unico contrato de relevo a jornada completa financiado con sus dos bonos, el relevista tendria un sueldo digno de 8 horas y los dos negocios seguirian abiertos.',
         authorName: 'Elena R. (Titular de Comercio Rural en Soria)',
         authorProfile: 'Trabajadora Autonoma Rural',
         targetBranchId: 'rama-escudo-pymes-rural',
-        affectedCollective: 'Autonomas y microempresas en municipios del Reto Demografico (<5.000 hab.)',
+        affectedCollective: 'Autonomas y microempresas en municipios del Reto Demográfico (<5.000 hab.)',
         neededDomains: ['juridico', 'laboral_pyme', 'ambiental_territorial'],
         maturityLevel: MATURITY_LEVELS.LEVEL_1_SEED,
         status: 'pendiente_de_elaborar',
@@ -328,10 +328,10 @@ export function createInitialPilotState() {
       {
         commitId: 'rev-base03',
         date: '2026-10-20',
-        targetBranchId: 'tronco-comun',
+        targetBranchId: 'tronco-común',
         amendmentId: 'enmienda-fundacional-tc',
         title:
-          'Incorporacion al Tronco Comun de la cotizacion al 100% (Art. 237.4 LGSS) y garantia monoparental (STC 140/2024)',
+          'Incorporacion al Tronco Común de la cotización al 100% (Art. 237.4 LGSS) y garantia monoparental (STC 140/2024)',
         coAuthors: [
           'Ponencia Juridica Multipartidista',
           'Representacion Sindical',
@@ -344,8 +344,8 @@ export function createInitialPilotState() {
         date: '2026-10-15',
         targetBranchId: 'rama-escudo-pymes-rural',
         amendmentId: 'enmienda-fundacional-c',
-        title: 'Apertura de Rama C con Bono de Relevo RETA y bonificacion del 92% para micropymes',
-        coAuthors: ['Mesa de Trabajo Autonomo y Reto Demografico'],
+        title: 'Apertura de Rama C con Bono de Relevo RETA y bonificación del 92% para micropymes',
+        coAuthors: ['Mesa de Trabajo Autonomo y Reto Demográfico'],
         mitigatedWeaknesses: []
       },
       {
@@ -369,13 +369,13 @@ export function createInitialPilotState() {
 
 function seedInitialAmendments(state) {
   const branchA = state.branches.find((b) => b.id === 'rama-media-jornada-bonificada');
-  const branchB = state.branches.find((b) => b.id === 'rama-bolsa-flexible-hibrida');
+  const branchB = state.branches.find((b) => b.id === 'rama-bolsa-flexible-híbrida');
 
-  // 1. Enmienda Nivel 2 (PR de Dominio Juridico): Experta constitucionalista corrige el coeficiente monoparental en Rama B, dejando pendiente la evaluacion economica
+  // 1. Enmienda Nivel 2 (PR de Dominio Juridico): Experta constitucionalista corrige el coeficiente monoparental en Rama B, dejando pendiente la evaluacion económica
   const origClauseB = branchB.clauses[0].text;
   const propClauseB = [
-    '1. Cada persona progenitora dispondra de una bolsa individual de 520 horas de reduccion retribuida para su disfrute entre el quinto y el decimocuarto mes desde el nacimiento, equivalente a una reduccion media del 35 por 100 durante diez meses.',
-    '2. Por defecto, la reincorporacion se articulara mediante una rampa progresiva del 50 por 100 de jornada efectiva durante los dos primeros meses y del 70 por 100 durante los ocho meses siguientes.',
+    '1. Cada persona progenitora dispondrá de una bolsa individual de 520 horas de reducción retribuida para su disfrute entre el quinto y el decimocuarto mes desde el nacimiento, equivalente a una reducción media del 35 por 100 durante diez meses.',
+    '2. Por defecto, la reincorporación se articulara mediante una rampa progresiva del 50 por 100 de jornada efectiva durante los dos primeros meses y del 70 por 100 durante los ocho meses siguientes.',
     '3. En las familias monoparentales, en cumplimiento de la doctrina constitucional (STC 140/2024), se aplicara un coeficiente multiplicador de 1,8 sobre la bolsa horaria individual para garantizar identico tiempo de cuidado directo al menor.'
   ].join('\n');
 
@@ -391,19 +391,19 @@ function seedInitialAmendments(state) {
       'Adecuacion del coeficiente monoparental a 1,8x en Rama B conforme a la STC 140/2024',
     summary:
       'Enmienda especializada de dominio juridico: corrige el apartado 3 del Art. 37.6 ET en la Rama B para elevar el multiplicador de familias monoparentales de 1,3 a 1,8, evitando un recurso de inconstitucionalidad. Solicita co-autoria de un economista para completar la memoria presupuestaria.',
-    targetBranchId: 'rama-bolsa-flexible-hibrida',
+    targetBranchId: 'rama-bolsa-flexible-híbrida',
     targetClauseId: 'art-37-6-et',
     originalClauseText: origClauseB,
     proposedClauseText: propClauseB,
     clauseDiff: computeClauseDiff(origClauseB, propClauseB),
     parameterChanges: paramChanges101,
     impactDelta: delta101,
-    requiredDomains: ['juridico', 'social_igualdad', 'economico'],
+    requiredDomains: ['juridico', 'social_igualdad', 'económico'],
     coveredDomains: ['juridico', 'social_igualdad'],
-    pendingDomains: ['economico'],
+    pendingDomains: ['económico'],
     domainAnalyses: {
       juridico:
-        'La STC 140/2024 declara discriminatorio por razon de nacimiento (Art. 14 y 39 CE) privar al menor en familia monoparental del tiempo de cuidado que habria correspondido al segundo progenitor. Excluir las primeras 6 semanas solapadas arroja un coeficiente técnico de 1,8x.',
+        'La STC 140/2024 declara discriminatorio por razon de nacimiento (Art. 14 y 39 CE) privar al menor en familia monoparental del tiempo de cuidado que habría correspondido al segundo progenitor. Excluir las primeras 6 semanas solapadas arroja un coeficiente técnico de 1,8x.',
       social_igualdad:
         'Eleva el Indice de Equidad Monoparental de la Rama B de 58/100 a 88/100, protegiendo al 81% de hogares monoparentales encabezados por mujeres trabajadoras.'
     },
@@ -424,18 +424,18 @@ function seedInitialAmendments(state) {
         author: 'Dra. Elena Gomez-Valor',
         role: 'Jurista del Trabajo',
         domain: 'juridico',
-        text: 'He redactado el encaje constitucional exacto del apartado 3. Dejo abierto el dominio economico para que un especialista cuantifique el impacto en el presupuesto del INSS.',
+        text: 'He redactado el encaje constitucional exacto del apartado 3. Dejo abierto el dominio económico para que un especialista cuantifique el impacto en el presupuesto del INSS.',
         date: '2026-10-24'
       }
     ],
     createdAt: '2026-10-24'
   });
 
-  // 2. Enmienda Nivel 2 (PR de Dominio Laboral/PYME y Economico): Permite compactacion semanal en turnos e incrementa bonificacion PYME, pendiente de redaccion juridica fina
+  // 2. Enmienda Nivel 2 (PR de Dominio Laboral/PYME y Economico): Permite compactacion semanal en turnos e incrementa bonificación PYME, pendiente de redaccion juridica fina
   const origClauseA1 = branchA.clauses[0].text;
   const propClauseA1 = [
     origClauseA1,
-    '4. En empresas de menos de 25 trabajadores o centros con regimenes de trabajo a turnos, la reduccion del 50 por 100 podra compactarse en jornadas completas alternas para permitir la contratacion de un unico relevista compartido.'
+    '4. En empresas de menos de 25 trabajadores o centros con regimenes de trabajo a turnos, la reducción del 50 por 100 podrá compactarse en jornadas completas alternas para permitir la contratacion de un unico relevista compartido.'
   ].join('\n');
 
   const paramChanges102 = { smeReliefPercent: 85 };
@@ -447,9 +447,9 @@ function seedInitialAmendments(state) {
   state.amendments.push({
     id: 'enmienda-pr-102',
     title:
-      'Compactacion en dias alternos para micropymes a turnos y aumento de bonificacion SS al 85%',
+      'Compactacion en dias alternos para micropymes a turnos y aumento de bonificación SS al 85%',
     summary:
-      'Enmienda de dominio laboral y economico para resolver la dificultad de cubrir fracciones aisladas de 4 horas en pymes industriales y sanitarias (Debilidad deb-03). Solicita co-autoria juridica para validar la articulacion con la negociacion colectiva del Art. 37.7 ET.',
+      'Enmienda de dominio laboral y económico para resolver la dificultad de cubrir fracciones aisladas de 4 horas en pymes industriales y sanitarias (Debilidad deb-03). Solicita co-autoria juridica para validar la articulacion con la negociacion colectiva del Art. 37.7 ET.',
     targetBranchId: 'rama-media-jornada-bonificada',
     targetClauseId: 'art-37-6-et',
     originalClauseText: origClauseA1,
@@ -457,14 +457,14 @@ function seedInitialAmendments(state) {
     clauseDiff: computeClauseDiff(origClauseA1, propClauseA1),
     parameterChanges: paramChanges102,
     impactDelta: delta102,
-    requiredDomains: ['laboral_pyme', 'economico', 'juridico'],
-    coveredDomains: ['laboral_pyme', 'economico'],
+    requiredDomains: ['laboral_pyme', 'económico', 'juridico'],
+    coveredDomains: ['laboral_pyme', 'económico'],
     pendingDomains: ['juridico'],
     domainAnalyses: {
       laboral_pyme:
         'Permitir agrupar dos medias jornadas en dias completos alternos permite a dos trabajadoras o dos pymes compartir un contrato de relevo de 8 horas, reduciendo el Indice de Friccion PYME en 5 puntos.',
       economico:
-        'Incrementar la bonificacion de cuotas de relevo del 75% al 85% supone un coste neto adicional moderado (+15,2 M EUR/ano) ampliamente compensado por la creacion de 3.600 empleos equivalentes de relevo.'
+        'Incrementar la bonificación de cuotas de relevo del 75% al 85% supone un coste neto adicional moderado (+15,2 M EUR/año) ampliamente compensado por la creacion de 3.600 empleos equivalentes de relevo.'
     },
     maturityLevel: MATURITY_LEVELS.LEVEL_2_SCOPED_PR,
     status: 'solicita_coautoria',
@@ -472,7 +472,7 @@ function seedInitialAmendments(state) {
       {
         name: 'Marcos Ibanez (Tecnico de Organizacion PYME)',
         role: 'Analista de Operaciones y Costes Laborales',
-        contributedDomains: ['laboral_pyme', 'economico'],
+        contributedDomains: ['laboral_pyme', 'económico'],
         date: '2026-10-26'
       }
     ],
@@ -483,18 +483,18 @@ function seedInitialAmendments(state) {
         author: 'Marcos Ibanez',
         role: 'Analista de Operaciones PYME',
         domain: 'laboral_pyme',
-        text: 'Aportado el modelo de turnos y el calculo de bonificacion. Se necesita un jurista laboral para asegurar que la compactacion no pueda ser impuesta unilateralmente sin acuerdo.',
+        text: 'Aportado el modelo de turnos y el calculo de bonificación. Se necesita un jurista laboral para asegurar que la compactacion no pueda ser impuesta unilateralmente sin acuerdo.',
         date: '2026-10-26'
       }
     ],
     createdAt: '2026-10-26'
   });
 
-  // 3. Enmienda Nivel 3 (PR Integrado Completo Co-autorado): Incorpora Bono de Relevo RETA de 750 EUR/mes y cobertura rural a la Rama A, mitigando la debilidad critica deb-01
+  // 3. Enmienda Nivel 3 (PR Integrado Completo Co-autorado): Incorpora Bono de Relevo RETA de 750 EUR/mes y cobertura rural a la Rama A, mitigando la debilidad crítica deb-01
   const origClauseA2 = branchA.clauses[1].text;
   const propClauseA2 = [
-    '1. Las empresas que concierten contratos de duracion determinada a tiempo parcial para sustituir las horas reducidas durante la reincorporacion progresiva tendran derecho a una bonificacion del 75 por 100 en las cuotas empresariales a la Seguridad Social.',
-    '2. En el supuesto de trabajadoras encuadradas en el Regimen Especial de Trabajadores Autonomos (RETA), se reconocera un Bono de Relevo y Continuidad de Actividad de 750 euros mensuales durante ocho meses para sufragar la contratacion a tiempo parcial o sustitucion profesional, elevandose la bonificacion de cuotas al 90 por 100 en municipios de menos de 5.000 habitantes.'
+    '1. Las empresas que concierten contratos de duración determinada a tiempo parcial para sustituir las horas reducidas durante la reincorporación progresiva tendrán derecho a una bonificación del 75 por 100 en las cuotas empresariales a la Seguridad Social.',
+    '2. En el supuesto de trabajadoras encuadradas en el Régimen Especial de Trabajadores Autónomos (RETA), se reconocera un Bono de Relevo y Continuidad de Actividad de 750 euros mensuales durante ocho meses para sufragar la contratacion a tiempo parcial o sustitucion profesional, elevandose la bonificación de cuotas al 90 por 100 en municipios de menos de 5.000 habitantes.'
   ].join('\n');
 
   const paramChanges103 = {
@@ -511,7 +511,7 @@ function seedInitialAmendments(state) {
     title:
       'Incorporacion de Bono de Relevo RETA (750 EUR/mes) y Escudo Rural a la Rama A (Enmienda de Sintesis A+C)',
     summary:
-      'Enmienda multidisciplinar completada por tres co-autores (Asociacion de Autonomas, Economista Fiscal y Jurista de Seguridad Social) que incorpora el mecanismo de proteccion del trabajo autonomo de la Rama C dentro de la Rama A, resolviendo la debilidad critica deb-01.',
+      'Enmienda multidisciplinar completada por tres co-autores (Asociacion de Autonomas, Economista Fiscal y Jurista de Seguridad Social) que incorpora el mecanismo de proteccion del trabajo autonomo de la Rama C dentro de la Rama A, resolviendo la debilidad crítica deb-01.',
     targetBranchId: 'rama-media-jornada-bonificada',
     targetClauseId: 'art-184-lgss',
     originalClauseText: origClauseA2,
@@ -519,14 +519,14 @@ function seedInitialAmendments(state) {
     clauseDiff: computeClauseDiff(origClauseA2, propClauseA2),
     parameterChanges: paramChanges103,
     impactDelta: delta103,
-    requiredDomains: ['laboral_pyme', 'economico', 'juridico', 'ambiental_territorial'],
-    coveredDomains: ['laboral_pyme', 'economico', 'juridico', 'ambiental_territorial'],
+    requiredDomains: ['laboral_pyme', 'económico', 'juridico', 'ambiental_territorial'],
+    coveredDomains: ['laboral_pyme', 'económico', 'juridico', 'ambiental_territorial'],
     pendingDomains: [],
     domainAnalyses: {
       laboral_pyme:
-        'Eleva la cobertura efectiva de trabajadoras autonomas (RETA) en la Rama A del 30,3% al 65,0%, impidiendo el cierre de pequenos negocios liderados por mujeres tras la maternidad.',
+        'Eleva la cobertura efectiva de trabajadoras autónomas (RETA) en la Rama A del 30,3% al 65,0%, impidiendo el cierre de pequenos negocios liderados por mujeres tras la maternidad.',
       economico:
-        'Incrementa el coste neto presupuestario en +47,8 M EUR/ano (menos de un 4,5% del presupuesto del programa) con alto retorno en mantenimiento de actividades economicas en el IRPF.',
+        'Incrementa el coste neto presupuestario en +47,8 M EUR/año (menos de un 4,5% del presupuesto del programa) con alto retorno en mantenimiento de actividades economicas en el IRPF.',
       juridico:
         'Articulado mediante modificacion coordinada del Art. 184 bis LGSS y disposicion concordante con el Art. 38 bis de la Ley 20/2007 del Estatuto del Trabajo Autonomo.',
       ambiental_territorial:
@@ -544,7 +544,7 @@ function seedInitialAmendments(state) {
       {
         name: 'Javier Soriano (Economista Presupuestario)',
         role: 'Analista Fiscal Independiente',
-        contributedDomains: ['economico'],
+        contributedDomains: ['económico'],
         date: '2026-10-24'
       },
       {
@@ -560,8 +560,8 @@ function seedInitialAmendments(state) {
       {
         author: 'Javier Soriano',
         role: 'Analista Fiscal Independiente',
-        domain: 'economico',
-        text: 'Completada la cuantificacion MAIN: el coste neto adicional es de 47,8 M EUR anuales para cubrir a mas de 20.000 autonomas activas.',
+        domain: 'económico',
+        text: 'Completada la cuantificacion MAIN: el coste neto adicional es de 47,8 M EUR anuales para cubrir a mas de 20.000 autónomas activas.',
         date: '2026-10-24'
       },
       {

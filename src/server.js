@@ -1,5 +1,5 @@
 /**
- * Servidor HTTP y API REST simplificada para Democracia Colaborativa (Agora Normativa).
+ * Servidor HTTP y API REST simplificada para Democracia Colaborativa (Ágora Normativa).
  */
 
 import http from 'node:http';
@@ -135,7 +135,7 @@ async function handleApiRequest(req, res, pathname, queryParams, store) {
   if (method === 'POST' && pathname === '/api/reset') {
     store.reset();
     sendJson(res, 200, {
-      message: 'Datos del catalogo restaurados',
+      message: 'Datos del catálogo restaurados',
       projects: store.getProjects(),
       seeds: store.getSeeds()
     });
@@ -173,7 +173,7 @@ function readJsonBody(req) {
     req.on('data', (chunk) => {
       raw += chunk;
       if (raw.length > 1_000_000) {
-        reject(new Error('Carga util demasiado grande'));
+        reject(new Error('Carga útil demasiado grande'));
       }
     });
     req.on('end', () => {
@@ -184,7 +184,7 @@ function readJsonBody(req) {
       try {
         resolve(JSON.parse(raw));
       } catch (_err) {
-        reject(new Error('Formato JSON invalido en la peticion'));
+        reject(new Error('Formato JSON inválido en la petición'));
       }
     });
     req.on('error', (err) => reject(err));

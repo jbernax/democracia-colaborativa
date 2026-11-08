@@ -47,7 +47,7 @@ El marco resuelve esta tensión mediante una **Tubería de Elaboración Progresi
 
 ### Nivel 2: Enmienda de Dominio (Pull Request Parcial Especializado)
 - **Quién participa**: Especialistas en una disciplina concreta (juristas del trabajo, economistas fiscales, técnicos de igualdad, ingenieros ambientales, graduados sociales, gestores administrativos).
-- **Qué aporta**: Una modificación rigurosa dentro de su propio dominio de competencia —por ejemplo, la redacción técnica exacta de un apartado del artículo 37.6 del Estatuto de los Trabajadores o la estimación del coste de bonificación de contratos deinterinidad—, bien por iniciativa propia o adoptando una Idea de Nivel 1.
+- **Qué aporta**: Una modificación rigurosa dentro de su propio dominio de competencia —por ejemplo, la redacción técnica exacta de un apartado del artículo 37.6 del Estatuto de los Trabajadores o la estimación del coste de bonificación de contratos de interinidad—, bien por iniciativa propia o adoptando una Idea de Nivel 1.
 - **Cómo actúa el sistema**: Valida el dominio cubierto por el especialista y publica la enmienda en el estado `Solicita Co-autoría Multidisciplinar`, listando explícitamente qué dominios de la MAIN faltan por completar antes de que la enmienda pueda fusionarse.
 
 ### Nivel 3: Enmienda Integrada Co-autorada (Pull Request Completo)

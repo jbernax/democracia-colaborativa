@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Democracia Colaborativa | Agora Normativa</title>
+  <title>Democracia Colaborativa | Ágora Normativa</title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -13,12 +13,12 @@
       <div class="brand-block">
         <a href="#landing" class="brand-link" id="nav-brand-home">
           <span class="brand-title">Democracia Colaborativa</span>
-          <span class="brand-tag">Agora Normativa</span>
+          <span class="brand-tag">Ágora Normativa</span>
         </a>
-        <p class="brand-description">Plataforma abierta para revisar, debatir y mejorar los planes de la administracion publica</p>
+        <p class="brand-description">Plataforma abierta para revisar, debatir y mejorar los planes de la administración pública</p>
       </div>
       <div class="header-actions">
-        <button type="button" id="btn-reset-data" class="btn btn-subtle btn-sm" title="Restaurar catalogo inicial de demostracion">
+        <button type="button" id="btn-reset-data" class="btn btn-subtle btn-sm" title="Restaurar catálogo inicial de demostración">
           Restaurar Datos
         </button>
       </div>
@@ -26,15 +26,15 @@
   </header>
 
   <main class="main-layout">
-    <!-- BANNER DE NOTIFICACION TEMPORAL -->
+    <!-- BANNER DE NOTIFICACIÓN TEMPORAL -->
     <div id="notification-banner" class="notification-banner hidden" role="status" aria-live="polite"></div>
 
     <!-- VISTA 1: PORTADA / LANDING PAGE -->
     <section id="view-landing" class="view-container">
       <div class="hero-block">
-        <h1 class="hero-title">Planes publicos en deliberacion abierta</h1>
+        <h1 class="hero-title">Planes públicos en deliberación abierta</h1>
         <p class="hero-subtitle">
-          Consulte los proyectos normativos en fase de estudio, exponga debilidades detectadas, formule propuestas de cambio de texto directamente en las monografias o proponga nuevos planes e ideas ciudadanas.
+          Consulte los proyectos normativos en fase de estudio, exponga debilidades detectadas, formule propuestas de cambio de texto directamente en las monografías o proponga nuevos planes e ideas ciudadanas.
         </p>
       </div>
 
@@ -42,8 +42,8 @@
       <div class="landing-toolbar">
         <div class="filter-group" id="filter-buttons-group">
           <button type="button" class="filter-pill active" data-filter="all">Todos los planes</button>
-          <button type="button" class="filter-pill" data-filter="recent">Mas recientes</button>
-          <button type="button" class="filter-pill" data-filter="popular">Mas participados</button>
+          <button type="button" class="filter-pill" data-filter="recent">Más recientes</button>
+          <button type="button" class="filter-pill" data-filter="popular">Más participados</button>
           <button type="button" class="filter-pill" data-filter="pending">Pendientes de aportaciones</button>
         </div>
         <div class="toolbar-actions">
@@ -57,53 +57,53 @@
       <form id="form-new-project" class="editor-box hidden">
         <div class="editor-header">
           <h3>Proponer un nuevo plan o proyecto normativo</h3>
-          <p class="editor-help">Registre una propuesta completa de politica publica. Se incorporara al catalogo para que otros ciudadanos y especialistas puedan leerla, revisarla y proponer cambios articulados.</p>
+          <p class="editor-help">Registre una propuesta completa de política pública. Se incorporará al catálogo para que otros ciudadanos y especialistas puedan leerla, revisarla y proponer cambios articulados.</p>
         </div>
 
         <div class="field-split">
           <div>
-            <label for="project-title">Titulo del plan o ley propuesta</label>
-            <input type="text" id="project-title" required placeholder="Ej. Plan Estatal de Eficiencia Energetica y Climatizacion Pasiva" />
+            <label for="project-title">Título del plan o ley propuesta</label>
+            <input type="text" id="project-title" required placeholder="Ej. Plan Estatal de Eficiencia Energética y Climatización Pasiva" />
           </div>
           <div>
-            <label for="project-category">Ambito tematico o sectorial</label>
-            <input type="text" id="project-category" required placeholder="Ej. Energia y Vivienda / Sanidad / Empleo" />
+            <label for="project-category">Ámbito temático o sectorial</label>
+            <input type="text" id="project-category" required placeholder="Ej. Energía y Vivienda / Sanidad / Empleo" />
           </div>
         </div>
 
         <div class="field-split">
           <div>
-            <label for="project-code">Codigo de referencia (opcional)</label>
+            <label for="project-code">Código de referencia (opcional)</label>
             <input type="text" id="project-code" placeholder="Ej. EXP-2026-VIV-015 (se genera si se omite)" />
           </div>
           <div>
-            <label for="project-author">Su nombre o asociacion (opcional)</label>
+            <label for="project-author">Su nombre o asociación (opcional)</label>
             <input type="text" id="project-author" placeholder="Ej. Plataforma Ciudadana / Particular" />
           </div>
         </div>
 
         <div class="field-row">
-          <label for="project-summary">Resumen ejecutivo del plan (2-3 lineas)</label>
-          <textarea id="project-summary" rows="2" required placeholder="Sintetice brevemente que problema resuelve y que medidas principales plantea..."></textarea>
+          <label for="project-summary">Resumen ejecutivo del plan (2-3 líneas)</label>
+          <textarea id="project-summary" rows="2" required placeholder="Sintetice brevemente qué problema resuelve y qué medidas principales plantea..."></textarea>
         </div>
 
         <div class="field-row">
-          <label for="project-initial-content">1. Diagnostico y justificacion social</label>
-          <textarea id="project-initial-content" rows="4" required placeholder="Describa la situacion de partida, los datos o problemas que motivan este plan..."></textarea>
+          <label for="project-initial-content">1. Diagnóstico y justificación social</label>
+          <textarea id="project-initial-content" rows="4" required placeholder="Describa la situación de partida, los datos o problemas que motivan este plan..."></textarea>
         </div>
 
         <div class="field-row">
           <label for="project-measures-content">2. Medidas y articulado propuesto (opcional)</label>
-          <textarea id="project-measures-content" rows="4" placeholder="Articulos especificos, medidas concretas o requisitos normativos..."></textarea>
+          <textarea id="project-measures-content" rows="4" placeholder="Artículos específicos, medidas concretas o requisitos normativos..."></textarea>
         </div>
 
         <div class="field-row">
-          <label for="project-impact-content">3. Evaluacion de impacto previsto (opcional)</label>
-          <textarea id="project-impact-content" rows="3" placeholder="Estimacion de costes presupuestarios, beneficios sociales o impacto economico..."></textarea>
+          <label for="project-impact-content">3. Evaluación de impacto previsto (opcional)</label>
+          <textarea id="project-impact-content" rows="3" placeholder="Estimación de costes presupuestarios, beneficios sociales o impacto económico..."></textarea>
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Publicar Plan en el Catalogo</button>
+          <button type="submit" class="btn btn-primary">Publicar Plan en el Catálogo</button>
           <button type="button" class="btn btn-secondary" id="btn-cancel-project">Cancelar</button>
         </div>
       </form>
@@ -111,12 +111,12 @@
       <!-- REJILLA DE TARJETAS DE PLANES -->
       <div id="projects-grid" class="projects-grid"></div>
 
-      <!-- SECCION CIUDADANA: NUEVAS IDEAS PARA FUTUROS PLANES -->
+      <!-- SECCIÓN CIUDADANA: NUEVAS IDEAS PARA FUTUROS PLANES -->
       <div class="seeds-section ideas-section">
         <div class="section-header-row">
           <div>
             <h2 class="section-title">Ideas ciudadanas para futuros planes</h2>
-            <p class="section-subtitle">¿Falta algun tema crucial en la agenda publica? Aporte una idea preliminar o consulte las sugerencias ciudadanas.</p>
+            <p class="section-subtitle">¿Falta algún tema crucial en la agenda pública? Aporte una idea preliminar o consulte las sugerencias ciudadanas.</p>
           </div>
           <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-seed-form">
             + Proponer Nueva Idea
@@ -126,27 +126,27 @@
         <!-- FORMULARIO PARA REGISTRAR NUEVA IDEA -->
         <form id="form-new-seed" class="editor-box hidden">
           <h3>Proponer una idea para un nuevo plan</h3>
-          <p class="editor-help">No necesita formato legal ni calculos tecnicos: describa el problema que le afecta y que solucion sugiere.</p>
+          <p class="editor-help">No necesita formato legal ni cálculos técnicos: describa el problema que le afecta y qué solución sugiere.</p>
           
           <div class="field-row">
-            <label for="seed-title">Titulo breve de la propuesta</label>
-            <input type="text" id="seed-title" required placeholder="Ej. Red de residencias publicas comarcales para personas mayores" />
+            <label for="seed-title">Título breve de la propuesta</label>
+            <input type="text" id="seed-title" required placeholder="Ej. Red de residencias públicas comarcales para personas mayores" />
           </div>
 
           <div class="field-split">
             <div>
-              <label for="seed-category">Ambito tematico</label>
+              <label for="seed-category">Ámbito temático</label>
               <input type="text" id="seed-category" required placeholder="Ej. Servicios Sociales / Sanidad / Vivienda" />
             </div>
             <div>
-              <label for="seed-author">Su nombre o asociacion (opcional)</label>
+              <label for="seed-author">Su nombre o asociación (opcional)</label>
               <input type="text" id="seed-author" placeholder="Ej. Colectivo Ciudadano / Particular" />
             </div>
           </div>
 
           <div class="field-row">
-            <label for="seed-description">Descripcion del problema y propuesta</label>
-            <textarea id="seed-description" rows="3" required placeholder="Explique por que es necesario este plan y a quienes beneficiaria..."></textarea>
+            <label for="seed-description">Descripción del problema y propuesta</label>
+            <textarea id="seed-description" rows="3" required placeholder="Explique por qué es necesario este plan y a quiénes beneficiaría..."></textarea>
           </div>
 
           <div class="form-actions">
@@ -160,7 +160,7 @@
       </div>
     </section>
 
-    <!-- VISTA 2: LECTURA MONOGRAFICA DE GRAN ESCALA -->
+    <!-- VISTA 2: LECTURA MONOGRÁFICA DE GRAN ESCALA -->
     <section id="view-project" class="view-container hidden">
       <div class="project-nav-bar">
         <div class="nav-left">
@@ -170,7 +170,7 @@
           <div class="project-tags-top" id="project-meta-pills"></div>
         </div>
 
-        <!-- BOTON PARA ABRIR LA BARRA LATERAL BAJO DEMANDA -->
+        <!-- BOTÓN PARA ABRIR LA BARRA LATERAL BAJO DEMANDA -->
         <div class="nav-right">
           <button type="button" class="btn btn-primary btn-sm" id="btn-open-sidebar-drawer">
             Ver propuestas y debate (<span id="top-count-total">0</span>)
@@ -180,16 +180,16 @@
 
       <div class="project-title-block">
         <span class="project-code" id="plan-code">EXP-2026-MTES-042</span>
-        <h1 class="project-title" id="plan-title">Titulo del Plan</h1>
+        <h1 class="project-title" id="plan-title">Título del Plan</h1>
         <p class="project-lead" id="plan-summary">Resumen del plan...</p>
       </div>
 
-      <!-- LECTURA MONOGRAFICA PRINCIPAL (CENTRADA Y AMPLIA) -->
+      <!-- LECTURA MONOGRÁFICA PRINCIPAL (CENTRADA Y AMPLIA) -->
       <article class="monograph-reading-wrapper" id="monograph-sections-container">
-        <!-- Secciones inyectadas dinamicamente con boton de cambio inline -->
+        <!-- Secciones inyectadas dinámicamente con botón de cambio inline -->
       </article>
 
-      <!-- TELON DE FONDO PARA EL PANEL LATERAL BAJO DEMANDA -->
+      <!-- TELÓN DE FONDO PARA EL PANEL LATERAL BAJO DEMANDA -->
       <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
 
       <!-- PANEL LATERAL DESLIZANTE BAJO DEMANDA (DRAWER) -->
@@ -197,7 +197,7 @@
         <div class="drawer-header">
           <div>
             <h3>Propuestas y Debate del Plan</h3>
-            <span class="panel-subtitle">Revisiones articuladas y deliberacion ciudadana</span>
+            <span class="panel-subtitle">Revisiones articuladas y deliberación ciudadana</span>
           </div>
           <button type="button" class="btn btn-subtle btn-sm btn-close-drawer" id="btn-close-sidebar-drawer">
             &times; Cerrar
@@ -206,35 +206,35 @@
 
         <div class="drawer-actions">
           <button type="button" class="btn btn-secondary btn-block btn-sm" id="btn-open-opinion-drawer-form">
-            + Dejar una opinion o advertencia
+            + Dejar una opinión o advertencia
           </button>
         </div>
 
-        <!-- FORMULARIO DE OPINION DENTRO DEL PANEL LATERAL -->
+        <!-- FORMULARIO DE OPINIÓN DENTRO DEL PANEL LATERAL -->
         <form id="form-new-opinion" class="editor-box hidden">
-          <h4>Aportar una opinion o senalar un punto critico</h4>
+          <h4>Aportar una opinión o señalar un punto crítico</h4>
           
           <div class="field-row">
-            <label for="opinion-type">Tipo de aportacion</label>
+            <label for="opinion-type">Tipo de aportación</label>
             <select id="opinion-type" class="form-select">
-              <option value="Aportacion ciudadana">Aportacion ciudadana / Caso vivido</option>
+              <option value="Aportación ciudadana">Aportación ciudadana / Caso vivido</option>
               <option value="Alerta de debilidad">Alerta de debilidad o fallo operativo</option>
-              <option value="Propuesta tecnica">Observacion tecnica o economica</option>
+              <option value="Propuesta técnica">Observación técnica o económica</option>
             </select>
           </div>
 
           <div class="field-row">
-            <label for="opinion-text">Su comentario o caso practico</label>
+            <label for="opinion-text">Su comentario o caso práctico</label>
             <textarea id="opinion-text" rows="3" required placeholder="Exponga su experiencia, duda o aspecto no resuelto..."></textarea>
           </div>
 
           <div class="field-row">
-            <label for="opinion-author">Su nombre o asociacion (opcional)</label>
-            <input type="text" id="opinion-author" placeholder="Ej. Maria B. / Particular" />
+            <label for="opinion-author">Su nombre o asociación (opcional)</label>
+            <input type="text" id="opinion-author" placeholder="Ej. María B. / Particular" />
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary btn-sm">Publicar Opinion</button>
+            <button type="submit" class="btn btn-primary btn-sm">Publicar Opinión</button>
             <button type="button" class="btn btn-secondary btn-sm" id="btn-cancel-opinion">Cancelar</button>
           </div>
         </form>
@@ -257,8 +257,8 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>Democracia Colaborativa — Agora Normativa (Espana)</span>
-      <span>Participacion ciudadana e ingenieria de politicas publicas basadas en texto, lectura monografica y deliberacion abierta</span>
+      <span>Democracia Colaborativa — Ágora Normativa (España)</span>
+      <span>Participación ciudadana e ingeniería de políticas públicas basadas en texto, lectura monográfica y deliberación abierta</span>
     </div>
   </footer>
 

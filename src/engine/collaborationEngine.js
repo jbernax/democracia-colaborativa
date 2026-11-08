@@ -1,8 +1,8 @@
 /**
- * Motor de Colaboracion Normativa Progresiva ("Git para Politicas Publicas")
+ * Motor de Colaboración Normativa Progresiva ("Git para Políticas Públicas")
  * Gestiona Semillas ("Pendientes de Elaborar"), Enmiendas de Dominio (PRs parciales),
- * Co-autoria multidisciplinar, Auditorias de Debilidad (Stress Tests), Diffs normativos
- * e Indice de Calidad y Madurez Normativa (ICMN).
+ * Co-autoría multidisciplinar, Auditorías de Debilidad (Stress Tests), Diffs normativos
+ * e Índice de Calidad y Madurez Normativa (ICMN).
  */
 
 import { simulatePlanImpact, computeImpactDelta } from './impactSimulator.js';
@@ -10,28 +10,28 @@ import { simulatePlanImpact, computeImpactDelta } from './impactSimulator.js';
 export const POLICY_DOMAINS = Object.freeze({
   juridico: {
     id: 'juridico',
-    label: 'Juridico y Normativo',
-    description: 'Redaccion articulada (ET / LGSS), encaje constitucional y Directivas UE'
+    label: 'Jurídico y Normativo',
+    description: 'Redacción articulada (ET / LGSS), encaje constitucional y Directivas UE'
   },
   economico: {
     id: 'economico',
-    label: 'Economico y Presupuestario (AIReF)',
+    label: 'Económico y Presupuestario (AIReF)',
     description: 'Coste para Seguridad Social, retorno fiscal IRPF/IVA y sostenibilidad'
   },
   laboral_pyme: {
     id: 'laboral_pyme',
-    label: 'Laboral, PYMEs y Autonomos (RETA)',
+    label: 'Laboral, PYMEs y Autónomos (RETA)',
     description: 'Viabilidad de turnos, contratos de relevo en micropymes y cobertura RETA'
   },
   social_igualdad: {
     id: 'social_igualdad',
-    label: 'Social, Demografico e Igualdad',
-    description: 'Corresponsabilidad, reduccion de brecha salarial, monoparentalidad y crianza'
+    label: 'Social, Demográfico e Igualdad',
+    description: 'Corresponsabilidad, reducción de brecha salarial, monoparentalidad y crianza'
   },
   ambiental_territorial: {
     id: 'ambiental_territorial',
-    label: 'Medioambiental y Reto Demografico',
-    description: 'Reduccion de movilidad pendular (CO2) y viabilidad en municipios rurales'
+    label: 'Medioambiental y Reto Demográfico',
+    description: 'Reducción de movilidad pendular (CO2) y viabilidad en municipios rurales'
   }
 });
 
@@ -44,12 +44,12 @@ export const MATURITY_LEVELS = Object.freeze({
   LEVEL_2_SCOPED_PR: {
     code: 'nivel_2_enmienda_dominio',
     level: 2,
-    label: 'Nivel 2: Enmienda de Dominio (Solicita Co-autoria)'
+    label: 'Nivel 2: Enmienda de Dominio (Solicita Co-autoría)'
   },
   LEVEL_3_INTEGRATED_PR: {
     code: 'nivel_3_enmienda_integrada',
     level: 3,
-    label: 'Nivel 3: Enmienda Integrada (Lista para Revision y Fusion)'
+    label: 'Nivel 3: Enmienda Integrada (Lista para Revisión y Fusión)'
   },
   LEVEL_4_MERGED: {
     code: 'nivel_4_consolidada',
@@ -139,13 +139,13 @@ export function evaluateStakeholderSatisfaction(impact, branchWeaknesses = []) {
   const scores = [
     {
       stakeholderId: 'sindicatos_trabajadores',
-      label: 'Representacion Sindical y Laboral',
+      label: 'Representación Sindical y Laboral',
       score: unionsScore,
       minimumThreshold: 68
     },
     {
       stakeholderId: 'pymes_autonomos',
-      label: 'Asociaciones de PYMEs y Autonomos (RETA)',
+      label: 'Asociaciones de PYMEs y Autónomos (RETA)',
       score: smeRetaScore,
       minimumThreshold: 65
     },
@@ -227,13 +227,13 @@ export function calculateReadinessScore(branch, allWeaknesses = []) {
   );
 
   const readyForLegislation = totalScore >= 80 && openCriticalCount === 0;
-  let statusLabel = 'En Elaboracion y Auditoria Abierta';
+  let statusLabel = 'En Elaboración y Auditoría Abierta';
   if (readyForLegislation) {
     statusLabel = 'Apta para Tramitacion Legislativa (ICMN >= 80 y 0 Debilidades Criticas)';
   } else if (openCriticalCount > 0) {
     statusLabel = `Bloqueada por ${openCriticalCount} Debilidad(es) Critica(s) sin Mitigar`;
   } else if (totalScore >= 70) {
-    statusLabel = 'Madurez Avanzada (Requiere Ajustes de Consenso o Co-autoria)';
+    statusLabel = 'Madurez Avanzada (Requiere Ajustes de Consenso o Co-autoría)';
   }
 
   return {
@@ -590,7 +590,7 @@ export function mergeAmendment(state, amendmentId, reviewerNote = '') {
   }
   if (amendment.pendingDomains.length > 0) {
     throw new Error(
-      `No se puede fusionar la enmienda mientras existan dominios pendientes de co-autoria: ${amendment.pendingDomains.join(', ')}`
+      `No se puede fusionar la enmienda mientras existan dominios pendientes de co-autoría: ${amendment.pendingDomains.join(', ')}`
     );
   }
 
