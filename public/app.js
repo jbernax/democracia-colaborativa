@@ -948,17 +948,6 @@ function setupEventListeners() {
   setupSeedForm();
   setupDebateDrawer();
   setupMethodScrolly();
-
-  document.getElementById('btn-reset-data')?.addEventListener('click', async () => {
-    try {
-      await fetchJson('/api/reset', { method: 'POST' });
-      state.projects = [];
-      showNotification('Catálogo restaurado al estado inicial.');
-      await handleRouting();
-    } catch (err) {
-      showNotification(err.message, true);
-    }
-  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
