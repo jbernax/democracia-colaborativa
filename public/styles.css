@@ -28,7 +28,7 @@
   --diff-removed-ink: #A12A1E;
   --diff-removed-surface: rgba(180, 35, 24, 0.07);
 
-  --font-editorial: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-editorial: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
   --font-label: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
 
@@ -515,8 +515,7 @@ select:focus {
 .hero-display {
   font-family: var(--font-editorial);
   font-size: var(--text-display);
-  font-weight: 500;
-  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.02;
   max-width: 14ch;
@@ -524,8 +523,8 @@ select:focus {
 }
 
 .hero-display em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 600;
   color: var(--accent-primary);
 }
 
@@ -1017,8 +1016,7 @@ select:focus {
 .plan-display {
   font-family: var(--font-editorial);
   font-size: clamp(2rem, 4.6vw, 4.2rem);
-  font-weight: 500;
-  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
   letter-spacing: -0.032em;
   line-height: 1.05;
   max-width: 20ch;
