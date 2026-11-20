@@ -1,102 +1,102 @@
-# Marco de Democracia Colaborativa e Ingeniería Normativa Abierta (Piloto España)
+# Marco de democracia colaborativa en España
 
-## 1. Propósito y Diagnóstico Institucional
+## 1. Qué problema intenta resolver
 
-Los sistemas democráticos contemporáneos operan con un desfase estructural entre la complejidad técnica de las políticas públicas y los mecanismos disponibles para deliberar sobre ellas. En la práctica parlamentaria y administrativa actual:
+Hoy en día, las leyes y planes públicos suelen llegar cerrados y cuesta mucho participar en ellos con rigor. En la práctica pasan tres cosas:
 
-1. **Fragmentación por bloques y conflicto binario**: Los planes gubernamentales y proyectos de ley suelen presentarse como paquetes cerrados donde la oposición y los agentes sociales se ven forzados a aceptar o rechazar el bloque completo, desperdiciando áreas de consenso técnico transversal.
-2. **Opacidad de los efectos de segundo y tercer orden**: Una medida bienintencionada en un ámbito (por ejemplo, ampliar una reducción de jornada) puede generar efectos adversos no previstos en otros ejes (como la contratación en micropymes de menos de diez trabajadores, la desprotección de trabajadoras autónomas sin relevo disponible o la brecha futura en pensiones contributivas) si no se modela el sistema completo.
-3. **Barreras de entrada asimétricas en la participación pública**: El actual trámite de *Audiencia e Información Pública* (Art. 133 de la Ley 39/2015) recoge alegaciones en documentos aislados (PDF o texto libre) que no dialogan entre sí, no se versionan, no permiten que un especialista jurídico complemente la idea de un ciudadano afectado, ni obligan a cuantificar cómo altera cada propuesta la Memoria del Análisis de Impacto Normativo (MAIN).
+1. **Todo o nada**: los planes llegan como paquetes cerrados. La oposición y los grupos afectados solo pueden aceptar o rechazar el bloque entero, aunque coincidan en la mitad de las medidas.
+2. **Efectos ocultos en otros sectores**: una buena idea en un área (por ejemplo, reducir la jornada tras un nacimiento) puede causar problemas en otra si no se miran las consecuencias. Puede complicar los turnos en pymes de menos de diez personas o dejar atrás a las autónomas.
+3. **Alegaciones sueltas**: en las consultas públicas actuales (art. 133 de la Ley 39/2015), la gente envía PDFs que nadie cruza entre sí. Un vecino afectado no puede juntar su experiencia con el análisis de un abogado o un economista.
 
-El **Marco de Democracia Colaborativa (Ágora Normativa)** resuelve estas tres deficiencias trasladando los principios del control de versiones distribuido (Git), la revisión por pares multidisciplinar y las pruebas de estrés (*red-teaming*) al diseño de planes públicos en España, priorizando un objetivo único: **la máxima calidad técnica, económica, jurídica y social de las soluciones adoptadas**.
-
----
-
-## 2. Anclaje Jurídico y Administrativo en España
-
-Para ser inmediatamente operativo sin requerir una reforma constitucional previa, el marco se despliega como una infraestructura técnica de elaboración normativa acoplada a cuatro instrumentos vigentes del ordenamiento jurídico español:
-
-### 2.1. Ley 39/2015 (LPACAP, Art. 133) y Ley 50/1997 del Gobierno (Art. 26)
-Sustituye el buzón pasivo de alegaciones en las fases de *Consulta Pública Previa* y *Audiencia e Información Pública* por un **Expediente Normativo Versionado**. Cada aportación ciudadana o técnica queda vinculada a un artículo, parámetro presupuestario o supuesto de hecho específico, manteniendo trazabilidad pública de qué enmiendas se han incorporado, cuáles están pendientes de co-autoría y por qué razón técnica se ha descartado o modificado una alternativa.
-
-### 2.2. Real Decreto 931/2017: Memoria del Análisis de Impacto Normativo (MAIN) Viva
-En lugar de redactar la MAIN como un documento burocrático *ex post* para justificar una decisión ya tomada, la MAIN se convierte en el **modelo computacional activo del plan**. Cualquier rama o modificación propuesta recalcula y expone de forma transparente cinco ejes obligatorios:
-- **Eje 1 — Impacto Económico y Presupuestario**: Coste bruto para la Seguridad Social o Presupuestos Generales del Estado, retornos fiscales inducidos (IRPF, IVA, mantenimiento de empleo), coste neto anual y coste por beneficiario.
-- **Eje 2 — Impacto Laboral, Empresarial y en PYMEs (*Test PYME*)**: Retención en el mercado de trabajo, fricción organizativa en microempresas (<10 empleados), cobertura efectiva del Régimen Especial de Trabajadores Autónomos (RETA) y costes de sustitución.
-- **Eje 3 — Impacto Social, Demográfico y por Razón de Género**: Reducción de la penalización salarial por maternidad (*child penalty*), índice de corresponsabilidad entre progenitores, equidad en familias monoparentales y horas de cuidado presencial en la primera infancia.
-- **Eje 4 — Impacto Medioambiental y Territorial (*Reto Demográfico*)**: Reducción de desplazamientos pendulares diarios, ahorro anual en emisiones equivalentes ($\text{ktCO}_2\text{e}/\text{año}$) y viabilidad de aplicación en municipios rurales (<5.000 habitantes).
-- **Eje 5 — Viabilidad Jurídica y Operativa**: Artículos modificados (*Estatuto de los Trabajadores*, *Ley General de la Seguridad Social*, *Estatuto del Trabajo Autónomo*), adecuación a Directivas de la Unión Europea y jurisprudencia constitucional, y tiempo requerido de adaptación informática por el INSS y la TGSS.
-
-### 2.3. Metodología de Evaluación Independiente (Estilo AIReF)
-Los modelos paramétricos del plan utilizan supuestos demográficos y macroeconómicos explícitos y auditables (encuestas de población activa del INE, tablas salariales, distribución de empresas por tamaño del DIRCE y series de prestaciones del Ministerio de Inclusión, Seguridad Social y Migraciones). Cualquier partido, sindicato, organización empresarial o ciudadano puede inspeccionar los supuestos y comprobar el impacto bajo escenarios de sensibilidad pesimista, central u optimista.
+Este marco aplica a las políticas públicas la forma de trabajar por versiones (como en Git), el análisis entre varias disciplinas y la revisión abierta de fallos. El objetivo es sencillo: sacar adelante normas más claras, mejor pensadas y con más acuerdo.
 
 ---
 
-## 3. La Tubería de Elaboración Progresiva (Resolución del Dilema Rigor vs. Accesibilidad)
+## 2. Cómo encaja en la ley española actual
 
-Un fallo habitual de los sistemas técnicos de participación es exigir que cada proponente entregue una propuesta perfecta y completa en todos los ámbitos. Si a un ciudadano que detecta un problema real en el medio rural, o a un abogado laboralista que identifica una inconstitucionalidad en un inciso del artículo 37.6 del Estatuto de los Trabajadores, se le exige además calcular el impacto en emisiones de $\text{CO}_2$ y el coste actuarial para la Seguridad Social, su conocimiento se pierde.
+Este sistema funciona dentro de las leyes españolas vigentes, sin necesidad de cambiar la Constitución. Se apoya en tres herramientas que ya existen:
 
-Por el contrario, si se aceptan propuestas sin rigor ni evaluación de impacto, la calidad del plan se degrada.
+### 2.1. Ley 39/2015 (art. 133) y Ley 50/1997 del Gobierno (art. 26)
+Cambia el buzón de PDFs sueltos de las consultas públicas por un expediente abierto con historial. Cada comentario o propuesta apunta a un apartado o cifra concreta. Así todo el mundo ve qué cambios se han aceptado, cuáles siguen esperando análisis y por qué se descartó una alternativa.
 
-El marco resuelve esta tensión mediante una **Tubería de Elaboración Progresiva en 4 Niveles**, donde el rigor es una propiedad exigida al **plan consolidado**, pero las aportaciones individuales pueden entrar con el nivel de especialización que cada participante posea:
+### 2.2. Real Decreto 931/2017: análisis de impacto vivo (MAIN)
+En lugar de escribir la Memoria del Análisis de Impacto Normativo (MAIN) al final solo para cumplir el trámite, aquí funciona como una calculadora viva. Cada cambio que propones actualiza cinco áreas clave:
 
-### Nivel 1: Idea Ciudadana ("Pendiente de Elaborar")
-- **Quién participa**: Cualquier ciudadano, trabajador afectado, pequeña empresa o colectivo social.
-- **Qué aporta**: Una intuición constructiva, la descripción de un caso cotidiano no contemplado por la norma, o una propuesta preliminar en lenguaje natural. No requiere redactar texto legal ni rellenar tablas económicas.
-- **Cómo actúa el sistema**: Registra la idea vinculándola al ámbito del plan y genera automáticamente **Etiquetas de Especialidad Requerida** (por ejemplo: `[Requiere Desarrollo Jurídico]`, `[Requiere Cuantificación Presupuestaria]`, `[Requiere Diseño Operativo PYME]`).
+| Área | Qué mide |
+| :--- | :--- |
+| 1. Cuentas públicas | Coste bruto para Hacienda o la Seguridad Social, retorno en impuestos y coste neto por persona. |
+| 2. Empleo y pymes | Cómo afecta a la contratación, a los turnos en empresas de menos de 10 personas y a los autónomos (RETA). |
+| 3. Impacto social e igualdad | Brecha salarial, tiempo de cuidado, reparto entre madres y padres y familias monoparentales. |
+| 4. Clima y medio rural | Ahorro de desplazamientos, emisiones de $\text{CO}_2$ ($\text{ktCO}_2\text{e}/\text{año}$) y viabilidad en pueblos de menos de 5.000 habitantes. |
+| 5. Encaje legal y plazos | Leyes que cambian (*Estatuto de los Trabajadores*, *Ley General de la Seguridad Social*, *Estatuto del Trabajo Autónomo*), respeto a normas europeas y meses que tarda el INSS en ponerlo en marcha. |
 
-### Nivel 2: Enmienda de Dominio (Pull Request Parcial Especializado)
-- **Quién participa**: Especialistas en una disciplina concreta (juristas del trabajo, economistas fiscales, técnicos de igualdad, ingenieros ambientales, graduados sociales, gestores administrativos).
-- **Qué aporta**: Una modificación rigurosa dentro de su propio dominio de competencia —por ejemplo, la redacción técnica exacta de un apartado del artículo 37.6 del Estatuto de los Trabajadores o la estimación del coste de bonificación de contratos de interinidad—, bien por iniciativa propia o adoptando una Idea de Nivel 1.
-- **Cómo actúa el sistema**: Valida el dominio cubierto por el especialista y publica la enmienda en el estado `Solicita Co-autoría Multidisciplinar`, listando explícitamente qué dominios de la MAIN faltan por completar antes de que la enmienda pueda fusionarse.
-
-### Nivel 3: Enmienda Integrada Co-autorada (Pull Request Completo)
-- **Quién participa**: Equipos multidisciplinares espontáneos o estructurados (cuando un economista, un técnico ambiental o un representante sectorial completa los dominios pendientes de una Enmienda de Nivel 2).
-- **Qué aporta**: El diferencial normativo completo (*diff* de artículos), la variación paramétrica si procede y la evaluación en los ejes afectados de la MAIN, junto con la verificación de que no introduce nuevas debilidades críticas sin mitigar.
-- **Cómo actúa el sistema**: Calcula automáticamente el diferencial de impacto ($\Delta$) frente a la rama base y habilita la revisión final para su fusión, reconociendo la co-autoría explícita de quien aportó la idea original y de cada especialista que completó un dominio.
-
-### Nivel 4: Disposición Consolidada (Fusión en Rama o Tronco Común)
-- **Resultado**: La enmienda se incorpora al historial versionado del plan (*commit normativo*), actualiza el texto articulado y las proyecciones presupuestarias/sociales, y cierra las auditorías de debilidad que haya mitigado.
+### 2.3. Datos abiertos y verificables (estilo AIReF)
+Todos los cálculos parten de datos oficiales y públicos (INE, DIRCE y Seguridad Social). Cualquier partido, sindicato, asociación o ciudadano puede revisar las cifras y probar escenarios optimistas o pesimistas.
 
 ---
 
-## 4. Auditoría Sistemática de Debilidades (Stress Testing Público)
+## 3. Cómo participa cada persona (4 niveles)
 
-En la democracia adversarial tradicional, las debilidades de un plan se utilizan como arma retórica para desacreditar la totalidad de la propuesta, o bien son ocultadas por el proponente para evitar costes políticos. En el Marco de Democracia Colaborativa, **exponer una debilidad real con rigor es una contribución de primer orden**.
+Muchas plataformas piden a todo el mundo textos legales perfectos y cálculos económicos desde el primer día. Si a un vecino de un pueblo o a un abogado laboralista le exiges calcular emisiones de $\text{CO}_2$ y el gasto para la Seguridad Social, deja de participar.
 
-1. **Registro Estructurado de Debilidades**: Cualquier participante puede abrir un expediente de debilidad (*Stress Test*) indicando:
-   - Artículo o supuesto donde se produce el fallo.
-   - Colectivo, sector o territorio perjudicado (ej. *trabajadoras autónomas sin asalariados*, *familias monoparentales*, *turnos continuos en pymes industriales*).
-   - Severidad objetiva:
-     - `Crítica (Bloqueante)`: Vulneración constitucional o legal, inviabilidad presupuestaria o exclusión grave de un colectivo vulnerable. Impide que la rama supere el umbral de madurez para aprobación definitiva hasta que exista una cláusula de mitigación verificada.
-     - `Alta`: Fricción operativa importante o efecto económico regresivo secundario que reduce sustancialmente el Índice de Madurez.
-     - `Moderada (Caso Límite)`: Supuesto específico que requiere aclaración reglamentaria o ajuste técnico.
-2. **Trazabilidad de Mitigación**: Una debilidad nunca se borra; pasa del estado `Abierta` a `En Mitigación` cuando una Enmienda (PR) se vincula a ella, y a `Mitigada y Verificada` cuando dicha enmienda se fusiona en el plan.
+Por el contrario, aceptar ideas sin revisar sus consecuencias baja la calidad de la ley.
+
+Aquí el rigor se exige al **plan final**, no a cada aportación individual. Cualquier propuesta va sumando piezas paso a paso en cuatro niveles:
+
+### Nivel 1: idea ciudadana
+- **Quién participa**: cualquier persona, trabajador, autónomo o asociación.
+- **Qué aporta**: cuenta un problema real o una idea con sus palabras, sin redactar artículos legales ni hacer números.
+- **Qué hace el sistema**: guarda la idea y marca qué áreas faltan por analizar (por ejemplo, encaje legal, presupuesto o efecto en pymes).
+
+### Nivel 2: propuesta de un área
+- **Quién participa**: especialistas en derecho, economía, igualdad, medio ambiente o gestión laboral.
+- **Qué aporta**: redacta el cambio concreto en su campo o desarrolla una idea de nivel 1.
+- **Qué hace el sistema**: valida esa parte y deja la propuesta en estado `Solicita co-autoría`, indicando qué áreas quedan pendientes.
+
+### Nivel 3: propuesta completa
+- **Quién participa**: equipos formados de manera abierta cuando otros especialistas cubren las áreas que faltaban.
+- **Qué aporta**: el cambio exacto de texto, las nuevas cifras de impacto y la comprobación de que no crea fallos graves nuevos.
+- **Qué hace el sistema**: calcula la diferencia ($\Delta$) frente a la opción actual, muestra a todas las personas autoras y deja la propuesta lista para incorporar.
+
+### Nivel 4: texto incorporado al plan
+- **Qué pasa**: el cambio entra en el texto oficial del plan, queda registrado en el historial y cierra los fallos que haya resuelto.
 
 ---
 
-## 5. Arquitectura de Consenso Multipartidista: Tronco Común y Ramas de Exploración
+## 4. Detectar puntos débiles desde el principio
 
-Para superar la lógica de confrontación entre partidos políticos y agentes sociales, cada plan se estructura en dos capas:
+En el debate político clásico, señalar un fallo sirve para tumbar el plan entero, y quien lo propone suele esconder los problemas para evitar críticas. Aquí ocurre al revés: **encontrar un fallo real a tiempo ayuda a mejorar el plan**.
 
-1. **Tronco Común Consolidado (`tronco-comun`)**: Contiene el diagnóstico compartido y los artículos sobre los que existe consenso técnico y transversal (por ejemplo, que el ejercicio de la reincorporación progresiva compute al 100% de la base de cotización a efectos de jubilación y protección frente al despido improcedente).
-2. **Ramas de Exploración (`ramas`)**: Cuando existen visiones legítimamente distintas sobre cómo distribuir los esfuerzos presupuestarios y organizativos, en lugar de bloquear la reforma se abren ramas paralelas completamente modeladas bajo los mismos datos base:
-   - Cada rama mantiene sus propios parámetros, redacción articulada de los preceptos en disputa y métricas MAIN calculadas con idéntica metodología.
-   - La **Matriz de Puentes y Compromisos (*Bridging Matrix*)** cruza las ramas con las prioridades de los distintos actores (sindicatos, organizaciones empresariales de PYMEs, grupos parlamentarios de distinto signo, colectivos de familias y hacienda pública), identificando qué combinación de cláusulas maximiza el bienestar agregado y minimiza los vetos cruzados.
-   - A partir de esa matriz, se promueven **Enmiendas de Síntesis**: propuestas híbridas que toman, por ejemplo, el mecanismo de control horario flexible de una rama y el escudo protector para micropymes de otra.
+Cualquiera puede abrir un aviso de punto débil indicando qué apartado falla, a quién perjudica (por ejemplo, autónomas sin empleados o familias monoparentales) y su gravedad:
+
+- `Crítica`: choca con una ley superior, es imposible de pagar o deja fuera a un grupo vulnerable. Bloquea la aprobación del plan hasta que exista una solución probada.
+- `Alta`: causa problemas serios de organización o efectos injustos, y baja mucho la nota del plan.
+- `Moderada`: afecta a un caso concreto que necesita un ajuste o aclaración.
+
+Los avisos nunca se borran. Pasan de `Abierta` a `En mitigación` cuando una propuesta intenta resolverlos, y a `Mitigada` cuando esa solución entra en el texto del plan.
 
 ---
 
-## 6. Índice de Calidad y Madurez Normativa (ICMN)
+## 5. Puntos en común y opciones alternativas
 
-Ningún plan o rama se evalúa por votos de popularidad simple ("me gusta / no me gusta"), vulnerables a campañas de movilización coordinada, sino mediante el **Índice de Calidad y Madurez Normativa ($\text{ICMN} \in [0, 100]$)**, compuesto por cuatro factores auditables:
+Para evitar bloqueos de todo o nada, cada plan separa lo que ya genera acuerdo de lo que sigue abierto:
+
+1. **Puntos ya acordados (`tronco-comun`)**: incluye el diagnóstico compartido y las reglas en las que casi todo el mundo coincide. Por ejemplo, que la cotización para la pensión siga al 100% durante la reducción de jornada.
+2. **Opciones paralelas (`ramas`)**: cuando hay formas distintas de repartir el presupuesto o los plazos, se comparan varias opciones bajo los mismos datos oficiales.
+
+El simulador cruza cada opción con las prioridades de sindicatos, pymes, cuentas públicas, familias y mundo rural. Así se ve dónde hay acuerdo y se pueden combinar las mejores ideas de dos opciones en una propuesta nueva.
+
+---
+
+## 6. Nota de calidad del plan (ICMN)
+
+Los planes no se aprueban por votos simples de «me gusta» o «no me gusta», que son fáciles de manipular. Se miden con el **Índice de Calidad y Madurez Normativa ($\text{ICMN} \in [0, 100]$)**, formado por cuatro notas visibles:
 
 $$\text{ICMN} = 0.30 \cdot C_{\text{MAIN}} + 0.30 \cdot S_{\text{Auditoría}} + 0.20 \cdot P_{\text{Consenso}} + 0.20 \cdot R_{\text{Jurídico}}$$
 
-Donde:
-- $C_{\text{MAIN}} \in [0, 100]$ (**Completitud Multidisciplinar MAIN**): Porcentaje de cobertura verificada de los 5 ejes de impacto (Económico, Laboral/PYME, Social/Igualdad, Ambiental/Territorial y Jurídico/Operativo).
-- $S_{\text{Auditoría}} \in [0, 100]$ (**Solidez frente a Debilidades**): Parte de 100 y descuenta penalizaciones por cada debilidad abierta según su severidad ($-25$ por cada debilidad `Crítica`, $-12$ por cada `Alta`, $-5$ por cada `Moderada`), recuperando la puntuación a medida que se fusionan enmiendas mitigadoras.
-- $P_{\text{Consenso}} \in [0, 100]$ (**Índice de Puente Transversal**): Mide la proporción de sectores y sensibilidades distintas (laboral, empresarial, fiscal, familiar, territorial) cuyas exigencias mínimas de viabilidad quedan satisfechas simultáneamente por la rama.
-- $R_{\text{Jurídico}} \in [0, 100]$ (**Precisión Normativa y Operativa**): Evalúa el grado de concreción del texto articulado, su compatibilidad con el marco constitucional/europeo y la viabilidad de los plazos de implantación administrativa.
+- $C_{\text{MAIN}} \in [0, 100]$ (**Áreas de impacto cubiertas**): cuántas de las cinco áreas MAIN están analizadas y cubiertas.
+- $S_{\text{Auditoría}} \in [0, 100]$ (**Resistencia a fallos**): empieza en 100 y resta puntos por cada fallo abierto ($-25$ por fallo `Crítico`, $-12$ por `Alto` y $-5$ por `Moderado`). Recupera puntos al resolverse.
+- $P_{\text{Consenso}} \in [0, 100]$ (**Acuerdo entre sectores**): mide cuántos sectores distintos (trabajadores, pymes, cuentas públicas, familias y medio rural) cumplen sus requisitos mínimos.
+- $R_{\text{Jurídico}} \in [0, 100]$ (**Claridad del texto**): valora si los artículos son concretos, respetan la ley y tienen plazos realistas.
 
-> **Regla de Calidad**: Una rama solo alcanza el estado `Apta para Tramitación Legislativa` cuando $\text{ICMN} \ge 80$ y el número de debilidades de severidad `Crítica` abiertas es exactamente $0$.
+> **Regla de calidad**: un plan solo queda listo para tramitar cuando logra $\text{ICMN} \ge 80$ y tiene exactamente $0$ fallos `Críticos` abiertos.
