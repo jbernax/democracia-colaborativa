@@ -1,0 +1,118 @@
+{
+  "id": "teletrabajo-municipios-rurales",
+  "code": "EXP-2026-TRD-018",
+  "title": "Plan de internet de alta velocidad y teletrabajo en los pueblos",
+  "category": "Desarrollo rural y reto demográfico",
+  "stage": "Pendiente de aportaciones",
+  "author": "Mesa de municipios rurales",
+  "summary": "Espacios comarcales de trabajo compartido con fibra óptica, rebajas fiscales para empresas con teletrabajadores en pueblos de menos de 5.000 habitantes e internet subvencionado.",
+  "createdAt": "2026-10-18",
+  "updatedAt": "2026-10-29",
+  "popularity": 98,
+  "mainCoverage": {
+    "juridico": true,
+    "economico": true,
+    "laboral_pyme": false,
+    "social_igualdad": false,
+    "ambiental_territorial": true
+  },
+  "monograph": [
+    {
+      "id": "diagnostico",
+      "title": "1. El problema: despoblación y falta de conexión fiable",
+      "content": "Más del 60% de los pueblos de España tiene menos de 1.000 habitantes y pierde población joven cada año. Sin embargo, muchos trabajos técnicos y de oficina ya se pueden hacer a distancia si hay buena conexión y servicios básicos.\n\nHoy existen tres frenos claros: cortes de red en núcleos pequeños, falta de incentivos para que las empresas autoricen el teletrabajo desde un pueblo y aislamiento de quienes trabajan solos desde casa."
+    },
+    {
+      "id": "articulado",
+      "title": "2. Medidas y texto legal propuesto",
+      "content": "1. Red de espacios comarcales de trabajo: el Estado y las comunidades autónomas financiarán un centro público de trabajo compartido en cada comarca rural de menos de 15.000 habitantes, equipado con fibra óptica, enlace satélite de respaldo y sala multiusos.\n2. Rebaja fiscal por puesto en el medio rural: las empresas deducirán 2.000 euros al año en el Impuesto sobre Sociedades por cada empleado que viva y tribute en un pueblo de menos de 5.000 habitantes y teletrabaje al menos el 80% de su jornada.\n3. Tarifa reducida de internet: subvención del 50% en la factura de banda ancha para autónomos y teletrabajadores en pueblos prioritarios."
+    },
+    {
+      "id": "impacto",
+      "title": "3. Costes y efectos previstos",
+      "content": "Abrir los centros comarcales costará 140 millones de euros repartidos en tres años, y las deducciones fiscales supondrán unos 65 millones de euros al año.\n\nCon este impulso podrían instalarse 28.000 familias en pueblos en los tres primeros años. Eso daría vida al comercio local, ayudaría a mantener abiertas las escuelas rurales y evitaría más de 45 kilotoneladas de CO2 al año en desplazamientos en coche."
+    },
+    {
+      "id": "puntos-criticos",
+      "title": "4. Dudas abiertas y puntos a revisar",
+      "content": "Puntos abiertos a debate:\n- Cómo comprobar que el trabajador vive de verdad en el pueblo y no usa el padrón solo para pagar menos impuestos.\n- Si conviene que los centros de trabajo compartido los lleven cooperativas locales o el propio ayuntamiento.\n- Qué servicios básicos hacen falta a la vez (médico rural y transporte a demanda) para que las familias se queden."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "prop-rural-1",
+      "sectionId": "articulado",
+      "title": "Incluir en la deducción a las microempresas que ya están en el pueblo",
+      "author": "Asociación de Jóvenes Agricultores y Autónomos Rurales",
+      "originalText": "1. Red de espacios comarcales de trabajo: el Estado y las comunidades autónomas financiarán un centro público de trabajo compartido en cada comarca rural de menos de 15.000 habitantes, equipado con fibra óptica, enlace satélite de respaldo y sala multiusos.\n2. Rebaja fiscal por puesto en el medio rural: las empresas deducirán 2.000 euros al año en el Impuesto sobre Sociedades por cada empleado que viva y tribute en un pueblo de menos de 5.000 habitantes y teletrabaje al menos el 80% de su jornada.\n3. Tarifa reducida de internet: subvención del 50% en la factura de banda ancha para autónomos y teletrabajadores en pueblos prioritarios.",
+      "proposedText": "1. Red de espacios comarcales de trabajo: el Estado y las comunidades autónomas financiarán un centro público de trabajo compartido en cada comarca rural de menos de 15.000 habitantes, equipado con fibra óptica, enlace satélite de respaldo y sala multiusos.\n2. Rebaja fiscal por puesto en el medio rural: las empresas deducirán 2.000 euros al año en el Impuesto sobre Sociedades por cada empleado que traslade o mantenga su residencia real y domicilio fiscal en un pueblo de menos de 5.000 habitantes. Esta ayuda también se aplicará a las microempresas del propio pueblo que contraten a vecinos residentes.\n3. Tarifa reducida de internet: subvención del 50% en la factura de banda ancha para autónomos y teletrabajadores en pueblos prioritarios.",
+      "reason": "No basta con atraer a teletrabajadores de fuera. También hay que apoyar a las pequeñas empresas y vecinos que ya viven y mantienen empleo en el pueblo.",
+      "requiredDomains": ["laboral_pyme", "economico", "juridico"],
+      "domainAnalyses": {
+        "laboral_pyme": "Evita tratar peor a los comercios, talleres y cooperativas rurales que ya crean empleo estable todo el año."
+      },
+      "coAuthors": [
+        {
+          "name": "Asociación de Jóvenes Agricultores y Autónomos Rurales",
+          "role": "Representación del medio rural",
+          "contributedDomains": ["laboral_pyme"],
+          "date": "2026-10-27"
+        }
+      ],
+      "mitigatesWeaknessIds": [],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-10-27"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "deb-rural-01",
+      "title": "Riesgo de empadronamientos falsos para cobrar la rebaja fiscal",
+      "description": "Si no se comprueba la estancia real durante al menos 183 días al año (con consumo de luz o colegio), la deducción de 2.000 euros podría usarse desde segundas residencias.",
+      "severity": "alta",
+      "domain": "economico",
+      "sectionId": "articulado",
+      "affectedGroup": "Hacienda pública y pequeños ayuntamientos",
+      "reportedBy": "Observatorio fiscal y territorial",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-26"
+    },
+    {
+      "id": "deb-rural-02",
+      "title": "Falta servicio de guardería en los espacios de trabajo compartido",
+      "description": "En pueblos sin escuela infantil, un espacio de teletrabajo sin ludoteca por horas impide que madres y padres con bebés de 0 a 3 años puedan usarlo.",
+      "severity": "moderada",
+      "domain": "social_igualdad",
+      "sectionId": "puntos-criticos",
+      "affectedGroup": "Familias jóvenes en pueblos de menos de 5.000 habitantes",
+      "reportedBy": "Ayuntamiento comarcal piloto (Teruel)",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-26"
+    }
+  ],
+  "opinions": [
+    {
+      "id": "op-r-1",
+      "author": "Manuel B. (Alcalde de un municipio en Teruel)",
+      "type": "Aportación ciudadana",
+      "sectionId": "articulado",
+      "text": "El centro comarcal de teletrabajo necesita un espacio infantil por horas. Si no hay dónde dejar al bebé, las parejas jóvenes no pueden trabajar allí.",
+      "createdAt": "2026-10-26"
+    }
+  ],
+  "commitHistory": [
+    {
+      "commitId": "rev-rural-01",
+      "date": "2026-10-18",
+      "sectionId": "expediente",
+      "proposalId": null,
+      "title": "Apertura del expediente EXP-2026-TRD-018",
+      "coAuthors": ["Mesa de municipios rurales"],
+      "mitigatedWeaknesses": []
+    }
+  ]
+}

@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Democracia Colaborativa | Ágora Normativa</title>
-  <meta name="description" content="Plataforma abierta para revisar, debatir y mejorar los planes de la administración pública." />
+  <title>Democracia colaborativa | Ágora normativa</title>
+  <meta name="description" content="Plataforma abierta para leer planes públicos, detectar fallos, proponer cambios y simular su impacto." />
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
@@ -16,13 +17,13 @@
   <header class="workbench-topbar">
     <div class="topbar-inner">
       <a href="#landing" class="wordmark" id="nav-brand-home">
-        <span class="wordmark-name">Democracia Colaborativa</span>
-        <span class="wordmark-sub">Ágora Normativa</span>
+        <span class="wordmark-name">Democracia colaborativa</span>
+        <span class="wordmark-sub">Ágora normativa</span>
       </a>
 
       <nav class="topbar-nav landing-only" aria-label="Secciones de la portada">
         <a href="#catalogo">Planes</a>
-        <a href="#metodo">Método</a>
+        <a href="#metodo">Cómo funciona</a>
         <a href="#ideas">Ideas</a>
       </nav>
 
@@ -33,7 +34,7 @@
 
       <div class="topbar-actions">
         <button type="button" class="btn btn-primary project-only" id="btn-open-sidebar-drawer">
-          Propuestas y debate <span class="btn-count tabular" id="top-count-total">0</span>
+          Debate <span class="btn-count tabular" id="top-count-total">0</span>
         </button>
       </div>
     </div>
@@ -48,21 +49,21 @@
       <section class="hero-stage" aria-labelledby="hero-title">
         <div class="stage-container hero-grid">
           <div class="hero-copy">
-            <p class="kicker">Ingeniería normativa abierta · España</p>
+            <p class="kicker">Propuestas públicas abiertas · España</p>
             <h1 class="hero-display" id="hero-title">
-              Planes públicos en <em>deliberación abierta</em>
+              Planes públicos en <em>debate abierto</em>
             </h1>
             <p class="hero-lead">
-              Lea los proyectos normativos en estudio, señale debilidades, proponga cambios de redacción sección a sección o plantee nuevas ideas para la agenda pública.
+              Lee los planes en estudio, señala qué puede fallar, propón cambios en el texto o aporta una idea nueva.
             </p>
             <div class="hero-actions">
-              <button type="button" class="btn btn-primary btn-lg" id="btn-toggle-project-form">Proponer un nuevo plan</button>
-              <a href="#catalogo" class="btn btn-ghost btn-lg">Explorar el catálogo</a>
+              <button type="button" class="btn btn-primary btn-lg" id="btn-toggle-project-form">Proponer un plan</button>
+              <a href="#catalogo" class="btn btn-ghost btn-lg">Ver el catálogo</a>
             </div>
           </div>
 
           <figure class="hero-ledger" aria-labelledby="ledger-caption">
-            <figcaption class="kicker kicker-muted" id="ledger-caption">Estado del registro público</figcaption>
+            <figcaption class="kicker kicker-muted" id="ledger-caption">Cómo está el catálogo</figcaption>
             <dl class="ledger-list">
               <div class="ledger-row">
                 <dt>Planes en estudio</dt>
@@ -73,8 +74,8 @@
                 <dd class="tabular" id="ledger-proposals">0</dd>
               </div>
               <div class="ledger-row">
-                <dt>Opiniones y alertas</dt>
-                <dd class="tabular" id="ledger-opinions">0</dd>
+                <dt>Puntos débiles detectados</dt>
+                <dd class="tabular" id="ledger-weaknesses">0</dd>
               </div>
               <div class="ledger-row">
                 <dt>Ideas ciudadanas</dt>
@@ -87,17 +88,39 @@
 
       <section id="catalogo" class="stage-section" aria-labelledby="catalog-title">
         <div class="stage-container">
-          <header class="stage-header stage-header-split">
-            <div>
-              <p class="kicker">01 · Catálogo</p>
-              <h2 class="stage-title" id="catalog-title">Proyectos normativos en estudio</h2>
+          <header class="stage-header stage-header-catalog">
+            <div class="stage-header-split">
+              <div>
+                <p class="kicker">01 · Catálogo</p>
+                <h2 class="stage-title" id="catalog-title">Planes abiertos a debate</h2>
+              </div>
+              <div class="segmented" id="filter-buttons-group" role="group" aria-label="Ordenar y filtrar planes">
+                <button type="button" class="segmented-option is-active" data-filter="all" aria-pressed="true">Todos</button>
+                <button type="button" class="segmented-option" data-filter="recent" aria-pressed="false">Recientes</button>
+                <button type="button" class="segmented-option" data-filter="popular" aria-pressed="false">Más comentados</button>
+                <button type="button" class="segmented-option" data-filter="pending" aria-pressed="false">Pendientes</button>
+                <button type="button" class="segmented-option" data-filter="debate" aria-pressed="false">En debate</button>
+              </div>
             </div>
-            <div class="segmented" id="filter-buttons-group" role="group" aria-label="Ordenar y filtrar planes">
-              <button type="button" class="segmented-option is-active" data-filter="all" aria-pressed="true">Todos</button>
-              <button type="button" class="segmented-option" data-filter="recent" aria-pressed="false">Recientes</button>
-              <button type="button" class="segmented-option" data-filter="popular" aria-pressed="false">Más participados</button>
-              <button type="button" class="segmented-option" data-filter="pending" aria-pressed="false">Pendientes</button>
-            </div>
+
+            <search class="catalog-toolbar">
+              <p class="catalog-search-field">
+                <label class="sr-only" for="catalog-search">Buscar planes por título, tema o código</label>
+                <input
+                  type="search"
+                  id="catalog-search"
+                  placeholder="Buscar por título, tema o expediente..."
+                  autocomplete="off"
+                />
+              </p>
+              <p class="catalog-category-field">
+                <label class="sr-only" for="catalog-category">Filtrar por tema</label>
+                <select id="catalog-category">
+                  <option value="all">Todos los temas</option>
+                </select>
+              </p>
+              <p class="catalog-count tabular" id="catalog-count" aria-live="polite"></p>
+            </search>
           </header>
 
           <div id="projects-grid" class="bento-grid" aria-live="polite"></div>
@@ -107,47 +130,47 @@
       <section id="metodo" class="stage-section stage-band" aria-labelledby="method-title">
         <div class="stage-container">
           <header class="stage-header">
-            <p class="kicker">02 · Método</p>
-            <h2 class="stage-title" id="method-title">Del texto oficial a la mejora articulada</h2>
+            <p class="kicker">02 · Cómo funciona</p>
+            <h2 class="stage-title" id="method-title">Del borrador inicial a un texto mejor</h2>
           </header>
 
           <div class="scrolly-stage" id="method-scrolly">
             <ol class="scrolly-steps">
               <li class="scrolly-step is-active" data-step="0">
                 <span class="step-index tabular">01</span>
-                <h3>Leer la monografía completa</h3>
-                <p>Cada plan se publica íntegro, dividido en secciones: diagnóstico, medidas y evaluación de impacto. Sin resúmenes que oculten el detalle.</p>
+                <h3>Leer el texto completo</h3>
+                <p>Cada plan se muestra entero por apartados: el problema, las medidas, los costes y las dudas abiertas. Ninguna propuesta tapa el texto oficial.</p>
               </li>
               <li class="scrolly-step" data-step="1">
                 <span class="step-index tabular">02</span>
-                <h3>Proponer cambios de redacción</h3>
-                <p>Edite directamente el texto de una sección. La plataforma calcula las líneas añadidas y suprimidas y acumula el cambio sobre la versión vigente.</p>
+                <h3>Proponer cambios y sumar especialistas</h3>
+                <p>Edita cualquier apartado y mira los cambios palabra por palabra. Si tu cambio toca leyes, presupuesto o pymes, otros especialistas completan esos análisis.</p>
               </li>
               <li class="scrolly-step" data-step="2">
                 <span class="step-index tabular">03</span>
-                <h3>Deliberar con argumentos</h3>
-                <p>Aporte casos vividos, alertas de fallo operativo u observaciones técnicas. El debate queda vinculado al plan para que nadie tenga que empezar de cero.</p>
+                <h3>Detectar puntos débiles y medir la calidad</h3>
+                <p>Si alguien detecta un fallo grave, el plan queda bloqueado hasta que haya una solución comprobada y consenso entre los sectores implicados.</p>
               </li>
             </ol>
 
-            <figure class="scrolly-visual" aria-label="Ejemplo ilustrativo del flujo de trabajo">
-              <figcaption class="kicker kicker-muted">Ejemplo ilustrativo</figcaption>
+            <figure class="scrolly-visual" aria-label="Ejemplo de cómo funciona una mejora">
+              <figcaption class="kicker kicker-muted">Ejemplo práctico</figcaption>
               <div class="visual-panel is-active" data-panel="0">
                 <p class="visual-heading">2. Medidas propuestas</p>
-                <p class="visual-text">Las personas trabajadoras podrán acogerse a una reducción de jornada durante los doce meses posteriores a su reincorporación.</p>
-                <p class="visual-text visual-text-faded">La empresa deberá comunicar por escrito la aceptación en un plazo máximo de quince días.</p>
+                <p class="visual-text">Las personas trabajadoras podrán reducir su jornada durante los doce meses siguientes a la vuelta al trabajo.</p>
+                <p class="visual-text visual-text-faded">La empresa deberá responder por escrito en un máximo de quince días.</p>
               </div>
               <div class="visual-panel" data-panel="1">
-                <p class="visual-heading">Cambio propuesto <span class="tabular visual-delta"><span class="delta-add">+1</span> <span class="delta-del">−1</span></span></p>
-                <p class="visual-diff visual-diff-removed">La empresa deberá comunicar por escrito la aceptación en un plazo máximo de quince días.</p>
-                <p class="visual-diff visual-diff-added">La empresa deberá comunicar la aceptación en siete días; el silencio se entenderá como aceptación.</p>
+                <p class="visual-heading">Cambio propuesto <span class="tabular visual-delta"><span class="delta-add">+5 pal.</span> <span class="delta-del">−3 pal.</span></span></p>
+                <p class="visual-diff visual-diff-removed">La empresa deberá responder en un máximo de <mark class="word-del">quince días</mark>.</p>
+                <p class="visual-diff visual-diff-added">La empresa deberá responder en <mark class="word-add">siete días hábiles</mark>; si no contesta, se entiende aceptada.</p>
               </div>
               <div class="visual-panel" data-panel="2">
-                <p class="visual-heading">Debate del plan</p>
+                <p class="visual-heading">Nota de calidad y revisión</p>
                 <dl class="visual-tally">
-                  <div><dt>Aportaciones ciudadanas</dt><dd class="tabular">12</dd></div>
-                  <div><dt>Alertas de debilidad</dt><dd class="tabular">4</dd></div>
-                  <div><dt>Observaciones técnicas</dt><dd class="tabular">7</dd></div>
+                  <div><dt>Nota ICMN global</dt><dd class="tabular">84/100</dd></div>
+                  <div><dt>Puntos débiles críticos</dt><dd class="tabular">0</dd></div>
+                  <div><dt>Áreas de impacto (MAIN)</dt><dd class="tabular">5/5</dd></div>
                 </dl>
               </div>
             </figure>
@@ -160,34 +183,35 @@
           <header class="ideas-intro">
             <p class="kicker">03 · Agenda ciudadana</p>
             <h2 class="stage-title" id="ideas-title">Ideas para futuros planes</h2>
-            <p class="ideas-lead">¿Falta un tema crucial en la agenda pública? Aporte una idea preliminar: no necesita formato legal ni cálculos técnicos.</p>
+            <p class="ideas-lead">¿Echas en falta algún tema importante? Cuéntalo con tus palabras, sin lenguaje legal ni cálculos previos. También puedes apoyar otras ideas o convertirlas en un plan.</p>
             <button type="button" class="btn btn-inverse" id="btn-toggle-seed-form">Proponer una idea</button>
           </header>
 
           <form id="form-new-seed" class="inline-form" hidden>
             <h3 class="form-title">Nueva idea ciudadana</h3>
-            <div class="field">
-              <label for="seed-title">Título breve de la propuesta</label>
-              <input type="text" id="seed-title" required placeholder="Ej. Red de residencias públicas comarcales para personas mayores" />
-            </div>
+            <p class="field">
+              <label for="seed-title">Título breve de tu idea</label>
+              <input type="text" id="seed-title" required placeholder="Ej. Red de residencias públicas comarcales para mayores" />
+            </p>
             <div class="field-split">
-              <div class="field">
-                <label for="seed-category">Ámbito temático</label>
-                <input type="text" id="seed-category" required placeholder="Ej. Servicios Sociales" />
-              </div>
-              <div class="field">
-                <label for="seed-author">Su nombre o asociación (opcional)</label>
-                <input type="text" id="seed-author" placeholder="Ej. Colectivo Ciudadano" />
-              </div>
+              <p class="field">
+                <label for="seed-category">Tema</label>
+                <input type="text" id="seed-category" required placeholder="Ej. Servicios sociales" />
+              </p>
+              <p class="field">
+                <label for="seed-author">Tu nombre o asociación (opcional)</label>
+                <input type="text" id="seed-author" placeholder="Ej. Asociación vecinal" />
+              </p>
             </div>
-            <div class="field">
-              <label for="seed-description">Descripción del problema y propuesta</label>
-              <textarea id="seed-description" rows="3" required placeholder="Explique por qué es necesario este plan y a quiénes beneficiaría..."></textarea>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-inverse">Publicar idea</button>
-              <button type="button" class="btn btn-ghost" id="btn-cancel-seed">Cancelar</button>
-            </div>
+            <p class="field">
+              <label for="seed-description">Qué problema ves y qué propones</label>
+              <textarea id="seed-description" rows="3" required placeholder="Explica por qué hace falta este plan y a quién ayudaría..."></textarea>
+            </p>
+            <p class="form-actions">
+              <button type="submit" class="btn btn-inverse">Guardar en borrador</button>
+              <button type="button" class="btn btn-ghost" id="btn-submit-seed-github">Enviar a GitHub</button>
+              <button type="button" class="btn btn-quiet" id="btn-cancel-seed">Cancelar</button>
+            </p>
           </form>
 
           <ol id="seeds-cards-container" class="idea-ledger"></ol>
@@ -203,10 +227,26 @@
             <p class="kicker" id="project-meta-pills"></p>
             <h1 class="plan-display" id="plan-title">Título del plan</h1>
             <p class="plan-lead" id="plan-summary"></p>
+
+            <div class="masthead-meta-bar">
+              <p class="icmn-status-line" id="plan-icmn-status"></p>
+              <p class="masthead-export-actions">
+                <button type="button" class="btn btn-ghost btn-sm" id="btn-export-md">Exportar Markdown</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="btn-export-json">Exportar JSON</button>
+              </p>
+            </div>
+
+            <details class="icmn-details" id="plan-icmn-details">
+              <summary>Cómo se calcula la nota de calidad (ICMN)</summary>
+              <div class="icmn-breakdown-grid" id="plan-icmn-breakdown"></div>
+              <p class="icmn-rule-note">Cuándo está listo un plan: necesita al menos 80 puntos en el ICMN y ningún punto débil crítico sin resolver.</p>
+            </details>
           </div>
+
           <dl class="masthead-ledger">
             <div><dt>Expediente</dt><dd class="tabular" id="plan-code"></dd></div>
-            <div><dt>Secciones</dt><dd class="tabular" id="plan-sections-count">0</dd></div>
+            <div><dt>Calidad (ICMN)</dt><dd class="tabular" id="plan-icmn-score">0/100</dd></div>
+            <div><dt>Puntos débiles</dt><dd class="tabular" id="plan-weaknesses-count">0</dd></div>
             <div><dt>Propuestas</dt><dd class="tabular" id="plan-proposals-count">0</dd></div>
             <div><dt>Lectura</dt><dd class="tabular" id="plan-reading-time">0 min</dd></div>
           </dl>
@@ -220,74 +260,120 @@
         </nav>
         <div class="monograph" id="monograph-sections-container"></div>
       </div>
+
+      <!-- ===================== SIMULADOR PARAMÉTRICO MAIN ===================== -->
+      <section id="plan-simulator" class="stage-section stage-band" hidden aria-labelledby="simulator-title">
+        <div class="stage-container">
+          <header class="stage-header">
+            <p class="kicker">Simulador de impacto · Memoria oficial (MAIN)</p>
+            <h2 class="stage-title" id="simulator-title">Compara opciones y calcula el impacto</h2>
+          </header>
+
+          <div class="table-scroll" id="simulator-branches-wrapper">
+            <table class="comparison-table" id="simulator-branches-table">
+              <thead>
+                <tr>
+                  <th scope="col">Opción</th>
+                  <th scope="col">Coste neto</th>
+                  <th scope="col">Retención femenina</th>
+                  <th scope="col">Dificultad pymes</th>
+                  <th scope="col">Ayuda autónomas</th>
+                  <th scope="col">Corresponsabilidad</th>
+                  <th scope="col">CO2 evitado</th>
+                  <th scope="col">ICMN</th>
+                </tr>
+              </thead>
+              <tbody id="simulator-branches-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="simulator-workbench">
+            <form class="simulator-controls" id="simulator-controls-form" aria-label="Opciones del simulador"></form>
+            <div class="simulator-outputs" id="simulator-outputs-panel" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== HISTORIAL DE VERSIONES ===================== -->
+      <section id="plan-history" class="stage-section plan-history-section" aria-labelledby="history-title">
+        <div class="stage-container">
+          <header class="stage-header">
+            <p class="kicker">Historial</p>
+            <h2 class="stage-title" id="history-title">Cambios ya incorporados</h2>
+          </header>
+          <ol class="commit-ledger" id="plan-commits-list"></ol>
+        </div>
+      </section>
     </article>
   </main>
 
   <!-- ============================ PANELES DESLIZANTES ============================ -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
 
-  <aside id="project-composer" class="drawer drawer-wide" aria-labelledby="composer-title" aria-hidden="true" inert>
+  <aside id="project-composer" class="drawer drawer-wide" role="dialog" aria-modal="true" aria-labelledby="composer-title" aria-hidden="true" inert>
     <header class="drawer-header">
       <div>
         <p class="kicker">Nuevo plan</p>
-        <h2 class="drawer-title" id="composer-title">Proponer un plan o proyecto normativo</h2>
+        <h2 class="drawer-title" id="composer-title">Proponer un plan público</h2>
       </div>
       <button type="button" class="btn btn-quiet" id="btn-cancel-project">Cerrar</button>
     </header>
 
     <form id="form-new-project" class="drawer-body">
-      <p class="form-help">Registre una propuesta completa de política pública. Se incorporará al catálogo para que otros ciudadanos y especialistas puedan leerla, revisarla y proponer cambios articulados.</p>
+      <p class="form-help">Escribe tu propuesta completa. Se guardará como borrador en tu navegador y también puedes enviarla a GitHub.</p>
+      <input type="hidden" id="project-source-seed-id" value="" />
 
-      <div class="field">
-        <label for="project-title">Título del plan o ley propuesta</label>
-        <input type="text" id="project-title" required placeholder="Ej. Plan Estatal de Eficiencia Energética y Climatización Pasiva" />
-      </div>
+      <p class="field">
+        <label for="project-title">Título del plan</label>
+        <input type="text" id="project-title" required placeholder="Ej. Plan de eficiencia energética en colegios públicos" />
+      </p>
       <div class="field-split">
-        <div class="field">
-          <label for="project-category">Ámbito temático o sectorial</label>
-          <input type="text" id="project-category" required placeholder="Ej. Energía y Vivienda" />
-        </div>
-        <div class="field">
+        <p class="field">
+          <label for="project-category">Tema</label>
+          <input type="text" id="project-category" required placeholder="Ej. Energía y vivienda" />
+        </p>
+        <p class="field">
           <label for="project-code">Código de referencia (opcional)</label>
-          <input type="text" id="project-code" placeholder="Se genera si se omite" />
-        </div>
+          <input type="text" id="project-code" placeholder="Se crea solo si lo dejas vacío" />
+        </p>
       </div>
-      <div class="field">
-        <label for="project-author">Su nombre o asociación (opcional)</label>
-        <input type="text" id="project-author" placeholder="Ej. Plataforma Ciudadana / Particular" />
-      </div>
-      <div class="field">
-        <label for="project-summary">Resumen ejecutivo (2-3 líneas)</label>
-        <textarea id="project-summary" rows="2" required placeholder="Sintetice qué problema resuelve y qué medidas principales plantea..."></textarea>
-      </div>
+      <p class="field">
+        <label for="project-author">Tu nombre o asociación (opcional)</label>
+        <input type="text" id="project-author" placeholder="Ej. Plataforma ciudadana / Particular" />
+      </p>
+      <p class="field">
+        <label for="project-summary">Resumen breve (2 o 3 líneas)</label>
+        <textarea id="project-summary" rows="2" required placeholder="Resume qué problema resuelve y qué medidas propone..."></textarea>
+      </p>
 
       <fieldset class="field-group">
-        <legend>Monografía inicial</legend>
-        <div class="field">
-          <label for="project-initial-content">1. Diagnóstico y justificación social</label>
-          <textarea id="project-initial-content" rows="4" required placeholder="Describa la situación de partida, los datos o problemas que motivan este plan..."></textarea>
-        </div>
-        <div class="field">
-          <label for="project-measures-content">2. Medidas y articulado propuesto (opcional)</label>
-          <textarea id="project-measures-content" rows="4" placeholder="Artículos específicos, medidas concretas o requisitos normativos..."></textarea>
-        </div>
-        <div class="field">
-          <label for="project-impact-content">3. Evaluación de impacto previsto (opcional)</label>
-          <textarea id="project-impact-content" rows="3" placeholder="Estimación de costes presupuestarios, beneficios sociales o impacto económico..."></textarea>
-        </div>
+        <legend>Texto inicial del plan</legend>
+        <p class="field">
+          <label for="project-initial-content">1. El problema y por qué hace falta actuar</label>
+          <textarea id="project-initial-content" rows="4" required placeholder="Cuenta la situación actual, los datos que conoces y por qué hace falta este plan..."></textarea>
+        </p>
+        <p class="field">
+          <label for="project-measures-content">2. Medidas concretas (opcional)</label>
+          <textarea id="project-measures-content" rows="4" placeholder="Qué normas o medidas concretas propones..."></textarea>
+        </p>
+        <p class="field">
+          <label for="project-impact-content">3. Costes e impacto previsto (opcional)</label>
+          <textarea id="project-impact-content" rows="3" placeholder="Cuánto costaría, a quién beneficia y qué efecto tendría..."></textarea>
+        </p>
       </fieldset>
 
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Publicar plan en el catálogo</button>
-      </div>
+      <p class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar plan en borrador</button>
+        <button type="button" class="btn btn-ghost" id="btn-submit-project-github">Enviar a GitHub</button>
+      </p>
     </form>
   </aside>
 
-  <aside id="sidebar-drawer" class="drawer" aria-labelledby="debate-title" aria-hidden="true" inert>
+  <aside id="sidebar-drawer" class="drawer drawer-wide" role="dialog" aria-modal="true" aria-labelledby="debate-title" aria-hidden="true" inert>
     <header class="drawer-header">
       <div>
-        <p class="kicker">Deliberación</p>
-        <h2 class="drawer-title" id="debate-title">Propuestas y debate</h2>
+        <p class="kicker">Debate</p>
+        <h2 class="drawer-title" id="debate-title">Propuestas, fallos y opiniones</h2>
       </div>
       <button type="button" class="btn btn-quiet" id="btn-close-sidebar-drawer">Cerrar</button>
     </header>
@@ -297,6 +383,9 @@
         <button type="button" class="segmented-option sidebar-tab is-active" data-side="proposals" aria-pressed="true">
           Propuestas <span class="tabular" id="count-proposals">0</span>
         </button>
+        <button type="button" class="segmented-option sidebar-tab" data-side="weaknesses" aria-pressed="false">
+          Fallos <span class="tabular" id="count-weaknesses">0</span>
+        </button>
         <button type="button" class="segmented-option sidebar-tab" data-side="opinions" aria-pressed="false">
           Opiniones <span class="tabular" id="count-opinions">0</span>
         </button>
@@ -304,30 +393,86 @@
 
       <div id="side-proposals-list" class="entry-list"></div>
 
+      <div id="side-weaknesses-list" class="entry-list" hidden>
+        <button type="button" class="btn btn-ghost btn-block" id="btn-open-weakness-drawer-form">Señalar un punto débil</button>
+
+        <form id="form-new-weakness" class="inline-form" hidden>
+          <h3 class="form-title">Señalar un punto débil</h3>
+          <p class="field">
+            <label for="weakness-title">Título breve del fallo</label>
+            <input type="text" id="weakness-title" required placeholder="Ej. Falta de liquidez en microempresas si adelantan la ayuda" />
+          </p>
+          <div class="field-split">
+            <p class="field">
+              <label for="weakness-severity">Gravedad</label>
+              <select id="weakness-severity">
+                <option value="critica">Crítica (bloquea el plan)</option>
+                <option value="alta" selected>Alta</option>
+                <option value="moderada">Moderada (caso concreto)</option>
+              </select>
+            </p>
+            <p class="field">
+              <label for="weakness-domain">Área afectada</label>
+              <select id="weakness-domain"></select>
+            </p>
+          </div>
+          <div class="field-split">
+            <p class="field">
+              <label for="weakness-section">Apartado afectado</label>
+              <select id="weakness-section"></select>
+            </p>
+            <p class="field">
+              <label for="weakness-group">Quién sale perjudicado</label>
+              <input type="text" id="weakness-group" placeholder="Ej. Microempresas (&lt;10 empleados)" />
+            </p>
+          </div>
+          <p class="field">
+            <label for="weakness-description">Qué falla exactamente</label>
+            <textarea id="weakness-description" rows="3" required placeholder="Explica en qué caso falla la medida y por qué hace falta corregirla..."></textarea>
+          </p>
+          <p class="field">
+            <label for="weakness-author">Tu nombre o entidad (opcional)</label>
+            <input type="text" id="weakness-author" placeholder="Ej. Asociación sectorial / Particular" />
+          </p>
+          <p class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar fallo</button>
+            <button type="button" class="btn btn-ghost" id="btn-submit-weakness-github">Enviar a GitHub</button>
+            <button type="button" class="btn btn-quiet" id="btn-cancel-weakness">Cancelar</button>
+          </p>
+        </form>
+
+        <div id="side-weaknesses-entries"></div>
+      </div>
+
       <div id="side-opinions-list" class="entry-list" hidden>
-        <button type="button" class="btn btn-ghost btn-block" id="btn-open-opinion-drawer-form">Dejar una opinión o advertencia</button>
+        <button type="button" class="btn btn-ghost btn-block" id="btn-open-opinion-drawer-form">Dejar una opinión o caso real</button>
 
         <form id="form-new-opinion" class="inline-form" hidden>
-          <div class="field">
-            <label for="opinion-type">Tipo de aportación</label>
-            <select id="opinion-type">
-              <option value="Aportación ciudadana">Aportación ciudadana / Caso vivido</option>
-              <option value="Alerta de debilidad">Alerta de debilidad o fallo operativo</option>
-              <option value="Propuesta técnica">Observación técnica o económica</option>
-            </select>
+          <div class="field-split">
+            <p class="field">
+              <label for="opinion-type">Tipo de comentario</label>
+              <select id="opinion-type">
+                <option value="Aportación ciudadana">Experiencia personal o caso real</option>
+                <option value="Propuesta técnica">Observación técnica o económica</option>
+              </select>
+            </p>
+            <p class="field">
+              <label for="opinion-section">Apartado relacionado (opcional)</label>
+              <select id="opinion-section"></select>
+            </p>
           </div>
-          <div class="field">
-            <label for="opinion-text">Su comentario o caso práctico</label>
-            <textarea id="opinion-text" rows="3" required placeholder="Exponga su experiencia, duda o aspecto no resuelto..."></textarea>
-          </div>
-          <div class="field">
-            <label for="opinion-author">Su nombre o asociación (opcional)</label>
+          <p class="field">
+            <label for="opinion-text">Tu comentario o caso real</label>
+            <textarea id="opinion-text" rows="3" required placeholder="Cuenta tu experiencia, duda o lo que crees que falta..."></textarea>
+          </p>
+          <p class="field">
+            <label for="opinion-author">Tu nombre o asociación (opcional)</label>
             <input type="text" id="opinion-author" placeholder="Ej. María B. / Particular" />
-          </div>
-          <div class="form-actions">
+          </p>
+          <p class="form-actions">
             <button type="submit" class="btn btn-primary">Publicar opinión</button>
             <button type="button" class="btn btn-quiet" id="btn-cancel-opinion">Cancelar</button>
-          </div>
+          </p>
         </form>
 
         <div id="side-opinions-entries"></div>
@@ -339,8 +484,17 @@
 
   <footer class="site-colophon">
     <div class="stage-container colophon-grid">
-      <p class="colophon-name">Democracia Colaborativa <span>Ágora Normativa · España</span></p>
-      <p class="colophon-note">Participación ciudadana e ingeniería de políticas públicas basadas en texto, lectura monográfica y deliberación abierta.</p>
+      <div>
+        <p class="colophon-name">Democracia colaborativa <span>Ágora normativa · España</span></p>
+        <p class="persistence-notice" id="persistence-notice" hidden></p>
+      </div>
+      <div class="colophon-right">
+        <p class="colophon-note">Plataforma abierta para leer planes públicos, detectar fallos y mejorar las propuestas en equipo.</p>
+        <p class="colophon-actions">
+          <a href="https://github.com/jbernax/democracia-colaborativa" target="_blank" rel="noopener noreferrer" id="colophon-repo-link">Repositorio en GitHub</a>
+          <button type="button" class="btn btn-quiet btn-sm" id="btn-reset-local-drafts" hidden>Descartar borrador local</button>
+        </p>
+      </div>
     </div>
   </footer>
 

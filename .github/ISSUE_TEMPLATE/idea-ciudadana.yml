@@ -1,0 +1,18 @@
+name: Nueva idea ciudadana
+description: Proponer un tema nuevo o una idea inicial para futuros planes.
+title: "[Idea] "
+labels: ["comunidad", "idea"]
+body:
+  - type: input
+    id: category
+    attributes:
+      label: Tema
+      placeholder: Ej. Servicios sociales y cuidados
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Qué propones y bloque estructurado (agora-payload)
+    validations:
+      required: true

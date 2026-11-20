@@ -1,0 +1,97 @@
+name: Ingestar aportación ciudadana aprobada
+
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Número del Issue a procesar
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  ingest:
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'aprobada-publicar'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Obtener datos del Issue
+        id: fetch_issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_ISSUE_NUMBER: ${{ inputs.issue_number }}
+          EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
+          EVENT_ISSUE_URL: ${{ github.event.issue.html_url }}
+          EVENT_ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          EVENT_ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            gh issue view "$INPUT_ISSUE_NUMBER" --json number,url,body,author > /tmp/issue.json
+            node -e "
+              const fs = require('fs');
+              const data = JSON.parse(fs.readFileSync('/tmp/issue.json', 'utf8'));
+              fs.writeFileSync('/tmp/issue_norm.json', JSON.stringify({
+                number: data.number,
+                html_url: data.url,
+                body: data.body || '',
+                user: { login: data.author?.login || '' }
+              }));
+            "
+          else
+            node -e "
+              const fs = require('fs');
+              fs.writeFileSync('/tmp/issue_norm.json', JSON.stringify({
+                number: Number(process.env.EVENT_ISSUE_NUMBER),
+                html_url: process.env.EVENT_ISSUE_URL || '',
+                body: process.env.EVENT_ISSUE_BODY || '',
+                user: { login: process.env.EVENT_ISSUE_AUTHOR || '' }
+              }));
+            "
+          fi
+          ISSUE_NUM=$(node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/issue_norm.json','utf8')).number)")
+          echo "issue_number=$ISSUE_NUM" >> "$GITHUB_OUTPUT"
+
+      - name: Incorporar aportación al catálogo y validar
+        run: |
+          node scripts/ingest-issue.mjs --issue-file /tmp/issue_norm.json
+          npm run check
+
+      - name: Crear Pull Request hacia main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ steps.fetch_issue.outputs.issue_number }}
+        run: |
+          BRANCH_NAME="comunidad/issue-${ISSUE_NUM}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH_NAME"
+          git add data/catalog/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en data/catalog/."
+            exit 0
+          fi
+          git commit -m "feat(catalog): incorporar aportación del issue #${ISSUE_NUM}"
+          git push --force-with-lease origin "$BRANCH_NAME"
+          if gh pr list --head "$BRANCH_NAME" --state open --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "Incorporar aportación ciudadana (#${ISSUE_NUM})" \
+              --body "Incorporación automática validada desde el Issue #${ISSUE_NUM}. Closes #${ISSUE_NUM}."
+          else
+            echo "Ya existe un Pull Request abierto para $BRANCH_NAME."
+          fi

@@ -1,0 +1,127 @@
+{
+  "id": "transicion-energetica-autoconsumo-comunitario",
+  "code": "EXP-2026-ENE-064",
+  "title": "Plan de transición energética y autoconsumo eléctrico compartido",
+  "category": "Transición ecológica y energía",
+  "stage": "Pendiente de aportaciones",
+  "author": "Foro técnico de redes y transición justa",
+  "summary": "Reforma de las reglas de autoconsumo (RD 244/2019) para compartir placas solares a hasta 5 kilómetros, repartir la luz por horas y acelerar los permisos en comunidades energéticas y edificios.",
+  "createdAt": "2026-10-28",
+  "updatedAt": "2026-11-06",
+  "popularity": 109,
+  "mainCoverage": {
+    "juridico": true,
+    "economico": true,
+    "laboral_pyme": false,
+    "social_igualdad": false,
+    "ambiental_territorial": true
+  },
+  "monograph": [
+    {
+      "id": "diagnostico",
+      "title": "1. Por qué cuesta tanto compartir energía solar",
+      "content": "Aunque en España sobra sol, el autoconsumo compartido supone menos del 4% de las instalaciones. Hay tres atascos claros: la dificultad de ponerse de acuerdo en las juntas de vecinos, retrasos de hasta nueve meses para que la distribuidora active la instalación y repartos fijos que desperdician energía cuando los colegios o empresas están cerrados.\n\nSi aprovechamos los tejados de edificios públicos y naves en pueblos y polígonos, la factura eléctrica de las familias con menos renta y de los pequeños comercios bajaría de inmediato."
+    },
+    {
+      "id": "articulado",
+      "title": "2. Medidas y texto legal propuesto",
+      "content": "Artículo 1. Compartir placas solares hasta 5 kilómetros:\nSe permite compartir energía solar a través de la red pública hasta una distancia de cinco kilómetros entre las placas y los hogares o negocios. La electricidad consumida dentro del mismo centro de transformación no pagará peaje local.\n\nArtículo 2. Reparto por horas y plazo máximo para dar de alta:\n1. Las comunidades energéticas y edificios de vecinos podrán cambiar el porcentaje de reparto por horas cada mes mediante un aviso electrónico sencillo.\n2. Si pasan treinta días hábiles desde la solicitud completa sin que la distribuidora alegue un fallo técnico real, la comercializadora empezará a descontar de forma provisional la energía sobrante en la factura.\n\nArtículo 3. Mayoría simple de vecinos y reserva social:\nBastará el voto de la mayoría simple en junta para instalar placas compartidas en la cubierta. Cuando el edificio reciba subvención pública, tendrá que reservar al menos un 10% de la energía para vecinos con bono social eléctrico."
+    },
+    {
+      "id": "impacto",
+      "title": "3. Costes y efectos previstos",
+      "content": "Previsión para instalar 1,8 GW nuevos en tejados compartidos de ciudades y comarcas en cuatro años:\n- Ahorro en la factura de la luz: unos 420 millones de euros al año para hogares y microempresas, con un recorte medio del 34% en el consumo de energía.\n- Inversión movilizada: 1.450 millones de euros entre aportación privada, ahorro local y fondos europeos ya aprobados.\n- Menos emisiones: 680 kilotoneladas menos de CO2 al año y menos saturación en las líneas de alta tensión al gastar la luz cerca de donde se produce."
+    },
+    {
+      "id": "puntos-criticos",
+      "title": "4. Dudas abiertas y puntos a revisar",
+      "content": "Puntos pendientes de revisión:\n1. Comprobar si los contadores de los centros de transformación rurales antiguos miden bien los datos cada hora.\n2. Aclarar cómo se reparten los gastos fijos de la red entre quienes tienen placas y quienes no tienen acceso a un tejado.\n3. Simplificar los trámites para crear cooperativas ciudadanas de menos de cincuenta socios."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "prop-ene-1",
+      "sectionId": "articulado",
+      "title": "Permitir un gestor único para polígonos de microempresas y cooperativas rurales",
+      "author": "Unión de Cooperativas Energéticas Locales",
+      "originalText": "Artículo 1. Compartir placas solares hasta 5 kilómetros:\nSe permite compartir energía solar a través de la red pública hasta una distancia de cinco kilómetros entre las placas y los hogares o negocios. La electricidad consumida dentro del mismo centro de transformación no pagará peaje local.\n\nArtículo 2. Reparto por horas y plazo máximo para dar de alta:\n1. Las comunidades energéticas y edificios de vecinos podrán cambiar el porcentaje de reparto por horas cada mes mediante un aviso electrónico sencillo.\n2. Si pasan treinta días hábiles desde la solicitud completa sin que la distribuidora alegue un fallo técnico real, la comercializadora empezará a descontar de forma provisional la energía sobrante en la factura.\n\nArtículo 3. Mayoría simple de vecinos y reserva social:\nBastará el voto de la mayoría simple en junta para instalar placas compartidas en la cubierta. Cuando el edificio reciba subvención pública, tendrá que reservar al menos un 10% de la energía para vecinos con bono social eléctrico.",
+      "proposedText": "Artículo 1. Compartir placas solares hasta 5 kilómetros:\nSe permite compartir energía solar a través de la red pública hasta una distancia de cinco kilómetros entre las placas y los hogares o negocios. La electricidad consumida dentro del mismo centro de transformación no pagará peaje local.\n\nArtículo 2. Reparto por horas y plazo máximo para dar de alta:\n1. Las comunidades energéticas, los grupos de microempresas en polígonos y los edificios de vecinos podrán nombrar a un gestor único que tramite el autoconsumo. También podrán cambiar el porcentaje de reparto por horas cada mes mediante un aviso electrónico sencillo.\n2. Si pasan treinta días hábiles desde la solicitud completa sin que la distribuidora alegue un fallo técnico real, la comercializadora empezará a descontar de forma provisional la energía sobrante en la factura.\n\nArtículo 3. Mayoría simple de vecinos y reserva social:\nBastará el voto de la mayoría simple en junta para instalar placas compartidas en la cubierta. Cuando el edificio reciba subvención pública, tendrá que reservar al menos un 10% de la energía para vecinos con bono social eléctrico.",
+      "reason": "Los talleres y comercios pequeños no tienen personal para enviar cada mes los archivos de reparto a la distribuidora; compartir un gestor les quita ese papeleo.",
+      "requiredDomains": ["juridico", "ambiental_territorial", "laboral_pyme"],
+      "domainAnalyses": {
+        "juridico": "Crea la figura de un representante técnico único ante la distribuidora sin cambiar la responsabilidad de cada contador.",
+        "ambiental_territorial": "Permite unir naves industriales que gastan luz por la mañana con casas cercanas que la gastan por la tarde."
+      },
+      "coAuthors": [
+        {
+          "name": "Unión de Cooperativas Energéticas Locales",
+          "role": "Especialista en energía y territorio",
+          "contributedDomains": ["juridico", "ambiental_territorial"],
+          "date": "2026-11-05"
+        }
+      ],
+      "mitigatesWeaknessIds": [],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-11-05"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "deb-ene-01",
+      "title": "Faltan contadores por horas en muchos centros rurales",
+      "description": "Si el artículo 2.2 obliga a descontar excedentes a los 30 días en pueblos donde los contadores antiguos aún no envían los datos por horas, habrá errores en las facturas y reclamaciones.",
+      "severity": "critica",
+      "domain": "ambiental_territorial",
+      "sectionId": "articulado",
+      "affectedGroup": "Pueblos de menos de 2.000 habitantes y pequeñas distribuidoras",
+      "reportedBy": "Mesa técnica de redes eléctricas",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-11-01"
+    },
+    {
+      "id": "deb-ene-02",
+      "title": "Duda sobre el voto en edificios con bajos comerciales",
+      "description": "En bloques con tiendas o garajes en la planta baja, esos locales tienen mucha cuota de participación y no suelen querer placas en el tejado. Hay que aclarar cómo se cuenta la mayoría de pisos.",
+      "severity": "moderada",
+      "domain": "juridico",
+      "sectionId": "articulado",
+      "affectedGroup": "Comunidades de vecinos con locales comerciales",
+      "reportedBy": "Colegio de Administradores de Fincas",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-11-03"
+    }
+  ],
+  "opinions": [
+    {
+      "id": "op-ene-1",
+      "author": "Laura G. (Presidenta de comunidad vecinal en Sevilla)",
+      "type": "Aportación ciudadana",
+      "sectionId": "articulado",
+      "text": "Llevamos siete meses esperando a que la distribuidora active el reparto de unas placas ya instaladas y pagadas en el tejado. Un plazo máximo obligatorio hace mucha falta.",
+      "createdAt": "2026-11-04"
+    },
+    {
+      "id": "op-ene-2",
+      "author": "Pedro A. (Ingeniero eléctrico municipal)",
+      "type": "Alerta de debilidad",
+      "sectionId": "puntos-criticos",
+      "text": "Antes de aplicar el reparto por horas en redes rurales, conviene fijar un calendario obligatorio para renovar los contadores concentradores.",
+      "createdAt": "2026-11-05"
+    }
+  ],
+  "commitHistory": [
+    {
+      "commitId": "rev-ene-01",
+      "date": "2026-10-28",
+      "sectionId": "expediente",
+      "proposalId": null,
+      "title": "Apertura del expediente EXP-2026-ENE-064",
+      "coAuthors": ["Foro técnico de redes"],
+      "mitigatedWeaknesses": []
+    }
+  ]
+}

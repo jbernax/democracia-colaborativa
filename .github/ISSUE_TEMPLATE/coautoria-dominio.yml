@@ -1,0 +1,23 @@
+name: Análisis de área pendiente
+description: Completar un análisis (legal, presupuesto, pymes, igualdad o medio rural) en una propuesta abierta.
+title: "[Co-autoría] "
+labels: ["comunidad", "coautoria"]
+body:
+  - type: input
+    id: project_id
+    attributes:
+      label: Identificador del plan
+    validations:
+      required: true
+  - type: input
+    id: proposal_id
+    attributes:
+      label: Identificador de la propuesta
+    validations:
+      required: true
+  - type: textarea
+    id: analysis
+    attributes:
+      label: Tu análisis y bloque estructurado (agora-payload)
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Escribir y enviar desde la web
+    url: https://jbernax.github.io/democracia-colaborativa/
+    about: Usa la aplicación web para editar apartados, ver los cambios o probar el simulador y abrir el formulario ya rellenado.
+  - name: Cómo funciona el método y la nota ICMN
+    url: https://github.com/jbernax/democracia-colaborativa/blob/main/docs/MARCO_DEMOCRACIA_COLABORATIVA.md
+    about: Consulta los cuatro niveles de participación, la gravedad de los fallos y las áreas de impacto.

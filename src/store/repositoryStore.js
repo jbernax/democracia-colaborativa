@@ -1,21 +1,35 @@
 /**
- * Almacenamiento persistente en disco para el Catalogo de Planes y Proyectos.
- * Guarda y carga el estado completo en data/projects_state.json.
+ * Almacenamiento persistente en disco para desarrollo local (Democracia Colaborativa).
+ * Delega las reglas de dominio en public/shared/catalogDomain.js y realiza escritura atómica
+ * en .local-state.json (ignorado por Git) para no ensuciar los archivos versionados en data/.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createInitialProjectsCatalog } from '../data/projectsData.js';
-import { computeClauseDiff } from '../engine/collaborationEngine.js';
+import {
+  listProjects,
+  getCategories,
+  enrichProject,
+  createProjectRecord,
+  createProposalRecord,
+  elaborateProposalRecord,
+  consolidateProposalRecord,
+  createWeaknessRecord,
+  createOpinionRecord,
+  createSeedRecord,
+  endorseSeedRecord
+} from '../../public/shared/catalogDomain.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DEFAULT_DATA_PATH = path.resolve(__dirname, '../../data/projects_state.json');
+const DEFAULT_DATA_PATH = path.resolve(__dirname, '../../.local-state.json');
 
 export class RepositoryStore {
-  constructor(filePath = DEFAULT_DATA_PATH) {
+  constructor(filePath = DEFAULT_DATA_PATH, catalogDir = undefined) {
     this.filePath = filePath;
+    this.catalogDir = catalogDir;
     this.state = null;
   }
 
@@ -28,8 +42,14 @@ export class RepositoryStore {
     if (fs.existsSync(this.filePath)) {
       try {
         const raw = fs.readFileSync(this.filePath, 'utf-8');
-        this.state = JSON.parse(raw);
-        return this.state;
+        const parsed = JSON.parse(raw);
+        if (parsed?.meta?.schemaVersion === 2 && Array.isArray(parsed.projects)) {
+          this.state = {
+            ...parsed,
+            projects: parsed.projects.map((p) => enrichProject(p))
+          };
+          return this.state;
+        }
       } catch (err) {
         console.error('Aviso: regenerando estado inicial por error de lectura:', err.message);
       }
@@ -53,267 +73,116 @@ export class RepositoryStore {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(this.filePath, JSON.stringify(this.state, null, 2), 'utf-8');
+    const tmpPath = `${this.filePath}.tmp-${process.pid}-${Date.now()}`;
+    fs.writeFileSync(tmpPath, JSON.stringify(this.state, null, 2), 'utf-8');
+    fs.renameSync(tmpPath, this.filePath);
     return this.state;
   }
 
   reset() {
-    this.state = createInitialProjectsCatalog();
+    this.state = createInitialProjectsCatalog(this.catalogDir);
     this.save();
     return this.state;
   }
 
-  getProjects(filter = 'all') {
+  getMeta() {
+    return this.getState().meta || {};
+  }
+
+  getCategories() {
+    return getCategories(this.getState().projects || []);
+  }
+
+  getProjects(options = 'all') {
     const state = this.getState();
-    let list = state.projects.map((p) => ({
-      id: p.id,
-      code: p.code,
-      title: p.title,
-      category: p.category,
-      stage: p.stage,
-      summary: p.summary,
-      createdAt: p.createdAt,
-      updatedAt: p.updatedAt,
-      popularity: p.popularity,
-      proposalsCount: (p.proposals || []).length,
-      opinionsCount: (p.opinions || []).length
-    }));
-
-    if (filter === 'recent') {
-      list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    } else if (filter === 'popular') {
-      list.sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
-    } else if (filter === 'pending') {
-      list = list.filter((p) => p.stage.toLowerCase().includes('pendiente') || p.proposalsCount < 3);
-    } else if (filter === 'debate') {
-      list = list.filter((p) => p.stage.toLowerCase().includes('debate'));
-    }
-
-    return list;
+    return listProjects(state.projects || [], options);
   }
 
   getProject(id) {
     const state = this.getState();
-    const project = state.projects.find((p) => p.id === id);
+    const project = (state.projects || []).find((p) => p.id === id);
+    return project ? enrichProject(project) : null;
+  }
+
+  _findRawProject(projectId) {
+    const state = this.getState();
+    const project = (state.projects || []).find((p) => p.id === projectId);
     if (!project) {
-      return null;
+      throw new Error(`No se encontró el plan con id ${projectId}`);
     }
     return project;
   }
 
   addProject(payload) {
     const state = this.getState();
-    const title = sanitizeText(payload.title);
-    if (!title) {
-      throw new Error('El título del plan es obligatorio');
-    }
-
-    const summary = sanitizeText(payload.summary);
-    if (!summary) {
-      throw new Error('El resumen del plan es obligatorio');
-    }
-
-    const category = sanitizeText(payload.category) || 'Política Pública';
-    const author = sanitizeText(payload.author) || 'Iniciativa Ciudadana';
-    const today = new Date().toISOString().slice(0, 10);
-    const randomSuffix = Math.floor(Math.random() * 900 + 100);
-
-    const baseSlug = title
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    const id = baseSlug || `plan-${Date.now()}`;
-    const code = sanitizeText(payload.code) || `EXP-2026-CIUD-${randomSuffix}`;
-
-    // Construir secciones monográficas
-    let monograph = [];
-    if (Array.isArray(payload.monograph) && payload.monograph.length > 0) {
-      monograph = payload.monograph.map((s, idx) => ({
-        id: sanitizeText(s.id) || `sec-${idx + 1}`,
-        title: sanitizeText(s.title) || `Sección ${idx + 1}`,
-        content: String(s.content || '').trim()
-      }));
-    } else if (payload.initialContent && String(payload.initialContent).trim()) {
-      monograph = [
-        {
-          id: 'diagnostico',
-          title: '1. Diagnóstico y Motivación',
-          content: sanitizeText(payload.initialContent)
-        },
-        {
-          id: 'medidas',
-          title: '2. Medidas y Articulado Propuesto',
-          content:
-            sanitizeText(payload.measuresContent) ||
-            'Texto articulado y medidas específicas pendientes de desarrollo colaborativo.'
-        },
-        {
-          id: 'impacto',
-          title: '3. Evaluación de Impacto Previsto',
-          content:
-            sanitizeText(payload.impactContent) ||
-            'Impacto presupuestario, social y organizativo a evaluar por los participantes.'
-        },
-        {
-          id: 'debate',
-          title: '4. Aspectos a Debate',
-          content: 'Puntos críticos y posibles debilidades abiertas a aportaciones ciudadanas.'
-        }
-      ];
-    } else {
-      monograph = [
-        {
-          id: 'diagnostico',
-          title: '1. Diagnóstico y Justificación',
-          content: summary
-        },
-        {
-          id: 'medidas',
-          title: '2. Medidas Propuestas',
-          content: 'Propuestas de acción normativa abiertas a enmiendas.'
-        }
-      ];
-    }
-
-    const newProject = {
-      id,
-      code,
-      title,
-      category,
-      stage: 'Debate abierto',
-      summary,
-      author,
-      createdAt: today,
-      updatedAt: today,
-      popularity: 15,
-      monograph,
-      proposals: [],
-      opinions: []
-    };
-
+    const newProject = createProjectRecord(payload, state.projects || []);
     if (!Array.isArray(state.projects)) {
       state.projects = [];
     }
     state.projects.unshift(newProject);
+
+    if (newProject.sourceSeedId && Array.isArray(state.seeds)) {
+      const sourceSeed = state.seeds.find((s) => s.id === newProject.sourceSeedId);
+      if (sourceSeed) {
+        sourceSeed.promotedProjectId = newProject.id;
+      }
+    }
+
     this.save();
     return newProject;
   }
 
   addProposal(projectId, payload) {
-    const state = this.getState();
-    const project = state.projects.find((p) => p.id === projectId);
-    if (!project) {
-      throw new Error(`No se encontró el plan con id ${projectId}`);
-    }
-
-    const title = sanitizeText(payload.title);
-    if (!title) {
-      throw new Error('El título de la propuesta es obligatorio');
-    }
-
-    const author = sanitizeText(payload.author) || 'Ciudadano Colaborador';
-    const reason = sanitizeText(payload.reason || '');
-    const sectionId = sanitizeText(payload.sectionId || project.monograph[0]?.id || 'seccion');
-    const originalText = String(payload.originalText || '').trim();
-    const proposedText = String(payload.proposedText || '').trim();
-
-    if (!proposedText) {
-      throw new Error('El texto propuesto no puede estar vacío');
-    }
-
-    const diff = computeClauseDiff(originalText, proposedText);
-
-    const newProposal = {
-      id: `prop-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-      sectionId,
-      title,
-      author,
-      originalText,
-      proposedText,
-      diff,
-      reason,
-      status: 'Abierta para debate',
-      createdAt: new Date().toISOString().slice(0, 10)
-    };
-
-    if (!Array.isArray(project.proposals)) {
-      project.proposals = [];
-    }
-    project.proposals.unshift(newProposal);
-    project.popularity = (project.popularity || 0) + 5;
-    project.updatedAt = newProposal.createdAt;
-
+    const project = this._findRawProject(projectId);
+    const proposal = createProposalRecord(project, payload);
     this.save();
-    return newProposal;
+    return proposal;
+  }
+
+  elaborateProposal(projectId, proposalId, payload) {
+    const project = this._findRawProject(projectId);
+    const proposal = elaborateProposalRecord(project, proposalId, payload);
+    this.save();
+    return proposal;
+  }
+
+  consolidateProposal(projectId, proposalId, reviewerNote = '') {
+    const project = this._findRawProject(projectId);
+    const result = consolidateProposalRecord(project, proposalId, reviewerNote);
+    this.save();
+    return result;
+  }
+
+  addWeakness(projectId, payload) {
+    const project = this._findRawProject(projectId);
+    const weakness = createWeaknessRecord(project, payload);
+    this.save();
+    return weakness;
   }
 
   addOpinion(projectId, payload) {
-    const state = this.getState();
-    const project = state.projects.find((p) => p.id === projectId);
-    if (!project) {
-      throw new Error(`No se encontró el plan con id ${projectId}`);
-    }
-
-    const text = sanitizeText(payload.text);
-    if (!text) {
-      throw new Error('El texto de la opinión o comentario es obligatorio');
-    }
-
-    const author = sanitizeText(payload.author) || 'Ciudadano Participante';
-    const type = sanitizeText(payload.type || 'Aportación ciudadana');
-
-    const newOpinion = {
-      id: `op-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-      author,
-      type,
-      text,
-      createdAt: new Date().toISOString().slice(0, 10)
-    };
-
-    if (!Array.isArray(project.opinions)) {
-      project.opinions = [];
-    }
-    project.opinions.unshift(newOpinion);
-    project.popularity = (project.popularity || 0) + 2;
-    project.updatedAt = newOpinion.createdAt;
-
+    const project = this._findRawProject(projectId);
+    const opinion = createOpinionRecord(project, payload);
     this.save();
-    return newOpinion;
+    return opinion;
   }
 
   addSeed(payload) {
     const state = this.getState();
-    const title = sanitizeText(payload.title);
-    if (!title) {
-      throw new Error('El título de la idea es obligatorio');
-    }
-
-    const description = sanitizeText(payload.description);
-    if (!description) {
-      throw new Error('La descripción de la idea es obligatoria');
-    }
-
-    const author = sanitizeText(payload.author) || 'Ciudadano Proponente';
-    const category = sanitizeText(payload.category || 'Iniciativa Ciudadana');
-
-    const newSeed = {
-      id: `idea-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-      title,
-      category,
-      author,
-      description,
-      votes: 1,
-      createdAt: new Date().toISOString().slice(0, 10)
-    };
-
+    const newSeed = createSeedRecord(payload);
     if (!Array.isArray(state.seeds)) {
       state.seeds = [];
     }
     state.seeds.unshift(newSeed);
     this.save();
     return newSeed;
+  }
+
+  endorseSeed(seedId) {
+    const state = this.getState();
+    const seed = endorseSeedRecord(state.seeds || [], seedId);
+    this.save();
+    return seed;
   }
 
   addIdea(payload) {
@@ -328,10 +197,4 @@ export class RepositoryStore {
   getIdeas() {
     return this.getSeeds();
   }
-}
-
-function sanitizeText(val) {
-  return String(val ?? '')
-    .replace(/[<>]/g, '')
-    .trim();
 }

@@ -45,7 +45,7 @@ export function createInitialPilotState() {
     },
 
     commonTrunk: {
-      id: 'tronco-común',
+      id: 'tronco-comun',
       name: 'Tronco Común Consolidado (Consenso Transversal)',
       description:
         'Disposiciones básicas ya consensuadas entre grupos parlamentarios, sindicatos, organizaciones empresariales y colectivos de familias. Se aplican como base común a todas las ramas de exploración.',
@@ -118,7 +118,7 @@ export function createInitialPilotState() {
         ]
       },
       {
-        id: 'rama-bolsa-flexible-híbrida',
+        id: 'rama-bolsa-flexible-hibrida',
         name: 'Rama B: Bolsa Flexible de Horas, Rampa Escalonada (50% a 75%) y Teletrabajo',
         shortLabel: 'Rama B: Bolsa Flexible + Rampa Híbrida',
         proponentSummary:
@@ -204,7 +204,7 @@ export function createInitialPilotState() {
           'Desproteccion de trabajadoras autónomas (RETA) sin asalariados ante una reducción de media jornada sin relevo',
         description:
           'En la Rama A, la ayuda al RETA se limita a 350 EUR/mes de bonificación de cuota. Para una autonoma titular de un pequeno comercio, clinica o despacho sin empleados, reducir el horario un 50% sin fondos suficientes para contratar a un sustituto de media jornada supone perder la mitad de la facturacion manteniendo el 100% del alquiler y costes fijos.',
-        severity: 'crítica',
+        severity: 'critica',
         domain: 'laboral_pyme',
         targetBranchId: 'rama-media-jornada-bonificada',
         targetClauseId: 'art-184-lgss',
@@ -221,9 +221,9 @@ export function createInitialPilotState() {
           'Vulneracion de equidad constitucional en familias monoparentales por coeficiente 1,3 insuficiente (STC 140/2024)',
         description:
           'La Rama B fija un coeficiente multiplicador de solo 1,3 para hogares monoparentales. El Tribunal Constitucional (STC 140/2024) ha establecido que los menores nacidos en familias monoparentales no pueden recibir un tiempo de cuidado protegido sustancialmente inferior al de las familias biparentales.',
-        severity: 'crítica',
+        severity: 'critica',
         domain: 'juridico',
-        targetBranchId: 'rama-bolsa-flexible-híbrida',
+        targetBranchId: 'rama-bolsa-flexible-hibrida',
         targetClauseId: 'art-37-6-et',
         affectedGroup: 'Familias monoparentales (81% encabezadas por madres)',
         reportedBy: 'Catedra de Derecho del Trabajo y Seguridad Social / Asociacion Madres Solteras',
@@ -256,7 +256,7 @@ export function createInitialPilotState() {
         description:
           'Si se obliga a la microempresa a adelantar en nomina el subsidio del 80-85% y esperar a la compensacion de la TGSS mes y medio despues, se genera tension de liquidez en empresas de menos de 10 trabajadores. El abono debe ser pago directo mensual del INSS o compensacion instantanea en sistema RED.',
         severity: 'moderada',
-        domain: 'económico',
+        domain: 'economico',
         targetBranchId: 'rama-escudo-pymes-rural',
         targetClauseId: 'art-37-6-et',
         affectedGroup: 'Microempresas de 1 a 9 trabajadores (con baja liquidez operativa)',
@@ -296,7 +296,7 @@ export function createInitialPilotState() {
         authorProfile: 'Profesional Sanitario / Pediatria',
         targetBranchId: 'rama-escudo-pymes-rural',
         affectedCollective: 'Familias con partos prematuros (<32 semanas) u hospitalizacion neonatal',
-        neededDomains: ['juridico', 'económico', 'social_igualdad'],
+        neededDomains: ['juridico', 'economico', 'social_igualdad'],
         maturityLevel: MATURITY_LEVELS.LEVEL_1_SEED,
         status: 'pendiente_de_elaborar',
         promotedAmendmentId: null,
@@ -328,7 +328,7 @@ export function createInitialPilotState() {
       {
         commitId: 'rev-base03',
         date: '2026-10-20',
-        targetBranchId: 'tronco-común',
+        targetBranchId: 'tronco-comun',
         amendmentId: 'enmienda-fundacional-tc',
         title:
           'Incorporacion al Tronco Común de la cotización al 100% (Art. 237.4 LGSS) y garantia monoparental (STC 140/2024)',
@@ -369,7 +369,7 @@ export function createInitialPilotState() {
 
 function seedInitialAmendments(state) {
   const branchA = state.branches.find((b) => b.id === 'rama-media-jornada-bonificada');
-  const branchB = state.branches.find((b) => b.id === 'rama-bolsa-flexible-híbrida');
+  const branchB = state.branches.find((b) => b.id === 'rama-bolsa-flexible-hibrida');
 
   // 1. Enmienda Nivel 2 (PR de Dominio Juridico): Experta constitucionalista corrige el coeficiente monoparental en Rama B, dejando pendiente la evaluacion económica
   const origClauseB = branchB.clauses[0].text;
@@ -391,16 +391,16 @@ function seedInitialAmendments(state) {
       'Adecuacion del coeficiente monoparental a 1,8x en Rama B conforme a la STC 140/2024',
     summary:
       'Enmienda especializada de dominio juridico: corrige el apartado 3 del Art. 37.6 ET en la Rama B para elevar el multiplicador de familias monoparentales de 1,3 a 1,8, evitando un recurso de inconstitucionalidad. Solicita co-autoria de un economista para completar la memoria presupuestaria.',
-    targetBranchId: 'rama-bolsa-flexible-híbrida',
+    targetBranchId: 'rama-bolsa-flexible-hibrida',
     targetClauseId: 'art-37-6-et',
     originalClauseText: origClauseB,
     proposedClauseText: propClauseB,
     clauseDiff: computeClauseDiff(origClauseB, propClauseB),
     parameterChanges: paramChanges101,
     impactDelta: delta101,
-    requiredDomains: ['juridico', 'social_igualdad', 'económico'],
+    requiredDomains: ['juridico', 'social_igualdad', 'economico'],
     coveredDomains: ['juridico', 'social_igualdad'],
-    pendingDomains: ['económico'],
+    pendingDomains: ['economico'],
     domainAnalyses: {
       juridico:
         'La STC 140/2024 declara discriminatorio por razon de nacimiento (Art. 14 y 39 CE) privar al menor en familia monoparental del tiempo de cuidado que habría correspondido al segundo progenitor. Excluir las primeras 6 semanas solapadas arroja un coeficiente técnico de 1,8x.',
@@ -457,8 +457,8 @@ function seedInitialAmendments(state) {
     clauseDiff: computeClauseDiff(origClauseA1, propClauseA1),
     parameterChanges: paramChanges102,
     impactDelta: delta102,
-    requiredDomains: ['laboral_pyme', 'económico', 'juridico'],
-    coveredDomains: ['laboral_pyme', 'económico'],
+    requiredDomains: ['laboral_pyme', 'economico', 'juridico'],
+    coveredDomains: ['laboral_pyme', 'economico'],
     pendingDomains: ['juridico'],
     domainAnalyses: {
       laboral_pyme:
@@ -472,7 +472,7 @@ function seedInitialAmendments(state) {
       {
         name: 'Marcos Ibanez (Tecnico de Organizacion PYME)',
         role: 'Analista de Operaciones y Costes Laborales',
-        contributedDomains: ['laboral_pyme', 'económico'],
+        contributedDomains: ['laboral_pyme', 'economico'],
         date: '2026-10-26'
       }
     ],
@@ -519,8 +519,8 @@ function seedInitialAmendments(state) {
     clauseDiff: computeClauseDiff(origClauseA2, propClauseA2),
     parameterChanges: paramChanges103,
     impactDelta: delta103,
-    requiredDomains: ['laboral_pyme', 'económico', 'juridico', 'ambiental_territorial'],
-    coveredDomains: ['laboral_pyme', 'económico', 'juridico', 'ambiental_territorial'],
+    requiredDomains: ['laboral_pyme', 'economico', 'juridico', 'ambiental_territorial'],
+    coveredDomains: ['laboral_pyme', 'economico', 'juridico', 'ambiental_territorial'],
     pendingDomains: [],
     domainAnalyses: {
       laboral_pyme:
@@ -544,7 +544,7 @@ function seedInitialAmendments(state) {
       {
         name: 'Javier Soriano (Economista Presupuestario)',
         role: 'Analista Fiscal Independiente',
-        contributedDomains: ['económico'],
+        contributedDomains: ['economico'],
         date: '2026-10-24'
       },
       {
@@ -560,7 +560,7 @@ function seedInitialAmendments(state) {
       {
         author: 'Javier Soriano',
         role: 'Analista Fiscal Independiente',
-        domain: 'económico',
+        domain: 'economico',
         text: 'Completada la cuantificacion MAIN: el coste neto adicional es de 47,8 M EUR anuales para cubrir a mas de 20.000 autónomas activas.',
         date: '2026-10-24'
       },

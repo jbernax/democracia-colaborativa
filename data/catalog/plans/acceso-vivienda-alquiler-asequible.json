@@ -1,0 +1,126 @@
+{
+  "id": "acceso-vivienda-alquiler-asequible",
+  "code": "EXP-2026-VIV-055",
+  "title": "Plan de garantías para movilizar pisos vacíos hacia el alquiler asequible",
+  "category": "Vivienda y Urbanismo",
+  "stage": "Debate abierto",
+  "author": "Ponencia técnica de vivienda y suelo público",
+  "summary": "Seguro público de cobro y préstamos para reformar viviendas vacías si se alquilan a precio asequible, junto con la prohibición de vender el suelo público destinado a alquiler.",
+  "createdAt": "2026-10-24",
+  "updatedAt": "2026-11-04",
+  "popularity": 128,
+  "mainCoverage": {
+    "juridico": true,
+    "economico": false,
+    "laboral_pyme": false,
+    "social_igualdad": true,
+    "ambiental_territorial": true
+  },
+  "monograph": [
+    {
+      "id": "diagnostico",
+      "title": "1. El problema: pocos pisos públicos y muchas casas cerradas",
+      "content": "En España, la vivienda pública en alquiler apenas supone el 2,5% del total, muy lejos de la media europea del 9,3%. Al mismo tiempo, muchos hogares jóvenes gastan más del 40% de su sueldo neto en la renta, mientras más de 400.000 casas vacías necesitan una reforma para entrar en el mercado.\n\nLos propietarios particulares suelen señalar dos frenos para alquilar a largo plazo: el miedo a un impago prolongado y el coste de poner al día el aislamiento y la calefacción."
+    },
+    {
+      "id": "articulado",
+      "title": "2. Medidas y texto legal propuesto",
+      "content": "Artículo 1. Seguro público de cobro para alquiler asequible:\n1. Quien ceda un piso vacío al registro público durante al menos cinco años con la renta topada al índice oficial recibirá una garantía pública desde el primer mes de impago. También contará con cobertura por desperfectos de hasta 18.000 euros.\n2. Si el piso lleva más de dos años vacío en una zona con precios tensionados, el propietario tendrá una rebaja del 90% en el IRPF sobre lo que cobre.\n\nArtículo 2. Préstamos sin intereses para reforma energética:\nLos dueños y las comunidades de vecinos que mejoren el aislamiento o la climatización podrán pedir un préstamo público ICO al 0% de interés, a devolver en diez años con parte del propio alquiler.\n\nArtículo 3. Suelo público que nunca se vende:\nEl suelo público destinado a construir pisos de alquiler asequible seguirá siendo público para siempre. Solo podrá cederse en concesiones de hasta setenta y cinco años y queda prohibida su venta a particulares o fondos."
+    },
+    {
+      "id": "impacto",
+      "title": "3. Costes y efectos previstos",
+      "content": "El objetivo en tres años es sumar 65.000 pisos privados vacíos y construir 30.000 viviendas en suelo público:\n- Coste estimado para las cuentas públicas: 290 millones de euros al año por el seguro de impagos y las rebajas de IRPF. Parte de ese gasto vuelve al aflorar contratos legales y ahorrar en ayudas de emergencia.\n- Ahorro para los inquilinos: unos 240 euros menos al mes en el alquiler para jóvenes y familias monoparentales.\n- Ahorro de energía: las reformas reducen un 38% el gasto en calefacción y aire acondicionado en edificios anteriores a 1980."
+    },
+    {
+      "id": "puntos-criticos",
+      "title": "4. Dudas abiertas y puntos a revisar",
+      "content": "Quedan tres puntos abiertos a mejoras:\n1. Definir bien qué es un piso vacío para no penalizar las segundas casas familiares en los pueblos.\n2. Fijar un plazo máximo para que el fondo público pague al casero si hay impago, sin esperas de meses.\n3. Encajar el registro con las competencias de cada comunidad autónoma."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "prop-viv-1",
+      "sectionId": "articulado",
+      "title": "Fijar un plazo máximo de 15 días hábiles para cobrar el seguro público",
+      "author": "Colegio de Administradores de Fincas y juristas inmobiliarios",
+      "originalText": "Artículo 1. Seguro público de cobro para alquiler asequible:\n1. Quien ceda un piso vacío al registro público durante al menos cinco años con la renta topada al índice oficial recibirá una garantía pública desde el primer mes de impago. También contará con cobertura por desperfectos de hasta 18.000 euros.\n2. Si el piso lleva más de dos años vacío en una zona con precios tensionados, el propietario tendrá una rebaja del 90% en el IRPF sobre lo que cobre.\n\nArtículo 2. Préstamos sin intereses para reforma energética:\nLos dueños y las comunidades de vecinos que mejoren el aislamiento o la climatización podrán pedir un préstamo público ICO al 0% de interés, a devolver en diez años con parte del propio alquiler.\n\nArtículo 3. Suelo público que nunca se vende:\nEl suelo público destinado a construir pisos de alquiler asequible seguirá siendo público para siempre. Solo podrá cederse en concesiones de hasta setenta y cinco años y queda prohibida su venta a particulares o fondos.",
+      "proposedText": "Artículo 1. Seguro público de cobro para alquiler asequible:\n1. Quien ceda un piso vacío al registro público durante al menos cinco años con la renta topada al índice oficial recibirá una garantía pública desde el primer mes de impago, con ingreso en cuenta en un máximo de quince días hábiles tras avisar del descubierto. También contará con cobertura por desperfectos de hasta 18.000 euros.\n2. Si el piso lleva más de dos años vacío en una zona con precios tensionados, el propietario tendrá una rebaja del 90% en el IRPF sobre lo que cobre.\n\nArtículo 2. Préstamos sin intereses para reforma energética:\nLos dueños y las comunidades de vecinos que mejoren el aislamiento o la climatización podrán pedir un préstamo público ICO al 0% de interés, a devolver en diez años con parte del propio alquiler.\n\nArtículo 3. Suelo público que nunca se vende:\nEl suelo público destinado a construir pisos de alquiler asequible seguirá siendo público para siempre. Solo podrá cederse en concesiones de hasta setenta y cinco años y queda prohibida su venta a particulares o fondos.",
+      "reason": "Sin una fecha límite de pago, los pequeños propietarios que necesitan el alquiler para completar su pensión o pagar la hipoteca no se fiarán del programa.",
+      "requiredDomains": ["juridico", "economico"],
+      "domainAnalyses": {
+        "juridico": "Marca un plazo obligatorio de quince días hábiles y deja que la Administración reclame después la deuda al inquilino."
+      },
+      "coAuthors": [
+        {
+          "name": "Colegio de Administradores de Fincas",
+          "role": "Especialista en derecho inmobiliario",
+          "contributedDomains": ["juridico"],
+          "date": "2026-11-02"
+        }
+      ],
+      "mitigatesWeaknessIds": ["deb-viv-01"],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-11-02"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "deb-viv-01",
+      "title": "Falta un plazo máximo para cobrar la garantía de impagos",
+      "description": "El texto promete cubrir el impago desde el primer mes, pero no aclara en cuántos días cobra el dueño ni qué pasa si el trámite se alarga varios meses.",
+      "severity": "alta",
+      "domain": "juridico",
+      "sectionId": "articulado",
+      "affectedGroup": "Pequeños propietarios con un solo piso en alquiler",
+      "reportedBy": "Consejo de Colegios de Administradores de Fincas",
+      "status": "en_mitigacion",
+      "linkedProposalId": "prop-viv-1",
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-30"
+    },
+    {
+      "id": "deb-viv-02",
+      "title": "El fondo de garantía puede quedarse corto si suben los impagos",
+      "description": "La cifra de 290 millones de euros al año no detalla cuánto dinero queda en reserva por si aumenta el paro y crecen los retrasos en los pagos.",
+      "severity": "moderada",
+      "domain": "economico",
+      "sectionId": "impacto",
+      "affectedGroup": "Hacienda pública y comunidades autónomas",
+      "reportedBy": "Grupo independiente de análisis presupuestario",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-11-01"
+    }
+  ],
+  "opinions": [
+    {
+      "id": "op-viv-1",
+      "author": "Javier R. (Inquilino de 31 años en Madrid)",
+      "type": "Aportación ciudadana",
+      "sectionId": "articulado",
+      "text": "Prohibir que se venda el suelo público es lo más importante del plan. Sin esa regla, dentro de veinte años volveremos a quedarnos sin pisos públicos.",
+      "createdAt": "2026-11-03"
+    },
+    {
+      "id": "op-viv-2",
+      "author": "Ana M. (Propietaria jubilada en Valencia)",
+      "type": "Propuesta técnica",
+      "sectionId": "puntos-criticos",
+      "text": "Si un organismo público lleva el contrato y me asegura el cobro el día 5 de cada mes, aceptaría sin duda un alquiler un 20% por debajo del precio de mercado.",
+      "createdAt": "2026-11-04"
+    }
+  ],
+  "commitHistory": [
+    {
+      "commitId": "rev-viv-01",
+      "date": "2026-10-24",
+      "sectionId": "expediente",
+      "proposalId": null,
+      "title": "Apertura del expediente EXP-2026-VIV-055",
+      "coAuthors": ["Ponencia técnica de vivienda y suelo público"],
+      "mitigatedWeaknesses": []
+    }
+  ]
+}

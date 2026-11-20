@@ -1,7 +1,10 @@
-name: Deploy static site to GitHub Pages
+name: Validate and deploy static site to GitHub Pages
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -27,15 +30,17 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Build GitHub Pages bundle
-        run: npm run build:pages
+      - name: Run automated tests and catalog checks
+        run: npm run check
 
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist-pages
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

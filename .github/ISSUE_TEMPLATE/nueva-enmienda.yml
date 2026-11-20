@@ -1,0 +1,30 @@
+name: Propuesta de cambio en el texto
+description: Proponer una mejora en un apartado de un plan que ya existe.
+title: "[Enmienda] "
+labels: ["comunidad", "enmienda"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Es más fácil si pulsas «Enviar a GitHub» desde el editor de la web: así el bloque `agora-payload` se rellena solo.
+  - type: input
+    id: project_id
+    attributes:
+      label: Identificador del plan
+      placeholder: Ej. reincorporacion-laboral-maternidad
+    validations:
+      required: true
+  - type: input
+    id: section_id
+    attributes:
+      label: Identificador del apartado
+      placeholder: Ej. articulado
+    validations:
+      required: true
+  - type: textarea
+    id: payload_notes
+    attributes:
+      label: Por qué lo propones y bloque estructurado (agora-payload)
+      description: Explica el motivo del cambio e incluye, si lo tienes, el bloque ```json agora-payload que genera la web.
+    validations:
+      required: true

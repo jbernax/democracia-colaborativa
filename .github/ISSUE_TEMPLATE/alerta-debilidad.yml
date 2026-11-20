@@ -1,0 +1,32 @@
+name: Aviso de punto débil
+description: Señalar un fallo práctico, vacío legal, riesgo de costes o grupo que queda desprotegido.
+title: "[Debilidad] "
+labels: ["comunidad", "debilidad"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Encontrar un punto débil a tiempo ayuda a corregir el plan antes de que cause problemas reales.
+  - type: input
+    id: project_id
+    attributes:
+      label: Identificador del plan
+      placeholder: Ej. acceso-vivienda-alquiler-asequible
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Gravedad
+      options:
+        - critica
+        - alta
+        - moderada
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Qué falla y bloque estructurado (agora-payload)
+    validations:
+      required: true

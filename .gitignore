@@ -1,4 +1,6 @@
 node_modules/
 dist-pages/
+.local-state.json
+.local-state.json.tmp*
 *.log
 .DS_Store

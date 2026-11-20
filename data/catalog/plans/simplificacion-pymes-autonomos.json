@@ -1,0 +1,119 @@
+{
+  "id": "simplificacion-pymes-autonomos",
+  "code": "EXP-2026-ECO-031",
+  "title": "Plan para reducir papeleo a microempresas y autónomos",
+  "category": "Economía y pymes",
+  "stage": "Debate abierto",
+  "author": "Comisión de simplificación para pymes",
+  "summary": "Ley de ventanilla única con menos burocracia: un solo aviso anual, fin a pedir los mismos papeles entre Hacienda y Seguridad Social y respuestas administrativas en un máximo de 15 días.",
+  "createdAt": "2026-10-10",
+  "updatedAt": "2026-10-28",
+  "popularity": 115,
+  "mainCoverage": {
+    "juridico": true,
+    "economico": true,
+    "laboral_pyme": true,
+    "social_igualdad": false,
+    "ambiental_territorial": false
+  },
+  "monograph": [
+    {
+      "id": "diagnostico",
+      "title": "1. El problema: demasiadas horas en trámites repetidos",
+      "content": "En España, una microempresa de entre 1 y 5 trabajadores dedica unas 180 horas al año a papeleo. Muchas veces tiene que enviar los mismos datos una y otra vez a Hacienda, la Seguridad Social, su comunidad autónoma y el ayuntamiento.\n\nAunque la Ley 39/2015 (art. 53) reconoce el derecho a no entregar documentos que ya tiene la Administración, las bases de datos no siempre se comunican entre sí y el empresario acaba presentándolos igual."
+    },
+    {
+      "id": "articulado",
+      "title": "2. Medidas y texto legal propuesto",
+      "content": "1. Regla de una sola vez: en concursos públicos o ayudas, ninguna Administración podrá pedirte certificados de estar al día con Hacienda o la Seguridad Social. El organismo comprobará ese dato directamente en el momento.\n2. Un solo formulario para microempresas: los modelos trimestrales de IVA, retenciones y resúmenes se agruparán en una declaración digital única y guiada.\n3. Silencio positivo para abrir negocios sin impacto ambiental: en comercios y oficinas sencillos, bastará presentar la comunicación previa para abrir la puerta el mismo día sin esperar meses la licencia municipal."
+    },
+    {
+      "id": "impacto",
+      "title": "3. Costes y efectos previstos",
+      "content": "Conectar entre sí las plataformas informáticas del Estado cuesta unos 18 millones de euros.\n\nA cambio, las empresas ahorrarían unos 720 millones de euros al año en tiempo y gestiones. Ese margen ayuda sobre todo a que los negocios recién abiertos sobrevivan a sus dos primeros años."
+    },
+    {
+      "id": "puntos-criticos",
+      "title": "4. Dudas abiertas y puntos a revisar",
+      "content": "Quedan dos puntos en discusión:\n- Cómo vigilar fraudes o incumplimientos cuando un negocio abre de inmediato por silencio positivo.\n- Cómo ayudar a los ayuntamientos pequeños que aún no tienen medios técnicos para conectarse en directo a las bases de datos estatales."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "prop-pyme-1",
+      "sectionId": "articulado",
+      "title": "Evitar que coincidan en el mismo día los cobros de Hacienda y Seguridad Social",
+      "author": "Sofía N. (Colegio de Gestores Administrativos)",
+      "originalText": "1. Regla de una sola vez: en concursos públicos o ayudas, ninguna Administración podrá pedirte certificados de estar al día con Hacienda o la Seguridad Social. El organismo comprobará ese dato directamente en el momento.\n2. Un solo formulario para microempresas: los modelos trimestrales de IVA, retenciones y resúmenes se agruparán en una declaración digital única y guiada.\n3. Silencio positivo para abrir negocios sin impacto ambiental: en comercios y oficinas sencillos, bastará presentar la comunicación previa para abrir la puerta el mismo día sin esperar meses la licencia municipal.",
+      "proposedText": "1. Regla de una sola vez: en concursos públicos o ayudas, ninguna Administración podrá pedirte certificados de estar al día con Hacienda o la Seguridad Social. El organismo comprobará ese dato directamente en el momento.\n2. Un solo formulario para microempresas: los modelos trimestrales de IVA, retenciones y resúmenes se agruparán en una declaración digital única y guiada, con un calendario común entre Hacienda y la Seguridad Social para que los pagos no caigan en el mismo día.\n3. Silencio positivo para abrir negocios sin impacto ambiental: en comercios y oficinas sencillos, bastará presentar la comunicación previa para abrir la puerta el mismo día sin esperar meses la licencia municipal.",
+      "reason": "Escalonar las fechas de cobro de impuestos y cuotas evita sustos de caja a fin de trimestre y colapsos en la web.",
+      "requiredDomains": ["laboral_pyme", "economico", "juridico"],
+      "domainAnalyses": {
+        "laboral_pyme": "Quita carga en los días punta a asesorías y graduados sociales y evita descubiertos en cuenta el día 20 de cada trimestre.",
+        "economico": "Facilita pagar a tiempo sin coste alguno para las arcas públicas, solo repartiendo las fechas de cargo."
+      },
+      "coAuthors": [
+        {
+          "name": "Sofía N.",
+          "role": "Gestora administrativa",
+          "contributedDomains": ["laboral_pyme", "economico"],
+          "date": "2026-10-25"
+        }
+      ],
+      "mitigatesWeaknessIds": [],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-10-25"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "deb-pyme-01",
+      "title": "Muchos ayuntamientos rurales no están conectados a la base estatal",
+      "description": "El 68% de los pueblos pequeños no tiene acceso directo a la plataforma estatal de datos. Si se prohíbe pedir certificados sin dotarles antes de conexión, sus ayudas locales quedarán bloqueadas.",
+      "severity": "alta",
+      "domain": "laboral_pyme",
+      "sectionId": "articulado",
+      "affectedGroup": "Ayuntamientos rurales y microempresas locales",
+      "reportedBy": "Grupo técnico de administración digital local",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-22"
+    },
+    {
+      "id": "deb-pyme-02",
+      "title": "Riesgo de cierre tras invertir si no hay plazo para la inspección municipal",
+      "description": "Abrir con un aviso previo sin una lista cerrada de actividades permitidas y sin un plazo límite para la revisión posterior deja al comercio expuesto a un cierre después de pagar la reforma.",
+      "severity": "moderada",
+      "domain": "juridico",
+      "sectionId": "puntos-criticos",
+      "affectedGroup": "Nuevos comercios y pequeños talleres",
+      "reportedBy": "Asociación de comerciantes autónomos",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-24"
+    }
+  ],
+  "opinions": [
+    {
+      "id": "op-pyme-1",
+      "author": "Sofía N. (Gestora administrativa)",
+      "type": "Propuesta técnica",
+      "sectionId": "articulado",
+      "text": "Hacienda y la Seguridad Social deberían usar un calendario común para que el IVA y las cuotas sociales no se carguen el mismo día del trimestre.",
+      "createdAt": "2026-10-24"
+    }
+  ],
+  "commitHistory": [
+    {
+      "commitId": "rev-pyme-01",
+      "date": "2026-10-10",
+      "sectionId": "expediente",
+      "proposalId": null,
+      "title": "Apertura del expediente EXP-2026-ECO-031",
+      "coAuthors": ["Comisión de simplificación"],
+      "mitigatedWeaknesses": []
+    }
+  ]
+}

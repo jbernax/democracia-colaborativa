@@ -1,0 +1,32 @@
+[
+  {
+    "id": "idea-01",
+    "title": "Bancos de tiempo en los ayuntamientos para ayudar con los cuidados",
+    "category": "Servicios sociales y cuidados",
+    "author": "María José G. (Asociación vecinal)",
+    "description": "Crear una norma que deje a cada ayuntamiento registrar horas de ayuda entre vecinos, como cuidar a personas mayores o recoger a niños del colegio, y canjearlas por rebajas en tasas municipales.",
+    "votes": 38,
+    "promotedProjectId": null,
+    "createdAt": "2026-10-29"
+  },
+  {
+    "id": "idea-02",
+    "title": "Regla única para usar locales vacíos como talleres o espacios juveniles",
+    "category": "Urbanismo y juventud",
+    "author": "David L. (Arquitecto)",
+    "description": "En casi todos los barrios hay locales comerciales cerrados desde hace años. Si una ley rebajara el IBI a los dueños que cedan estos bajos a proyectos juveniles o cooperativas, se daría vida a la calle.",
+    "votes": 29,
+    "promotedProjectId": null,
+    "createdAt": "2026-10-31"
+  },
+  {
+    "id": "idea-03",
+    "title": "Revisar cada gran subvención pública a los dos años de aprobarse",
+    "category": "Transparencia y cuentas públicas",
+    "author": "Plataforma de Datos Públicos Abiertos",
+    "description": "Toda ayuda pública de más de 50 millones de euros debería fijar objetivos claros desde el primer día. A los 24 meses, un informe independiente diría si ha funcionado o si conviene cambiar el dinero de sitio.",
+    "votes": 24,
+    "promotedProjectId": null,
+    "createdAt": "2026-11-04"
+  }
+]

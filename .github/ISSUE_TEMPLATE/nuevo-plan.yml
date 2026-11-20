@@ -1,0 +1,17 @@
+name: Nuevo plan público
+description: Proponer un plan completo nuevo para añadirlo al catálogo.
+title: "[Nuevo Plan] "
+labels: ["comunidad", "plan"]
+body:
+  - type: input
+    id: category
+    attributes:
+      label: Tema
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: Resumen, texto inicial y bloque estructurado (agora-payload)
+    validations:
+      required: true

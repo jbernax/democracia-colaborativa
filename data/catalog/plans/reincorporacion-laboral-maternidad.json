@@ -1,0 +1,358 @@
+{
+  "id": "reincorporacion-laboral-maternidad",
+  "code": "EXP-2026-MTES-042",
+  "title": "Plan de vuelta gradual al trabajo tras tener un hijo",
+  "category": "Empleo y familias",
+  "stage": "Debate abierto",
+  "author": "Ponencia técnica y agentes sociales",
+  "summary": "Cambio en el Estatuto de los Trabajadores (art. 37.6) y la Seguridad Social para volver a media jornada tras las 16 semanas de baja sin perder casi sueldo ni pensión, y con ayudas para pymes y autónomas.",
+  "createdAt": "2026-10-15",
+  "updatedAt": "2026-10-31",
+  "popularity": 142,
+  "mainCoverage": {
+    "juridico": true,
+    "economico": true,
+    "laboral_pyme": true,
+    "social_igualdad": true,
+    "ambiental_territorial": true
+  },
+  "monograph": [
+    {
+      "id": "diagnostico",
+      "title": "1. El problema y por qué hace falta actuar",
+      "content": "En España, cuando terminan las 16 semanas de permiso por nacimiento (art. 48.4 del Estatuto de los Trabajadores), el bebé tiene unos 4 meses. Pasar de golpe a una jornada de 40 horas semanales choca con la lactancia exclusiva hasta los 6 meses que recomienda la OMS.\n\nPor esta rigidez, el 18,4% de las madres trabajadoras pide una excedencia sin sueldo o deja su empleo durante un tiempo. Además, la reducción de jornada actual recorta el salario en la misma proporción y la piden sobre todo mujeres (el 89% de los casos). A los cinco años, eso deja una brecha salarial por maternidad estimada en el 11,2%.\n\nEste plan busca cambiar ese salto brusco por una vuelta gradual al trabajo. Durante el primer año, la Seguridad Social compensaría parte del sueldo que se deja de cobrar y mantendría la cotización al 100% para no perjudicar la futura pensión."
+    },
+    {
+      "id": "articulado",
+      "title": "2. Medidas y texto legal propuesto",
+      "content": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote."
+    },
+    {
+      "id": "impacto",
+      "title": "3. Costes y efectos previstos",
+      "content": "Las cuentas están hechas sobre 265.000 madres y padres con empleo cada año:\n- Gasto bruto para la Seguridad Social: unos 1.580 millones de euros al año.\n- Dinero que vuelve a las arcas públicas: unos 367 millones de euros al año, gracias a que menos mujeres dejan su empleo y a los impuestos y cotizaciones de los contratos de sustitución.\n- Coste neto final: 1.213 millones de euros al año (unos 4.577 euros netos por persona beneficiaria).\n- Empleo de relevo: se crearían más de 22.000 puestos equivalentes a jornada completa.\n- Menos desigualdad: bajarían un 42% las excedencias sin sueldo y la brecha salarial a cinco años pasaría del 11,2% al 6,1%."
+    },
+    {
+      "id": "puntos-criticos",
+      "title": "4. Dudas abiertas y puntos a revisar",
+      "content": "Quedan tres puntos importantes por cerrar entre todas las partes:\n1. Turnos en microempresas: en talleres, comercios o clínicas pequeñas cuesta encontrar a alguien para solo cuatro horas al día. Se debate permitir juntar esas horas en días completos alternos (trabajar 2,5 días a la semana).\n2. Familias monoparentales: el Tribunal Constitucional (STC 140/2024) obliga a no dejar atrás a estos menores. Se estudia multiplicar la duración por 1,8 para la madre o padre único.\n3. Reparto entre progenitores: hace falta un incentivo claro para que ambos pidan la reducción y no recaiga casi siempre en las madres."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "prop-1",
+      "sectionId": "articulado",
+      "title": "Permitir juntar la media jornada en días completos en microempresas",
+      "author": "Marcos Ibáñez (Asociación de pequeñas empresas)",
+      "originalText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote.",
+      "proposedText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos. En empresas de menos de veinticinco trabajadores o centros con turnos, si ambas partes están de acuerdo, la reducción podrá juntarse en jornadas completas alternas.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote.",
+      "reason": "En talleres, tiendas o clínicas de 3 a 5 personas casi nadie acepta un contrato de solo 4 horas al día. Juntar las horas en días enteros facilita contratar a un sustituto a jornada completa.",
+      "requiredDomains": ["laboral_pyme", "economico", "juridico"],
+      "domainAnalyses": {
+        "laboral_pyme": "Agrupar medias jornadas en días completos alternos reduce las ofertas sin cubrir y simplifica los cuadrantes en pequeños negocios.",
+        "economico": "Mantener la misma rebaja en cuotas crea puestos estables de sustitución sin añadir coste extra frente a las vacantes vacías."
+      },
+      "coAuthors": [
+        {
+          "name": "Marcos Ibáñez",
+          "role": "Especialista en organización de pymes",
+          "contributedDomains": ["laboral_pyme", "economico"],
+          "date": "2026-10-22"
+        }
+      ],
+      "mitigatesWeaknessIds": ["deb-03"],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-10-22"
+    },
+    {
+      "id": "prop-2",
+      "sectionId": "articulado",
+      "title": "Aplicar el multiplicador de 1,8 en familias monoparentales",
+      "author": "Dra. Elena Gómez (Abogada laboralista)",
+      "originalText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote.",
+      "proposedText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual. En familias monoparentales, la madre o padre único podrá ampliar este plazo multiplicando la duración máxima por 1,8.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote.",
+      "reason": "Adapta el texto a la sentencia STC 140/2024 del Tribunal Constitucional para que los bebés de familias monoparentales (el 81% con una madre sola) no pierdan tiempo de cuidado.",
+      "requiredDomains": ["juridico", "social_igualdad", "economico"],
+      "domainAnalyses": {
+        "juridico": "La sentencia STC 140/2024 prohíbe dar menos tiempo de cuidado a un menor por vivir con un solo progenitor (arts. 14 y 39 CE). Si se descuentan las semanas simultáneas, el factor justo es 1,8.",
+        "social_igualdad": "Da igualdad real al 81% de los hogares monoparentales, que están encabezados por mujeres."
+      },
+      "coAuthors": [
+        {
+          "name": "Dra. Elena Gómez-Valor",
+          "role": "Abogada laboralista y constitucionalista",
+          "contributedDomains": ["juridico", "social_igualdad"],
+          "date": "2026-10-25"
+        }
+      ],
+      "mitigatesWeaknessIds": ["deb-02"],
+      "status": "Solicita co-autoría",
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "prop-3",
+      "sectionId": "articulado",
+      "title": "Pago directo mensual del INSS para autónomas y ayuda extra en pueblos",
+      "author": "Asociación Nacional de Mujeres Autónomas y Rurales",
+      "originalText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán una ayuda de 750 euros al mes durante esos ocho meses para pagar a alguien que las cubra o mantener su negocio a flote.",
+      "proposedText": "Artículo 37.6 bis (nuevo). Derecho a volver de forma gradual tras el nacimiento:\n1. Cuando acaben las dieciséis semanas de permiso por nacimiento, cualquier persona trabajadora podrá reducir su jornada a la mitad durante ocho meses seguidos.\n2. Durante esos ocho meses, la empresa pagará la mitad del sueldo y la Seguridad Social cubrirá el 80% de la parte recortada. Así, quien se acoja cobrará el 90% de su sueldo habitual.\n3. La cotización seguirá contando al 100% para la jubilación, la incapacidad permanente y el paro.\n4. Las empresas que contraten a alguien a tiempo parcial para cubrir esas horas tendrán una rebaja del 75% en sus cuotas a la Seguridad Social (y del 95% si tienen menos de diez trabajadores).\n\nDisposición adicional para autónomas (RETA):\nLas trabajadoras por cuenta propia recibirán un bono de 750 euros al mes que el INSS ingresará directamente en los cinco primeros días hábiles de cada mes. Este bono podrá usarse con bolsas comarcales compartidas de sustitutos. En pueblos de menos de 5.000 habitantes, la rebaja en las cuotas del contrato de sustitución subirá al 90%.",
+      "reason": "Evita que las autónomas sin empleados tengan que adelantar dinero o cerrar su negocio al volver de la baja, y refuerza la ayuda en los pueblos pequeños.",
+      "requiredDomains": ["laboral_pyme", "economico", "juridico", "ambiental_territorial"],
+      "domainAnalyses": {
+        "laboral_pyme": "Sube la cobertura efectiva de las autónomas del 30,3% al 65% y evita cierres de tiendas o despachos tras la maternidad.",
+        "economico": "Suma 47,8 millones de euros netos al año, pero mantiene negocios abiertos que siguen pagando IRPF y cuotas.",
+        "juridico": "Encaja con el artículo 38 bis del Estatuto del Trabajo Autónomo (Ley 20/2007) y fija el ingreso directo del INSS.",
+        "ambiental_territorial": "Mantiene comercios y servicios en pueblos de menos de 5.000 habitantes para que los vecinos no tengan que coger el coche para todo."
+      },
+      "coAuthors": [
+        {
+          "name": "Asociación Nacional de Mujeres Autónomas y Rurales",
+          "role": "Representación de autónomas (RETA)",
+          "contributedDomains": ["laboral_pyme", "ambiental_territorial"],
+          "date": "2026-10-26"
+        },
+        {
+          "name": "Javier Soriano",
+          "role": "Economista fiscal",
+          "contributedDomains": ["economico"],
+          "date": "2026-10-27"
+        },
+        {
+          "name": "Marta Alcázar",
+          "role": "Abogada de Seguridad Social",
+          "contributedDomains": ["juridico"],
+          "date": "2026-10-28"
+        }
+      ],
+      "mitigatesWeaknessIds": ["deb-01"],
+      "status": "Lista para consolidación",
+      "createdAt": "2026-10-26"
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "deb-01",
+      "title": "Las autónomas sin empleados pierden ingresos si no pueden contratar relevo",
+      "description": "Con la ayuda básica de media jornada, si el ingreso es corto o llega tarde, una autónoma sin plantilla pierde la mitad de su facturación mientras sigue pagando el 100% del alquiler y gastos fijos.",
+      "severity": "critica",
+      "domain": "laboral_pyme",
+      "targetBranchId": "rama-media-jornada-bonificada",
+      "sectionId": "articulado",
+      "affectedGroup": "30.500 madres autónomas al año y pequeño comercio",
+      "reportedBy": "Federación de Trabajadores Autónomos y Economía Social",
+      "status": "en_mitigacion",
+      "linkedProposalId": "prop-3",
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-21"
+    },
+    {
+      "id": "deb-02",
+      "title": "Las familias monoparentales reciben menos tiempo de cuidado con un coeficiente de 1,3",
+      "description": "La opción B multiplica la bolsa de horas por 1,3 en hogares con un solo progenitor. La sentencia STC 140/2024 exige que esos menores reciban un tiempo de cuidado equivalente al de dos progenitores.",
+      "severity": "critica",
+      "domain": "juridico",
+      "targetBranchId": "rama-bolsa-flexible-hibrida",
+      "sectionId": "articulado",
+      "affectedGroup": "Familias monoparentales (el 81% encabezadas por madres)",
+      "reportedBy": "Cátedra de Derecho del Trabajo y Seguridad Social",
+      "status": "en_mitigacion",
+      "linkedProposalId": "prop-2",
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-23"
+    },
+    {
+      "id": "deb-03",
+      "title": "Cuesta cubrir turnos de solo 4 horas al día en microempresas y clínicas",
+      "description": "En empresas de menos de 10 trabajadores con turnos rotatorios, casi cuatro de cada diez ofertas de solo cuatro horas quedan vacías si no se dejan juntar en días completos alternos.",
+      "severity": "alta",
+      "domain": "laboral_pyme",
+      "targetBranchId": "rama-media-jornada-bonificada",
+      "sectionId": "articulado",
+      "affectedGroup": "Microempresas, talleres, clínicas y comercio de barrio",
+      "reportedBy": "Comisión técnica de organización de pymes",
+      "status": "en_mitigacion",
+      "linkedProposalId": "prop-1",
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "deb-04",
+      "title": "Las microempresas pueden quedarse sin liquidez si adelantan la ayuda",
+      "description": "Si la empresa pequeña tiene que adelantar el subsidio del 80-85% en la nómina y esperar semanas a recuperarlo, sufre falta de liquidez. El ingreso debería pagarlo el INSS directamente cada mes.",
+      "severity": "moderada",
+      "domain": "economico",
+      "targetBranchId": "rama-escudo-pymes-rural",
+      "sectionId": "impacto",
+      "affectedGroup": "Microempresas de 1 a 9 trabajadores",
+      "reportedBy": "Colegio Oficial de Graduados Sociales",
+      "status": "abierta",
+      "linkedProposalId": null,
+      "mitigatedByProposalId": null,
+      "createdAt": "2026-10-27"
+    }
+  ],
+  "opinions": [
+    {
+      "id": "op-1",
+      "author": "Lucía M. (Dependienta de comercio)",
+      "type": "Aportación ciudadana",
+      "sectionId": "articulado",
+      "text": "Si la empresa me parte la media jornada en dos horas por la mañana y dos por la tarde, no me sirve de nada porque la escuela infantil cierra a las 16:00. La ley debe asegurar que las horas sean seguidas.",
+      "createdAt": "2026-10-28"
+    },
+    {
+      "id": "op-2",
+      "author": "Javier S. (Economista)",
+      "type": "Propuesta técnica",
+      "sectionId": "impacto",
+      "text": "El cálculo de retorno para Hacienda es realista. Si evitamos que la madre deje su puesto, sigue cotizando y pagando IRPF durante muchos años.",
+      "createdAt": "2026-10-29"
+    },
+    {
+      "id": "op-3",
+      "author": "Carmen T. (Asociación de autónomas RETA)",
+      "type": "Alerta de debilidad",
+      "sectionId": "articulado",
+      "text": "El bono de 750 euros al mes es un gran avance, pero el INSS tiene que ingresarlo en los cinco primeros días del mes. Si la autónoma tiene que adelantarlo, muchas no podrán pedirlo.",
+      "createdAt": "2026-10-30"
+    }
+  ],
+  "commitHistory": [
+    {
+      "commitId": "rev-base03",
+      "date": "2026-10-20",
+      "sectionId": "tronco-comun",
+      "proposalId": null,
+      "title": "Acuerdo base sobre cotización al 100% y protección a familias monoparentales",
+      "coAuthors": [
+        "Ponencia jurídica",
+        "Sindicatos",
+        "Asociaciones de pymes"
+      ],
+      "mitigatedWeaknesses": []
+    },
+    {
+      "commitId": "rev-base01",
+      "date": "2026-10-15",
+      "sectionId": "expediente",
+      "proposalId": null,
+      "title": "Apertura del expediente EXP-2026-MTES-042",
+      "coAuthors": ["Ponencia técnica"],
+      "mitigatedWeaknesses": []
+    }
+  ],
+  "pilotModel": {
+    "commonTrunk": {
+      "id": "tronco-comun",
+      "name": "Puntos ya acordados por todos",
+      "clauses": [
+        {
+          "id": "tronco-art-1",
+          "articleNumber": "Base 1 (art. 37.6 bis.1 ET)",
+          "title": "Derecho a volver de forma gradual al trabajo tras el nacimiento"
+        },
+        {
+          "id": "tronco-art-2",
+          "articleNumber": "Base 2 (art. 237.4 LGSS)",
+          "title": "Cotización al 100% durante toda la reducción"
+        },
+        {
+          "id": "tronco-art-3",
+          "articleNumber": "Base 3 (art. 55.5.c ET)",
+          "title": "Protección frente al despido durante la medida"
+        },
+        {
+          "id": "tronco-art-4",
+          "articleNumber": "Base 4 (disposición adicional)",
+          "title": "Igualdad de cuidado para familias monoparentales (STC 140/2024)"
+        }
+      ]
+    },
+    "branches": [
+      {
+        "id": "rama-media-jornada-bonificada",
+        "name": "Opción A: Media jornada fija (50%) con ayuda del 80% de la Seguridad Social",
+        "shortLabel": "Opción A: Media jornada (50%)",
+        "proponentSummary": "Garantiza trabajar media jornada (4 horas) entre el mes 5 y el 12, cobrando el 90% del sueldo habitual.",
+        "parameters": {
+          "reductionPercent": 50,
+          "durationMonths": 8,
+          "salarySubsidyPercent": 80,
+          "smeReliefPercent": 75,
+          "selfEmployedFlatGrantEur": 350,
+          "teleworkSharePercent": 25,
+          "coResponsibilityBonusMonths": 2,
+          "monoparentalMultiplier": 1.8,
+          "ruralSmeExtraReliefPercent": 60
+        },
+        "mainCoverage": {
+          "juridico": true,
+          "economico": true,
+          "laboral_pyme": true,
+          "social_igualdad": true,
+          "ambiental_territorial": true
+        },
+        "clauses": [
+          { "id": "art-37-6-et", "title": "Reducción del 50% entre los meses 5 y 12" },
+          { "id": "art-184-lgss", "title": "Rebaja del 75% en cuotas de contratos de sustitución" }
+        ]
+      },
+      {
+        "id": "rama-bolsa-flexible-hibrida",
+        "name": "Opción B: Bolsa flexible de 520 horas y teletrabajo parcial",
+        "shortLabel": "Opción B: Bolsa flexible + teletrabajo",
+        "proponentSummary": "Cambia la media jornada fija por un banco de 520 horas para repartir de forma gradual y prioridad para teletrabajar.",
+        "parameters": {
+          "reductionPercent": 35,
+          "durationMonths": 10,
+          "salarySubsidyPercent": 75,
+          "smeReliefPercent": 70,
+          "selfEmployedFlatGrantEur": 600,
+          "teleworkSharePercent": 55,
+          "coResponsibilityBonusMonths": 3,
+          "monoparentalMultiplier": 1.3,
+          "ruralSmeExtraReliefPercent": 75
+        },
+        "mainCoverage": {
+          "juridico": true,
+          "economico": true,
+          "laboral_pyme": true,
+          "social_igualdad": true,
+          "ambiental_territorial": true
+        },
+        "clauses": [
+          { "id": "art-37-6-et", "title": "Bolsa flexible de 520 horas" },
+          { "id": "art-34-8-et", "title": "Preferencia para teletrabajo parcial" }
+        ]
+      },
+      {
+        "id": "rama-escudo-pymes-rural",
+        "name": "Opción C: Escudo para microempresas, autónomas y pueblos",
+        "shortLabel": "Opción C: Escudo pymes + rural",
+        "proponentSummary": "Reducción del 45% durante 9 meses con ayuda al sueldo del 85%, rebaja del 92% a microempresas y bono de 850 EUR/mes para autónomas.",
+        "parameters": {
+          "reductionPercent": 45,
+          "durationMonths": 9,
+          "salarySubsidyPercent": 85,
+          "smeReliefPercent": 92,
+          "selfEmployedFlatGrantEur": 850,
+          "teleworkSharePercent": 35,
+          "coResponsibilityBonusMonths": 2,
+          "monoparentalMultiplier": 1.8,
+          "ruralSmeExtraReliefPercent": 98
+        },
+        "mainCoverage": {
+          "juridico": true,
+          "economico": true,
+          "laboral_pyme": true,
+          "social_igualdad": true,
+          "ambiental_territorial": true
+        },
+        "clauses": [
+          { "id": "art-37-6-et", "title": "Reducción del 45% con opción de agrupar en días completos" },
+          { "id": "art-38-reta", "title": "Bono para autónomas y bolsas comarcales de sustitución" }
+        ]
+      }
+    ]
+  }
+}
