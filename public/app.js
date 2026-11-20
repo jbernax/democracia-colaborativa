@@ -78,6 +78,26 @@ const state = {
    UTILIDADES Y SEGURIDAD DE RENDERIZADO
    ========================================================================== */
 
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = String(value ?? '');
+}
+
+function setHidden(id, hidden) {
+  const el = document.getElementById(id);
+  if (el) el.hidden = Boolean(hidden);
+}
+
+function setValue(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.value = String(value ?? '');
+}
+
+function getValue(id, fallback = '') {
+  const el = document.getElementById(id);
+  return el ? el.value : fallback;
+}
+
 function escapeHtml(val) {
   return String(val ?? '')
     .replace(/&/g, '&amp;')
@@ -270,8 +290,8 @@ function confirmDiscardEditorIfDirty() {
 
 function setActiveRoute(view) {
   document.body.dataset.view = view;
-  document.getElementById('view-landing').hidden = view !== 'landing';
-  document.getElementById('view-project').hidden = view !== 'project';
+  setHidden('view-landing', view !== 'landing');
+  setHidden('view-project', view !== 'project');
   if (view === 'landing') {
     document.title = DEFAULT_DOCUMENT_TITLE;
   }
@@ -379,10 +399,14 @@ function renderLandingView() {
 
 function renderCatalogLedger() {
   const { projects, proposals, weaknesses } = state.catalogTotals;
-  document.getElementById('ledger-projects').textContent = String(projects);
-  document.getElementById('ledger-proposals').textContent = String(proposals);
-  document.getElementById('ledger-weaknesses').textContent = String(weaknesses);
-  document.getElementById('ledger-seeds').textContent = String(state.seeds.length);
+  setText('ledger-projects', projects);
+  setText('ledger-proposals', proposals);
+  if (document.getElementById('ledger-weaknesses')) {
+    setText('ledger-weaknesses', weaknesses);
+  } else {
+    setText('ledger-opinions', weaknesses);
+  }
+  setText('ledger-seeds', state.seeds.length);
 }
 
 function renderCategorySelect() {
@@ -557,11 +581,11 @@ async function handleEndorseSeed(seedId) {
 function openProjectComposerFromSeed(seedId) {
   const seed = state.seeds.find((s) => s.id === seedId);
   if (!seed) return;
-  document.getElementById('project-source-seed-id').value = seed.id;
-  document.getElementById('project-title').value = seed.title;
-  document.getElementById('project-category').value = seed.category || '';
-  document.getElementById('project-initial-content').value = seed.description || '';
-  document.getElementById('project-summary').value = '';
+  setValue('project-source-seed-id', seed.id);
+  setValue('project-title', seed.title);
+  setValue('project-category', seed.category || '');
+  setValue('project-initial-content', seed.description || '');
+  setValue('project-summary', '');
   setDrawerOpen('project-composer', true);
   document.getElementById('project-summary')?.focus({ preventScroll: true });
 }
@@ -590,15 +614,15 @@ function renderProjectView() {
   ).length;
 
   document.title = `${p.title} | Democracia colaborativa`;
-  document.getElementById('topbar-plan-code').textContent = p.code;
-  document.getElementById('project-meta-pills').textContent = `${p.category} · ${p.stage}`;
-  document.getElementById('plan-title').textContent = p.title;
-  document.getElementById('plan-summary').textContent = p.summary;
-  document.getElementById('plan-code').textContent = p.code;
-  document.getElementById('plan-icmn-score').textContent = `${icmn.totalScore}/100`;
-  document.getElementById('plan-weaknesses-count').textContent = `${openCritical} crít. / ${weaknesses.length}`;
-  document.getElementById('plan-proposals-count').textContent = String((p.proposals || []).length);
-  document.getElementById('plan-reading-time').textContent = `${estimateReadingMinutes(p)} min`;
+  setText('topbar-plan-code', p.code);
+  setText('project-meta-pills', `${p.category} · ${p.stage}`);
+  setText('plan-title', p.title);
+  setText('plan-summary', p.summary);
+  setText('plan-code', p.code);
+  setText('plan-icmn-score', `${icmn.totalScore}/100`);
+  setText('plan-weaknesses-count', `${openCritical} crít. / ${weaknesses.length}`);
+  setText('plan-proposals-count', (p.proposals || []).length);
+  setText('plan-reading-time', `${estimateReadingMinutes(p)} min`);
 
   const statusEl = document.getElementById('plan-icmn-status');
   if (statusEl) {
@@ -1053,7 +1077,7 @@ function bindSectionEditor(slot, sec) {
     const deltaText = stats.hasChanges
       ? ` · +${stats.addedWords} / −${stats.removedWords} pal.`
       : '';
-    meta.textContent = `${paragraphs} párrafos · ${words} palabras${deltaText}`;
+    if (meta) meta.textContent = `${paragraphs} párrafos · ${words} palabras${deltaText}`;
     state.editorDirty = textarea.value !== (sec.content || '');
   }
 
@@ -1082,7 +1106,7 @@ function bindSectionEditor(slot, sec) {
     }
   });
 
-  btnMax.addEventListener('click', () => {
+  btnMax?.addEventListener('click', () => {
     const isMax = frame.classList.toggle('maximized');
     btnMax.textContent = isMax ? 'Reducir' : 'Ampliar';
     textarea.style.height = isMax ? '' : textarea.style.height;
@@ -1605,10 +1629,10 @@ function renderDrawerProposalsList(p) {
           {
             method: 'POST',
             body: JSON.stringify({
-              domain: document.getElementById(`co-domain-${propId}`).value,
-              contributorName: document.getElementById(`co-name-${propId}`).value,
-              contributorRole: document.getElementById(`co-role-${propId}`).value,
-              analysisText: document.getElementById(`co-analysis-${propId}`).value
+              domain: getValue(`co-domain-${propId}`),
+              contributorName: getValue(`co-name-${propId}`),
+              contributorRole: getValue(`co-role-${propId}`),
+              analysisText: getValue(`co-analysis-${propId}`)
             })
           }
         );
@@ -1767,11 +1791,11 @@ function updateDrawerCounts(p) {
   const wCount = (p.weaknesses || []).length;
   const oCount = (p.opinions || []).length;
 
-  document.getElementById('count-proposals').textContent = String(pCount);
-  document.getElementById('count-weaknesses').textContent = String(wCount);
-  document.getElementById('count-opinions').textContent = String(oCount);
-  document.getElementById('top-count-total').textContent = String(pCount + wCount + oCount);
-  document.getElementById('plan-proposals-count').textContent = String(pCount);
+  setText('count-proposals', pCount);
+  setText('count-weaknesses', wCount);
+  setText('count-opinions', oCount);
+  setText('top-count-total', pCount + wCount + oCount);
+  setText('plan-proposals-count', pCount);
 }
 
 function selectSideTab(side) {
@@ -1781,9 +1805,9 @@ function selectSideTab(side) {
     tab.classList.toggle('is-active', isActive);
     tab.setAttribute('aria-pressed', String(isActive));
   });
-  document.getElementById('side-proposals-list').hidden = side !== 'proposals';
-  document.getElementById('side-weaknesses-list').hidden = side !== 'weaknesses';
-  document.getElementById('side-opinions-list').hidden = side !== 'opinions';
+  setHidden('side-proposals-list', side !== 'proposals');
+  setHidden('side-weaknesses-list', side !== 'weaknesses');
+  setHidden('side-opinions-list', side !== 'opinions');
 }
 
 /* ==========================================================================
@@ -1872,27 +1896,24 @@ function setupCatalogFilters() {
 function setupProjectComposer() {
   const projectForm = document.getElementById('form-new-project');
   document.getElementById('btn-toggle-project-form')?.addEventListener('click', () => {
-    document.getElementById('project-source-seed-id').value = '';
+    setValue('project-source-seed-id', '');
     setDrawerOpen('project-composer', true);
   });
   document.getElementById('btn-cancel-project')?.addEventListener('click', () => {
     setDrawerOpen('project-composer', false);
   });
 
-  const readComposerPayload = () => {
-    const value = (id) => document.getElementById(id).value;
-    return {
-      title: value('project-title'),
-      category: value('project-category'),
-      code: value('project-code'),
-      author: value('project-author') || 'Iniciativa Ciudadana',
-      summary: value('project-summary'),
-      initialContent: value('project-initial-content'),
-      measuresContent: value('project-measures-content'),
-      impactContent: value('project-impact-content'),
-      sourceSeedId: value('project-source-seed-id') || null
-    };
-  };
+  const readComposerPayload = () => ({
+    title: getValue('project-title'),
+    category: getValue('project-category'),
+    code: getValue('project-code'),
+    author: getValue('project-author') || 'Iniciativa Ciudadana',
+    summary: getValue('project-summary'),
+    initialContent: getValue('project-initial-content'),
+    measuresContent: getValue('project-measures-content'),
+    impactContent: getValue('project-impact-content'),
+    sourceSeedId: getValue('project-source-seed-id') || null
+  });
 
   document.getElementById('btn-submit-project-github')?.addEventListener('click', () => {
     const payload = readComposerPayload();
@@ -1912,7 +1933,7 @@ function setupProjectComposer() {
       });
 
       projectForm.reset();
-      document.getElementById('project-source-seed-id').value = '';
+      setValue('project-source-seed-id', '');
       setDrawerOpen('project-composer', false);
       showNotification('Plan guardado en tu borrador.');
       window.location.hash = `#plan/${res.project.id}`;
@@ -1925,6 +1946,7 @@ function setupProjectComposer() {
 function setupSeedForm() {
   const seedForm = document.getElementById('form-new-seed');
   document.getElementById('btn-toggle-seed-form')?.addEventListener('click', () => {
+    if (!seedForm) return;
     seedForm.hidden = !seedForm.hidden;
     if (!seedForm.hidden) {
       seedForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1932,14 +1954,14 @@ function setupSeedForm() {
     }
   });
   document.getElementById('btn-cancel-seed')?.addEventListener('click', () => {
-    seedForm.hidden = true;
+    if (seedForm) seedForm.hidden = true;
   });
 
   const readSeedPayload = () => ({
-    title: document.getElementById('seed-title').value,
-    category: document.getElementById('seed-category').value,
-    author: document.getElementById('seed-author').value || 'Ciudadano Proponente',
-    description: document.getElementById('seed-description').value
+    title: getValue('seed-title'),
+    category: getValue('seed-category'),
+    author: getValue('seed-author') || 'Ciudadano Proponente',
+    description: getValue('seed-description')
   });
 
   document.getElementById('btn-submit-seed-github')?.addEventListener('click', () => {
@@ -2007,21 +2029,22 @@ function setupDebateDrawer() {
   // Formulario de debilidad estructurada
   const weakForm = document.getElementById('form-new-weakness');
   document.getElementById('btn-open-weakness-drawer-form')?.addEventListener('click', () => {
+    if (!weakForm) return;
     weakForm.hidden = !weakForm.hidden;
     if (!weakForm.hidden) document.getElementById('weakness-title')?.focus();
   });
   document.getElementById('btn-cancel-weakness')?.addEventListener('click', () => {
-    weakForm.hidden = true;
+    if (weakForm) weakForm.hidden = true;
   });
 
   const readWeaknessPayload = () => ({
-    title: document.getElementById('weakness-title').value,
-    severity: document.getElementById('weakness-severity').value,
-    domain: document.getElementById('weakness-domain').value,
-    sectionId: document.getElementById('weakness-section').value,
-    affectedGroup: document.getElementById('weakness-group').value,
-    description: document.getElementById('weakness-description').value,
-    reportedBy: document.getElementById('weakness-author').value || 'Auditor Ciudadano'
+    title: getValue('weakness-title'),
+    severity: getValue('weakness-severity', 'alta'),
+    domain: getValue('weakness-domain', 'laboral_pyme'),
+    sectionId: getValue('weakness-section'),
+    affectedGroup: getValue('weakness-group'),
+    description: getValue('weakness-description'),
+    reportedBy: getValue('weakness-author') || 'Auditor Ciudadano'
   });
 
   document.getElementById('btn-submit-weakness-github')?.addEventListener('click', () => {
@@ -2061,11 +2084,12 @@ function setupDebateDrawer() {
   // Formulario de opinión
   const opinForm = document.getElementById('form-new-opinion');
   document.getElementById('btn-open-opinion-drawer-form')?.addEventListener('click', () => {
+    if (!opinForm) return;
     opinForm.hidden = !opinForm.hidden;
     if (!opinForm.hidden) document.getElementById('opinion-text')?.focus();
   });
   document.getElementById('btn-cancel-opinion')?.addEventListener('click', () => {
-    opinForm.hidden = true;
+    if (opinForm) opinForm.hidden = true;
   });
 
   opinForm?.addEventListener('submit', async (e) => {
@@ -2075,10 +2099,10 @@ function setupDebateDrawer() {
       const res = await fetchJson(`/api/projects/${state.activeProject.id}/opinions`, {
         method: 'POST',
         body: JSON.stringify({
-          type: document.getElementById('opinion-type').value,
-          sectionId: document.getElementById('opinion-section').value || undefined,
-          text: document.getElementById('opinion-text').value,
-          author: document.getElementById('opinion-author').value || 'Ciudadano Participante'
+          type: getValue('opinion-type', 'Aportación ciudadana'),
+          sectionId: getValue('opinion-section') || undefined,
+          text: getValue('opinion-text'),
+          author: getValue('opinion-author') || 'Ciudadano Participante'
         })
       });
 

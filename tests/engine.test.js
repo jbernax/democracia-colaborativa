@@ -387,6 +387,14 @@ test('Servidor API REST: endpoints completos, seguridad HTTP, límite 413 y prot
     const badMethodStatic = await fetch(`${baseUrl}/index.html`, { method: 'POST' });
     assert.equal(badMethodStatic.status, 405);
 
+    const htmlStatic = await fetch(`${baseUrl}/index.html`);
+    assert.equal(htmlStatic.status, 200);
+    assert.equal(htmlStatic.headers.get('cache-control'), 'no-cache');
+
+    const jsStatic = await fetch(`${baseUrl}/app.js`);
+    assert.equal(jsStatic.status, 200);
+    assert.equal(jsStatic.headers.get('cache-control'), 'no-cache');
+
     const traversalRes = await fetch(`${baseUrl}/..%2fpackage.json`);
     assert.ok([403, 404].includes(traversalRes.status));
   } finally {

@@ -278,6 +278,7 @@ function serveStaticFile(req, res, pathname) {
   const content = fs.readFileSync(resolvedPath);
   res.writeHead(200, {
     'Content-Type': contentType,
+    'Cache-Control': 'no-cache',
     ...SECURITY_HEADERS
   });
   res.end(method === 'HEAD' ? undefined : content);

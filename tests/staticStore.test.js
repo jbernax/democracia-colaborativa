@@ -1,6 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { createInitialProjectsCatalog } from '../src/data/projectsData.js';
+import { buildPagesBundle } from '../scripts/build-pages.mjs';
 import {
   requestStaticApi,
   hasLocalDraftChanges,
@@ -192,4 +196,48 @@ test('githubBridge: genera enlaces de Issue válidos para los 5 tipos, gestiona 
 
   const json = exportProjectAsJson(samplePlan);
   assert.equal(JSON.parse(json).id, samplePlan.id);
+});
+
+test('Regresión de caché y DOM: app.js evita accesos sin guarda y build-pages versiona recursos con ?v=<hash>', () => {
+  const appSource = fs.readFileSync(path.resolve('public/app.js'), 'utf-8');
+  assert.equal(
+    /document\.getElementById\([^)]+\)\.(textContent|hidden|value)\b/.test(appSource),
+    false,
+    'Todos los accesos getElementById().textContent/hidden/value deben usar los helpers con guarda'
+  );
+
+  const tmpOutDir = fs.mkdtempSync(path.join(os.tmpdir(), 'agora-pages-build-test-'));
+  try {
+    const result = buildPagesBundle({ outDir: tmpOutDir });
+    const v = result.buildHash;
+    assert.match(v, /^[a-f0-9]{8}$/);
+
+    const indexHtml = fs.readFileSync(path.join(tmpOutDir, 'index.html'), 'utf-8');
+    assert.ok(indexHtml.includes(`href="styles.css?v=${v}"`));
+    assert.ok(indexHtml.includes(`src="app.js?v=${v}"`));
+
+    const staticStoreJs = fs.readFileSync(path.join(tmpOutDir, 'staticStore.js'), 'utf-8');
+    assert.ok(staticStoreJs.includes(`fetch('catalog.json?v=${v}')`));
+
+    const jsFiles = [
+      path.join(tmpOutDir, 'app.js'),
+      path.join(tmpOutDir, 'staticStore.js'),
+      ...fs
+        .readdirSync(path.join(tmpOutDir, 'shared'))
+        .map((f) => path.join(tmpOutDir, 'shared', f))
+    ];
+
+    for (const file of jsFiles) {
+      const code = fs.readFileSync(file, 'utf-8');
+      for (const m of code.matchAll(/from\s+['"]([^'"]+)['"]/g)) {
+        const spec = m[1];
+        assert.ok(spec.endsWith(`?v=${v}`), `Import sin versión ?v=${v} en ${file}: ${spec}`);
+        const cleanRel = spec.split('?')[0];
+        const target = path.resolve(path.dirname(file), cleanRel);
+        assert.equal(fs.existsSync(target), true, `Falta destino de import: ${target}`);
+      }
+    }
+  } finally {
+    fs.rmSync(tmpOutDir, { recursive: true, force: true });
+  }
 });
