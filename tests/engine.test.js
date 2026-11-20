@@ -1,6 +1,7 @@
 /**
- * Suite de pruebas unitarias y de integración para la plataforma simplificada
- * de Democracia Colaborativa (Landing Multiproyecto, Creación de Planes, Monografías y Propuestas).
+ * Suite de pruebas unitarias y de integración para Democracia Colaborativa (Ágora Normativa):
+ * Simulador MAIN, motor de colaboración 4 niveles, regresión de claves del piloto,
+ * índice ICMN, RepositoryStore con escritura atómica y servidor HTTP REST.
  */
 
 import test from 'node:test';
@@ -9,7 +10,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { simulatePlanImpact } from '../src/engine/impactSimulator.js';
-import { computeClauseDiff } from '../src/engine/collaborationEngine.js';
+import {
+  POLICY_DOMAINS,
+  computeClauseDiff,
+  createSeed,
+  createAmendment,
+  elaborateAmendment,
+  mergeAmendment,
+  createWeaknessAudit,
+  calculateReadinessScore,
+  calculatePlanIcmn
+} from '../src/engine/collaborationEngine.js';
+import { createInitialPilotState } from '../src/data/spainMaternityPilot.js';
 import { RepositoryStore } from '../src/store/repositoryStore.js';
 import { createAppServer } from '../src/server.js';
 
@@ -68,85 +80,172 @@ test('computeClauseDiff: calcula correctamente adiciones y eliminaciones en text
   assert.equal(unchanged.length, 1);
 });
 
-test('Catálogo Multiproyecto: creación de planes, autor opcional, monografias y propuestas', () => {
+test('Regresión de claves técnicas en spainMaternityPilot: detecta debilidades críticas y dominios válidos', () => {
+  const pilot = createInitialPilotState();
+  assert.equal(pilot.commonTrunk.id, 'tronco-comun');
+
+  const openCriticalSum = pilot.branches.reduce(
+    (sum, b) => sum + b.readiness.breakdown.openCriticalCount,
+    0
+  );
+  assert.equal(openCriticalSum, 2, 'Rama A y Rama B deben registrar exactamente 2 debilidades críticas abiertas');
+
+  for (const w of pilot.weaknesses) {
+    assert.ok(POLICY_DOMAINS[w.domain], `Dominio de debilidad inválido: ${w.domain}`);
+    assert.ok(['critica', 'alta', 'moderada'].includes(w.severity), `Severidad inválida: ${w.severity}`);
+  }
+  for (const a of pilot.amendments) {
+    for (const d of [...a.requiredDomains, ...a.coveredDomains, ...a.pendingDomains]) {
+      assert.ok(POLICY_DOMAINS[d], `Dominio inválido en enmienda ${a.id}: ${d}`);
+    }
+  }
+});
+
+test('collaborationEngine: ciclo completo de 4 niveles (semilla -> PR parcial -> co-autoría -> fusión y desbloqueo ICMN)', () => {
+  const state = createInitialPilotState();
+  const branchA = state.branches.find((b) => b.id === 'rama-media-jornada-bonificada');
+  assert.equal(branchA.readiness.readyForLegislation, false);
+
+  const seed = createSeed(state, {
+    title: 'Garantía de turno continuado en horario escolar infantil',
+    description: 'Evitar turnos partidos cuando la escuela infantil cierra a las 16:00.',
+    authorName: 'Lucía M.',
+    targetBranchId: branchA.id
+  });
+  assert.equal(seed.maturityLevel.level, 1);
+
+  const amendment = createAmendment(state, {
+    title: 'Enmienda de turno continuado escolar',
+    summary: 'Garantiza concreción horaria continuada para el cuidado del lactante.',
+    targetBranchId: branchA.id,
+    targetClauseId: 'art-37-6-et',
+    proposedClauseText: `${branchA.clauses[0].text}\n4. La reducción se ejercerá en turno continuado.`,
+    requiredDomains: ['juridico', 'economico'],
+    primaryDomain: 'juridico',
+    primaryAnalysis: 'Conforme con el Art. 34.8 ET.',
+    fromSeedId: seed.id,
+    mitigatesWeaknessIds: ['deb-01']
+  });
+  assert.equal(amendment.maturityLevel.level, 2);
+  assert.deepEqual(amendment.pendingDomains, ['economico']);
+
+  // Fusión bloqueada mientras falte dominio económico
+  assert.throws(() => mergeAmendment(state, amendment.id), /dominios pendientes/);
+
+  elaborateAmendment(state, amendment.id, {
+    contributorName: 'Economista Fiscal',
+    domain: 'economico',
+    analysisText: 'Impacto presupuestario neutro al mantener la misma masa de horas.'
+  });
+  assert.equal(amendment.maturityLevel.level, 3);
+
+  const mergeRes = mergeAmendment(state, amendment.id, 'Aprobada en ponencia');
+  assert.equal(mergeRes.amendment.maturityLevel.level, 4);
+  assert.equal(seed.status, 'consolidada_en_plan');
+
+  // Tras mitigar deb-01 (la única crítica de Rama A), Rama A queda desbloqueada
+  const branchAAfter = state.branches.find((b) => b.id === 'rama-media-jornada-bonificada');
+  assert.equal(branchAAfter.readiness.breakdown.openCriticalCount, 0);
+
+  // Añadir nueva debilidad crítica vuelve a bloquear la rama
+  createWeaknessAudit(state, {
+    title: 'Fallo sobrevenido en microempresas',
+    description: 'Ejemplo de bloqueo por nueva debilidad crítica.',
+    severity: 'critica',
+    domain: 'laboral_pyme',
+    targetBranchId: branchA.id
+  });
+  const blocked = calculateReadinessScore(branchAAfter, state.weaknesses);
+  assert.equal(blocked.readyForLegislation, false);
+  assert.equal(blocked.breakdown.openCriticalCount, 1);
+});
+
+test('RepositoryStore: catálogo de 5 planes, slugs únicos, co-autoría, consolidación con puerta de calidad e ICMN', () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'democracia-store-test-'));
   const tmpStoreFile = path.join(tmpDir, 'test_projects.json');
   const store = new RepositoryStore(tmpStoreFile);
 
-  const state = store.init();
-  assert.ok(state.projects.length >= 3, 'Debe incluir al menos 3 planes pre-cargados');
+  try {
+    const state = store.init();
+    assert.equal(state.projects.length, 5, 'Debe cargar los 5 planes modulares de data/catalog/plans');
 
-  // Listar planes con filtros
-  const allProjects = store.getProjects('all');
-  assert.equal(allProjects.length, 3);
-  assert.ok(allProjects.some((p) => p.id === 'reincorporacion-laboral-maternidad'));
+    const allProjects = store.getProjects('all');
+    assert.equal(allProjects.length, 5);
+    assert.ok(allProjects.some((p) => p.id === 'reincorporacion-laboral-maternidad'));
+    assert.ok(allProjects.some((p) => p.id === 'acceso-vivienda-alquiler-asequible'));
+    assert.ok(allProjects.some((p) => p.id === 'transicion-energetica-autoconsumo-comunitario'));
 
-  // Proponer un nuevo plan completo con autor opcional omitido
-  const newProject = store.addProject({
-    title: 'Plan Nacional de Climatización Pasiva y Arbolado Urbano',
-    category: 'Vivienda y Transición Ecológica',
-    summary: 'Plan para reducir la temperatura en entornos escolares y sanitarios.',
-    initialContent: 'Las olas de calor intensifican el riesgo para colectivos vulnerables en verano.'
-    // author omitido a proposito para verificar que es opcional
-  });
+    // Búsqueda sin tildes y filtrado por categoría
+    const searchEnergy = store.getProjects({ q: 'autoconsumo energeticas' });
+    assert.equal(searchEnergy.length, 1);
+    assert.equal(searchEnergy[0].id, 'transicion-energetica-autoconsumo-comunitario');
 
-  assert.ok(newProject.id.includes('plan-nacional-de-climatizacion'));
-  assert.equal(newProject.author, 'Iniciativa Ciudadana');
-  assert.ok(newProject.monograph.length >= 2);
-  assert.equal(store.getProjects('all').length, 4);
+    // Slugs únicos para títulos repetidos
+    const firstPlan = store.addProject({
+      title: 'Plan de Climatización Escolar',
+      category: 'Vivienda y Urbanismo',
+      summary: 'Primera propuesta de climatización pasiva en colegios.',
+      initialContent: 'Las aulas sufren temperaturas extremas en mayo y junio.'
+    });
+    const secondPlan = store.addProject({
+      title: 'Plan de Climatización Escolar',
+      category: 'Vivienda y Urbanismo',
+      summary: 'Segunda propuesta homónima con enfoque distinto.',
+      initialContent: 'Prioriza cubiertas vegetales y sombreamiento exterior.'
+    });
+    assert.equal(firstPlan.id, 'plan-de-climatizacion-escolar');
+    assert.equal(secondPlan.id, 'plan-de-climatizacion-escolar-2');
+    assert.equal(firstPlan.author, 'Iniciativa Ciudadana');
 
-  // Proponer un cambio de texto en una seccion con autor omitido (opcional)
-  const newProposal = store.addProposal('reincorporacion-laboral-maternidad', {
-    sectionId: 'articulado',
-    title: 'Garantizar turno continuado para compatibilizar con escuelas infantiles',
-    originalText: state.projects[0].monograph[1].content,
-    proposedText: state.projects[0].monograph[1].content + '\n5. La reducción horaria se disfrutará de forma continuada.',
-    reason: 'Evita turnos partidos que impiden la conciliación efectiva.'
-    // author omitido
-  });
+    // Ciclo de co-autoría y consolidación en RepositoryStore
+    const matPlan = store.getProject('reincorporacion-laboral-maternidad');
+    assert.equal(matPlan.proposals.length, 3);
+    assert.ok(typeof matPlan.icmn.totalScore === 'number');
 
-  assert.ok(newProposal.id.startsWith('prop-'));
-  assert.equal(newProposal.author, 'Ciudadano Colaborador');
-  assert.equal(newProposal.diff.filter((d) => d.type === 'added').length, 1);
+    // No se puede consolidar prop-1 mientras falte el dominio jurídico
+    assert.throws(
+      () => store.consolidateProposal('reincorporacion-laboral-maternidad', 'prop-1'),
+      /dominios pendientes/
+    );
 
-  // Segunda propuesta consecutiva acumulada sobre la misma seccion
-  const secondProposal = store.addProposal('reincorporacion-laboral-maternidad', {
-    sectionId: 'articulado',
-    title: 'Añadir cláusula de incentivo para micropymes rurales',
-    originalText: state.projects[0].monograph[1].content,
-    proposedText: newProposal.proposedText + '\n6. En municipios de menos de 5.000 habitantes la bonificación será del 100%.',
-    reason: 'Refuerzo de cobertura rural.'
-  });
+    // Completar co-autoría de prop-1 y consolidar
+    const elaborated = store.elaborateProposal('reincorporacion-laboral-maternidad', 'prop-1', {
+      domain: 'juridico',
+      contributorName: 'Jurista Laboral',
+      contributorRole: 'Especialista Estatuto Trabajadores',
+      analysisText: 'Compatible con el Art. 37.7 ET mediante acuerdo colectivo.'
+    });
+    assert.equal(elaborated.status, 'Lista para consolidación');
 
-  const updatedPlan = store.getProject('reincorporacion-laboral-maternidad');
-  const sectionProposals = updatedPlan.proposals.filter((p) => p.sectionId === 'articulado');
-  assert.equal(sectionProposals.length, 4, 'Deben acumularse las 2 propuestas pre-cargadas más las 2 nuevas');
-  assert.equal(secondProposal.diff.filter((d) => d.type === 'added').length, 2, 'El diff acumulado incluye ambas líneas añadidas');
+    const consolidated = store.consolidateProposal(
+      'reincorporacion-laboral-maternidad',
+      'prop-1',
+      'Fusión validada'
+    );
+    assert.equal(consolidated.proposal.status, 'Consolidada');
+    const updatedMat = store.getProject('reincorporacion-laboral-maternidad');
+    assert.ok(updatedMat.monograph[1].content.includes('jornadas completas alternas'));
+    const deb03 = updatedMat.weaknesses.find((w) => w.id === 'deb-03');
+    assert.equal(deb03.status, 'mitigada');
 
-  // Aportar una opinion con autor omitido (opcional)
-  const newOpinion = store.addOpinion('reincorporacion-laboral-maternidad', {
-    type: 'Alerta de debilidad',
-    text: 'En hostelería el horario continuado requiere coordinación en convenios.'
-    // author omitido
-  });
-  assert.ok(newOpinion.id.startsWith('op-'));
-  assert.equal(newOpinion.author, 'Ciudadano Participante');
+    // Apoyo a idea y escritura atómica
+    const seed = store.addSeed({
+      title: 'Bancos de tiempo municipales',
+      category: 'Servicios Sociales',
+      description: 'Instalación de red de apoyo vecinal para cuidados.'
+    });
+    const endorsed = store.endorseSeed(seed.id);
+    assert.equal(endorsed.votes, 2);
 
-  // Registrar una nueva idea para un futuro plan con autor omitido (opcional)
-  const newSeed = store.addSeed({
-    title: 'Bancos de tiempo municipales',
-    category: 'Servicios Sociales',
-    description: 'Instalación de red de apoyo vecinal para cuidados.'
-    // author omitido
-  });
-  assert.ok(newSeed.id.startsWith('idea-'));
-  assert.equal(newSeed.author, 'Ciudadano Proponente');
-
-  // Limpiar
-  fs.rmSync(tmpDir, { recursive: true, force: true });
+    // Calcular ICMN en plan sin pilotModel
+    const nonParamIcmn = calculatePlanIcmn(store.getProject('simplificacion-pymes-autonomos'));
+    assert.ok(nonParamIcmn.totalScore >= 0 && nonParamIcmn.totalScore <= 100);
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
 });
 
-test('Servidor API REST: endpoints de catálogo, creación de plan, detalle, propuestas, opiniones e ideas', async () => {
+test('Servidor API REST: endpoints completos, seguridad HTTP, límite 413 y protección de /api/reset', async () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'democracia-server-test-'));
   const tmpStoreFile = path.join(tmpDir, 'test_api.json');
   const store = new RepositoryStore(tmpStoreFile);
@@ -157,15 +256,15 @@ test('Servidor API REST: endpoints de catálogo, creación de plan, detalle, pro
   const baseUrl = `http://127.0.0.1:${port}`;
 
   try {
-    // 1. GET /api/projects
-    const listRes = await fetch(`${baseUrl}/api/projects?filter=all`);
+    // 1. GET /api/projects con filtro de búsqueda
+    const listRes = await fetch(`${baseUrl}/api/projects?q=vivienda`);
     assert.equal(listRes.status, 200);
+    assert.equal(listRes.headers.get('x-content-type-options'), 'nosniff');
     const listData = await listRes.json();
-    assert.ok(Array.isArray(listData.projects));
-    assert.ok(listData.projects.length >= 3);
-    assert.ok(Array.isArray(listData.seeds));
+    assert.equal(listData.projects.length, 1);
+    assert.equal(listData.projects[0].id, 'acceso-vivienda-alquiler-asequible');
 
-    // 2. POST /api/projects - Crear un nuevo plan
+    // 2. POST /api/projects
     const createProjectRes = await fetch(`${baseUrl}/api/projects`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -178,44 +277,82 @@ test('Servidor API REST: endpoints de catálogo, creación de plan, detalle, pro
     });
     assert.equal(createProjectRes.status, 201);
     const createProjectData = await createProjectRes.json();
-    assert.ok(createProjectData.project.id);
-    assert.equal(createProjectData.project.author, 'Iniciativa Ciudadana');
+    const newId = createProjectData.project.id;
 
-    // 3. GET /api/projects/:id
-    const detailRes = await fetch(`${baseUrl}/api/projects/${createProjectData.project.id}`);
+    // 3. POST /api/projects/:id/proposals + coauthor + consolidate
+    const detailRes = await fetch(`${baseUrl}/api/projects/${newId}`);
     assert.equal(detailRes.status, 200);
     const detailData = await detailRes.json();
-    assert.equal(detailData.project.title, 'Estrategia de Reducción de la Jornada Laboral a 37.5 Horas');
 
-    // 4. POST /api/projects/:id/proposals (sin autor obligatorio)
-    const propRes = await fetch(`${baseUrl}/api/projects/${createProjectData.project.id}/proposals`, {
+    const propRes = await fetch(`${baseUrl}/api/projects/${newId}/proposals`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         sectionId: 'diagnostico',
         title: 'Incluir referencia al diálogo social tripartito',
         originalText: detailData.project.monograph[0].content,
-        proposedText: detailData.project.monograph[0].content + '\nTodo cambio debe concertarse con agentes sociales.',
-        reason: 'Mayor consenso en negociación colectiva.'
+        proposedText: `${detailData.project.monograph[0].content}\nTodo cambio debe concertarse con agentes sociales.`,
+        requiredDomains: ['juridico', 'laboral_pyme'],
+        primaryDomain: 'juridico',
+        primaryAnalysis: 'Alinea el procedimiento con el diálogo social.'
       })
     });
     assert.equal(propRes.status, 201);
     const propData = await propRes.json();
-    assert.ok(propData.proposal.id);
-    assert.equal(propData.proposal.author, 'Ciudadano Colaborador');
 
-    // 5. POST /api/projects/:id/opinions (sin autor obligatorio)
-    const opRes = await fetch(`${baseUrl}/api/projects/${createProjectData.project.id}/opinions`, {
+    const coauthRes = await fetch(
+      `${baseUrl}/api/projects/${newId}/proposals/${propData.proposal.id}/coauthor`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          domain: 'laboral_pyme',
+          contributorName: 'CEPYME Análisis',
+          analysisText: 'Periodo transitorio de 12 meses para micropymes.'
+        })
+      }
+    );
+    assert.equal(coauthRes.status, 200);
+
+    const consRes = await fetch(
+      `${baseUrl}/api/projects/${newId}/proposals/${propData.proposal.id}/consolidate`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({})
+      }
+    );
+    assert.equal(consRes.status, 200);
+
+    // 4. POST /api/projects/:id/weaknesses y opiniones
+    const weakRes = await fetch(`${baseUrl}/api/projects/${newId}/weaknesses`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sectionId: 'diagnostico',
+        severity: 'alta',
+        domain: 'laboral_pyme',
+        title: 'Desajuste en turnos continuos de hostelería',
+        description: 'Requiere bolsa flexible anual en campañas estacionales.'
+      })
+    });
+    assert.equal(weakRes.status, 201);
+
+    const opRes = await fetch(`${baseUrl}/api/projects/${newId}/opinions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         type: 'Aportación ciudadana',
+        sectionId: 'diagnostico',
         text: 'Apoyo la medida si se compensa en pymes con bonificaciones.'
       })
     });
     assert.equal(opRes.status, 201);
 
-    // 6. POST /api/seeds (sin autor obligatorio)
+    // 5. GET y POST /api/seeds + endorse
+    const seedsListRes = await fetch(`${baseUrl}/api/seeds`);
+    assert.equal(seedsListRes.status, 200);
+
     const seedRes = await fetch(`${baseUrl}/api/seeds`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -227,10 +364,29 @@ test('Servidor API REST: endpoints de catálogo, creación de plan, detalle, pro
     });
     assert.equal(seedRes.status, 201);
     const seedData = await seedRes.json();
-    assert.ok(seedData.seed.id);
-    assert.equal(seedData.seed.author, 'Ciudadano Proponente');
 
-    // 7. Seguridad contra Path Traversal
+    const endorseRes = await fetch(`${baseUrl}/api/seeds/${seedData.seed.id}/endorse`, {
+      method: 'POST'
+    });
+    assert.equal(endorseRes.status, 200);
+    const endorseData = await endorseRes.json();
+    assert.equal(endorseData.seed.votes, 2);
+
+    // 6. Seguridad: /api/reset bloqueado por defecto, 413 en cargas > 1 MiB, 405 estático y Path Traversal
+    const resetRes = await fetch(`${baseUrl}/api/reset`, { method: 'POST' });
+    assert.equal(resetRes.status, 403);
+
+    const hugePayload = JSON.stringify({ title: 'X'.repeat(1_200_000) });
+    const hugeRes = await fetch(`${baseUrl}/api/projects`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: hugePayload
+    });
+    assert.equal(hugeRes.status, 413);
+
+    const badMethodStatic = await fetch(`${baseUrl}/index.html`, { method: 'POST' });
+    assert.equal(badMethodStatic.status, 405);
+
     const traversalRes = await fetch(`${baseUrl}/..%2fpackage.json`);
     assert.ok([403, 404].includes(traversalRes.status));
   } finally {
